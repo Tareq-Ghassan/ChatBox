@@ -11,8 +11,16 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
   cupertino_icons: ^1.0.6
   very_good_analysis: ^5.1.0
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.5
+  dio: ^5.7.0
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -21,7 +29,7 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 flutter:
-
+  generate: true
   uses-material-design: true
 
   assets:
@@ -31,3 +39,4 @@ flutter:
     - assets/icons/
     - assets/icons/2x/
     - assets/icons/3x/
+    - .env

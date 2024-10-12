@@ -3,7 +3,7 @@
 /// [KImages] holds all images in app
 class KImages {
 
- static String get splashImage => 'assets/images/progressSoftWithText.png';
+ static String get splashImage => 'assets/images/Logo.png';
  static String get signinChart => 'assets/images/Sign In Chart.png';
 
 }
