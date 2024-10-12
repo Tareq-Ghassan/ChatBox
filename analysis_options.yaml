@@ -1,0 +1,38 @@
+include: package:very_good_analysis/analysis_options.yaml
+analyzer:
+  errors:
+    require_trailing_commas: error
+    prefer_single_quotes: error
+    prefer_const_constructors: error
+    unnecessary_lambdas: info
+    avoid_print: error
+    always_use_package_imports: error
+    valid_regexps: error
+    non_constant_identifier_names: error
+    camel_case_types: error
+    use_build_context_synchronously: error
+    unnecessary_brace_in_string_interps: error
+    use_super_parameters: error
+    file_names: error
+    library_private_types_in_public_api: error
+    dangling_library_doc_comments: error
+    unnecessary_string_interpolations: error
+    unnecessary_new: error
+    prefer_if_null_operators: error
+    use_key_in_widget_constructors: error
+    prefer_adjacent_string_concatenation: error
+    unnecessary_import: error
+    dead_code: error
+    unused_import: error
+    directives_ordering: error
+
+linter:
+  rules:
+    avoid_print: true
+    prefer_single_quotes: true
+    unnecessary_const: true
+    require_trailing_commas: true
+    always_use_package_imports: true
+    valid_regexps: true
+    camel_case_types: true
+    non_constant_identifier_names: true
