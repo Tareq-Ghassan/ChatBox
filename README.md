@@ -16,7 +16,7 @@
 ## Tech Stack
 
 - **Frontend**: Flutter
-- **Backend**: Node.js (fully implemented by [Tareq](https://your-backend-server-url.com))
+- **Backend**: Node.js (fully implemented by [Me](https://your-backend-server-url.com](https://github.com/Tareq-Ghassan))
 - **Database**: Mongo DB
   
 ## Installation
@@ -42,7 +42,7 @@ To run the app locally:
 
 ## Backend
 
-The backend for Chatbox is implemented using Node.js. The server handles authentication, media uploads, real-time messaging, and all the necessary API calls for the app. You can find the backend code and setup instructions here: [Chatbox Backend](https://your-backend-server-url.com).
+The backend for Chatbox is implemented using Node.js. The server handles authentication, media uploads, real-time messaging, and all the necessary API calls for the app. You can find the backend code and setup instructions here: [Chatbox Backend](https://github.com/Tareq-Ghassan/ChatBox-Server).
 
 ## Design
 
