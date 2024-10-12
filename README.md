@@ -16,7 +16,7 @@
 ## Tech Stack
 
 - **Frontend**: Flutter
-- **Backend**: Node.js (fully implemented by [Me](https://your-backend-server-url.com](https://github.com/Tareq-Ghassan))
+- **Backend**: Node.js (fully implemented by [Me](https://github.com/Tareq-Ghassan))
 - **Database**: Mongo DB
   
 ## Installation
