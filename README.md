@@ -46,7 +46,7 @@ The backend for Chatbox is implemented using Node.js. The server handles authent
 
 ## Design
 
-The design of the Chatbox app was inspired by a design created on Figma (https://www.figma.com/design/Lu2L87E763WKGZBavD1Pys/Messaging---Chatbox-App-Design-(Community)?node-id=1-4385&node-type=frame&t=3k1aCerJud8wM2az-0). Please refer to their Figma profile and design guidelines for any questions related to design and copyright.
+The design of the Chatbox app was inspired by a design created on [Figma](https://www.figma.com/design/Lu2L87E763WKGZBavD1Pys/Messaging---Chatbox-App-Design-(Community)?node-id=1-4385&node-type=frame&t=3k1aCerJud8wM2az-0). Please refer to their Figma profile and design guidelines for any questions related to design and copyright.
 
 ## License
 
