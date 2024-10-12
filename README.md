@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+https://www.figma.com/design/Lu2L87E763WKGZBavD1Pys/Messaging---Chatbox-App-Design-(Community)?node-id=1-4385&node-type=frame&t=3k1aCerJud8wM2az-0
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
