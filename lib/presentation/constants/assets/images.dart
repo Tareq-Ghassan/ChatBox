@@ -2,8 +2,6 @@
 
 /// [KImages] holds all images in app
 class KImages {
-
- static String get splashImage => 'assets/images/Logo.png';
- static String get signinChart => 'assets/images/Sign In Chart.png';
-
+  static String get splashImage => 'assets/images/Logo.png';
+  static String get onboardingBG => 'assets/images/onboarding_bg.png';
 }

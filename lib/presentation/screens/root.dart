@@ -1,3 +1,5 @@
+import 'package:chat/presentation/constants/theme/app/dark/theme_data_dark.dart';
+import 'package:chat/presentation/constants/theme/app/light/theme_data.dart';
 import 'package:chat/provider/multi_bloc_provider.dart';
 import 'package:chat/routes/route_manger.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +17,8 @@ class ChatApp extends StatelessWidget {
       providers: multiBlocProvider,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-          useMaterial3: true,
-        ),
+        theme: lightTheme,
+        darkTheme: darkTheme,
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,

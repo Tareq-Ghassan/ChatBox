@@ -1,12 +1,10 @@
-import 'package:chat/api/api_server.dart';
+import 'package:chat/constant/app_constants.dart';
 import 'package:chat/data/model/init.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// [InitRepository] a repository class for app Init
 class InitRepository {
-  /// Instance of APIserver for making API calls
-  static final APIserver api = APIserver();
 
   /// [init] function to get the app Init
   Future<Init?> init() async {

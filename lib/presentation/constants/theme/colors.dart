@@ -2,9 +2,28 @@ import 'package:flutter/material.dart';
 
 /// [KColors] Holds all app colors
 class KColors {
+  ///[blackColor] this is the default black text color
+  static const Color blackColor = Color.fromRGBO(30, 30, 30, 1);
+
   ///[redColor] this is the default red color
   static const Color redColor = Color.fromRGBO(198, 29, 35, 1);
 
-  ///[grayColor] this is the default gray text color
-  static const Color grayColor = Color.fromRGBO(31, 31, 31, 0.5);
+  ///[lightBlackColor] this is a light black color
+  static const Color lightBlackColor = Color.fromRGBO(31, 31, 31, 0.5);
+
+  ///[lightBlackColor] this is the default gray text color
+  static const Color grayColor = Color.fromRGBO(185, 193, 190, 1);
+
+
+  ///[white] this is the default white flutter color
+  static const Color white = Colors.white;
+  
+  ///[black] this is the default black flutter color
+  static const Color black = Colors.black;
+
+  ///[white70] this is the default white70 flutter color
+  static const Color white70 = Colors.white70;
+
+  ///[black87] this is the default black87 flutter color
+  static const Color black87 = Colors.black87;
 }
