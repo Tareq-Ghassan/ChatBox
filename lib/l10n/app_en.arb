@@ -1,7 +1,13 @@
 {
+  "existingAccount": "Existing account? ",
   "exit": "Exit",
   "internalServerError": "Unable to process the request",
   "internalServerErrorDescription": "An error occurred while sending the data. Please try again. If this issue keeps happening, contact our customer center",
+  "loading": "Loading...",
+  "login": "Log in",
+  "onboardingBody": "Our chat app is the perfect way to stay connected with friends and family.",
+  "onboardingHeader": "Connect friends easily & quickly",
+  "signUpMail": "Sign up within mail",
   "somethingWentWrong": "Unable to complete request!",
   "somethingWentWrongDescription": "An error occurred while retrieving the data. Please try again. If this issue keeps happening, contact our customer center",
   "welcomeToChatBox": "Welcome to Chat Box",

@@ -1,4 +1,5 @@
 import 'package:chat/presentation/constants/theme/colors.dart';
+import 'package:chat/routes/route_manger.dart';
 import 'package:flutter/material.dart';
 
 /// [CustomDialogBox] this is a Custom Widget to crete a Popup Widget
@@ -123,7 +124,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
             ),
             margin: const EdgeInsets.only(top: Constants.avatarRadius),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(Constants.padding),
               boxShadow: const [
                 BoxShadow(
@@ -142,17 +143,13 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  _space,
                   Text(
                     widget.descriptions,
                     style: Theme.of(context).textTheme.bodySmall,
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  _space,
                   Row(
                     mainAxisAlignment: (widget.cancelButtontext != null &&
                             widget.yesButtontext != null)
@@ -163,24 +160,17 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                         SizedBox(
                           height: 48,
                           child: ElevatedButton(
-                            onPressed: widget.yesButtontOnTap ??
-                                () => Navigator.popUntil(
-                                      context,
-                                      (route) => route.isFirst,
-                                    ),
+                            onPressed: widget.yesButtontOnTap ?? AppRouter.pop,
                             style: widget.isYesButtonBlue
                                 ? null
                                 : const ButtonStyle(
-                                    backgroundColor: MaterialStatePropertyAll(
+                                    backgroundColor: WidgetStatePropertyAll(
                                       KColors.redColor,
                                     ),
                                   ),
                             child: Text(
                               widget.yesButtontext!,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .copyWith(color: Colors.white),
+                              style: Theme.of(context).textTheme.labelLarge,
                             ),
                           ),
                         ),
@@ -189,21 +179,11 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                           height: 54,
                           width: 110,
                           child: TextButton(
-                            style: ButtonStyle(
-                              overlayColor: MaterialStateProperty.all(
-                                Colors.grey.shade100,
-                              ),
-                            ),
-                            onPressed: widget.cancelButtonOnTap ??
-                                () => Navigator.of(context).pop(),
+                            onPressed:
+                                widget.cancelButtonOnTap ?? AppRouter.pop,
                             child: Text(
                               widget.cancelButtontext!,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .copyWith(
-                                    color: KColors.grayColor,
-                                  ),
+                              style: Theme.of(context).textTheme.labelLarge,
                             ),
                           ),
                         ),
@@ -217,4 +197,8 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
       ),
     );
   }
+
+  static const _space = SizedBox(
+    height: 15,
+  );
 }

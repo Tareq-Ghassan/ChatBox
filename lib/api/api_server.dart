@@ -6,8 +6,16 @@ import 'package:flutter/material.dart';
 
 /// [APIserver] implements ApiClient with actual API calls
 class APIserver extends ApiClient {
-  /// Default constructor
-  APIserver() : super();
+
+  /// Factory constructor to return the same instance
+  factory APIserver() {
+    return _instance;
+  }
+  // Private constructor to prevent external instantiation
+  APIserver._internal();
+
+  // The singleton instance of APIserver
+  static final APIserver _instance = APIserver._internal();
 
   @override
   Future<Response> get(
