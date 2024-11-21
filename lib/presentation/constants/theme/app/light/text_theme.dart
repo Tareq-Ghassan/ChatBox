@@ -78,7 +78,7 @@ const textTheme = TextTheme(
     color: KColors.black,
   ),
   displayLarge: TextStyle(
-    fontSize: 46,
+    fontSize: 68,
     fontFamily: 'cairo',
     fontWeight: FontWeight.w400,
     color: KColors.black,

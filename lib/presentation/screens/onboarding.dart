@@ -3,6 +3,8 @@ import 'package:chat/presentation/constants/assets/icons.dart';
 import 'package:chat/presentation/constants/assets/images.dart';
 import 'package:chat/presentation/constants/theme/app/dark/theme_data_dark.dart';
 import 'package:chat/presentation/constants/theme/colors.dart';
+import 'package:chat/routes/app_routes.dart';
+import 'package:chat/routes/route_manger.dart';
 import 'package:flutter/material.dart';
 
 /// [OnboardingScreen] represent onboarding screen
@@ -22,7 +24,7 @@ class OnboardingScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => AppRouter.pushNamed(KRoutes.signup),
                   child: Text(appLocalizations.signUpMail),
                 ),
               ),
@@ -31,13 +33,11 @@ class OnboardingScreen extends StatelessWidget {
                 children: [
                   Text(
                     appLocalizations.existingAccount,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
+                    style: darkTheme.textTheme.bodySmall!
                         .copyWith(color: KColors.grayColor),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => AppRouter.pushNamed(KRoutes.login),
                     child: Text(
                       appLocalizations.login,
                     ),
@@ -71,14 +71,12 @@ class OnboardingScreen extends StatelessWidget {
                         _whiteSpace,
                         Text(
                           appLocalizations.onboardingHeader,
-                          style: Theme.of(context).textTheme.displayLarge,
+                          style: darkTheme.textTheme.displayLarge,
                         ),
                         _whiteSpace,
                         Text(
                           appLocalizations.onboardingBody,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
+                          style: darkTheme.textTheme.bodyMedium!
                               .copyWith(color: KColors.grayColor),
                         ),
                       ],

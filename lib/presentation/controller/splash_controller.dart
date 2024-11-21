@@ -41,8 +41,6 @@ Future<void> splashListenerController(
           descriptions: appLocalizations.workingOnApp,
           yesButtontext: appLocalizations.exit,
           yesButtontOnTap: () => exit(0),
-            cancelButtontext: appLocalizations.exit,
-          cancelButtonOnTap: () => exit(0),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:chat/presentation/constants/theme/app/light/appbar_theme.dart';
 import 'package:chat/presentation/constants/theme/app/light/button_theme.dart';
 import 'package:chat/presentation/constants/theme/app/light/text_theme.dart';
 import 'package:chat/presentation/constants/theme/colors.dart';
@@ -9,7 +10,8 @@ ThemeData lightTheme = ThemeData(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   colorScheme: ColorScheme.fromSeed(seedColor: KColors.white),
   useMaterial3: true,
-  textTheme:textTheme,
+  textTheme: textTheme,
   elevatedButtonTheme: elevatedButtonTheme,
   textButtonTheme: textButtonTheme,
+  appBarTheme: appBarTheme,
 );

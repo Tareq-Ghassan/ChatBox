@@ -4,14 +4,6 @@ import 'package:chat/routes/route_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-///  Author: @Tareq Abu Saleh
-///
-///  Org: @Bank Of Jordan
-///
-///  Date: 15/9/2023
-///
-/// Last Update: 24/1/2024
-///
 /// [LoadingIndicatorDialog] this is a Custom Widget to show loading widget
 ///
 /// ex:
@@ -40,7 +32,7 @@ class LoadingIndicatorDialog {
     }
     final text = AppLocalizations.of(context)!.loading;
     showDialog<void>(
-      barrierColor: isLightMode ? KColors.white70 : KColors.black87,
+      barrierColor: isLightMode ? KColors.black87 : KColors.white70,
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {

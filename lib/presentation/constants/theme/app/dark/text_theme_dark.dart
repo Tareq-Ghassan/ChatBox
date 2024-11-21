@@ -96,4 +96,3 @@ const textThemeDark = TextTheme(
     color: KColors.white,
   ),
 );
-

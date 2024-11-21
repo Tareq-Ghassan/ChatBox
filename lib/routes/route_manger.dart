@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs
 
+import 'package:chat/presentation/screens/login.dart';
 import 'package:chat/presentation/screens/onboarding.dart';
+import 'package:chat/presentation/screens/signup.dart';
 import 'package:chat/presentation/screens/splash_screen.dart';
 import 'package:chat/routes/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +30,18 @@ class AppRouter {
           page: const OnboardingScreen(),
           settings: settings,
         );
-
+      //Navigate to the Login screen.
+      case KRoutes.login:
+        return _setPage(
+          page: const LoginScreen(),
+          settings: settings,
+        );
+      //Navigate to the Signup screen.
+      case KRoutes.signup:
+        return _setPage(
+          page: const SignupScreen(),
+          settings: settings,
+        );
       default:
         return _errorRoute();
     }
