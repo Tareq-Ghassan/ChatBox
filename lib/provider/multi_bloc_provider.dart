@@ -14,5 +14,10 @@ List<BlocProvider> multiBlocProvider = [
   BlocProvider<EmailCubit>(
     create: (BuildContext context) => EmailCubit(),
   ),
-
+  BlocProvider<PasswordCubit>(
+    create: (BuildContext context) => PasswordCubit(),
+  ),
+  BlocProvider<HidePasswordCubit>(
+    create: (BuildContext context) => HidePasswordCubit(),
+  ),
 ];
