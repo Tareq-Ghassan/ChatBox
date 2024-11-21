@@ -1,10 +1,9 @@
 import 'package:chat/common/function/common_functions.dart';
 import 'package:chat/common/widget/email_textfield.dart';
 import 'package:chat/common/widget/password_textfield.dart';
-import 'package:chat/presentation/constants/theme/colors.dart';
 import 'package:chat/presentation/controller/authentication_controller.dart';
+import 'package:chat/presentation/widgets/auth_header.dart';
 import 'package:chat/provider/cubit/forms_cubit.dart';
-import 'package:chat/routes/app_routes.dart';
 import 'package:chat/routes/route_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,24 +40,26 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(),
-        bottomNavigationBar: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: ElevatedButton(
-                  onPressed: () => submitLogin(_formKey),
-                  child: Text(appLocalizations.login),
+        bottomNavigationBar: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ElevatedButton(
+                    onPressed: () => submitLogin(_formKey),
+                    child: Text(appLocalizations.login),
+                  ),
                 ),
-              ),
-              TextButton(
-                onPressed: () => AppRouter.pushNamed(KRoutes.login),
-                child: Text(
-                  appLocalizations.forgotPassword,
+                TextButton(
+                  onPressed: null,
+                  child: Text(
+                    appLocalizations.forgotPassword,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         body: SingleChildScrollView(
@@ -68,21 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
               key: _formKey,
               child: Column(
                 children: [
-                  Text(
-                    appLocalizations.loginHeader,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  LoginScreen._whiteSpace,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      appLocalizations.loginSubtitle,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(color: KColors.grayColor),
-                    ),
+                  AuthHeader(
+                    title: appLocalizations.loginHeader,
+                    subtitle: appLocalizations.loginSubtitle,
                   ),
                   LoginScreen._whiteSpace,
                   const EmailTextField(),

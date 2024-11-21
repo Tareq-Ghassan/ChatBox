@@ -52,7 +52,8 @@ Future<void> submitLogin(GlobalKey<FormState> formKey) async {
     return;
   }
   formKey.currentState!.save();
-  // final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>().state;
+  // final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>()
+  // .state;
   // final password =
   //     AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
 
