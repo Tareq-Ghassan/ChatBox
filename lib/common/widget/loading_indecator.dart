@@ -32,7 +32,7 @@ class LoadingIndicatorDialog {
     }
     final text = AppLocalizations.of(context)!.loading;
     showDialog<void>(
-      barrierColor: isLightMode ? KColors.white70 : KColors.black87,
+      barrierColor: isLightMode ? KColors.black87 : KColors.white70,
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {

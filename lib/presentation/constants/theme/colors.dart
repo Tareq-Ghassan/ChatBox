@@ -11,13 +11,21 @@ class KColors {
   ///[lightBlackColor] this is a light black color
   static const Color lightBlackColor = Color.fromRGBO(31, 31, 31, 0.5);
 
-  ///[lightBlackColor] this is the default gray text color
+  ///[dissableColor] this is the default gray dissable color
+  static const Color dissableColor = Color.fromRGBO(243, 246, 246, 1);
+
+  ///[grayDarkColor] this is the default dark gray text color
+  static const Color grayDarkColor = Color.fromRGBO(121, 124, 123, 1);
+
+  ///[grayColor] this is the default gray text color
   static const Color grayColor = Color.fromRGBO(185, 193, 190, 1);
 
+  ///[greenColor] this is the default green color
+  static const Color greenColor = Color.fromRGBO(36, 120, 109, 1);
 
   ///[white] this is the default white flutter color
   static const Color white = Colors.white;
-  
+
   ///[black] this is the default black flutter color
   static const Color black = Colors.black;
 

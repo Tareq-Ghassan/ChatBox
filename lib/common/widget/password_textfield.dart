@@ -1,5 +1,6 @@
 import 'package:chat/common/function/common_functions.dart';
 import 'package:chat/common/widget/eye_suficx_icon.dart';
+import 'package:chat/common/widget/text_form_field.dart';
 import 'package:chat/presentation/controller/authentication_controller.dart';
 import 'package:chat/provider/cubit/forms_cubit.dart';
 import 'package:flutter/material.dart';
@@ -18,25 +19,19 @@ class PasswordTextField extends StatelessWidget {
       create: (_) => HidePasswordCubit(),
       child: BlocBuilder<HidePasswordCubit, bool>(
         builder: (context, hidePassword) {
-          return TextFormField(
-            
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            maxLength: 30,
-            autocorrect: false,
+          return KTextFormField(
             autofillHints: const [
               AutofillHints.password,
             ],
             keyboardType: TextInputType.visiblePassword,
             textInputAction: TextInputAction.done,
-            decoration: InputDecoration(
-              counterText: '',
-              hintText: appLocalizations.password,
-              suffixIcon: EyeSufixIcon(
-                iconData: hidePassword
-                    ? Icons.visibility_off_outlined
-                    : Icons.visibility_outlined,
-              ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 16),
+            hintText: appLocalizations.password,
+             obscureText: hidePassword,
+            contentPadding: const EdgeInsets.symmetric(vertical: 16),
+            suffixIcon: EyeSufixIcon(
+              iconData: hidePassword
+                  ? Icons.visibility_off_outlined
+                  : Icons.visibility_outlined,
             ),
             validator: (value) => validateInputPassword(
               context,

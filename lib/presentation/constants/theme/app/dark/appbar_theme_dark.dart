@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 /// [appBarThemeDark]
 const appBarThemeDark = AppBarTheme(
   backgroundColor: KColors.blackColor,
-  foregroundColor: Colors.white,
+  foregroundColor: KColors.white,
 );

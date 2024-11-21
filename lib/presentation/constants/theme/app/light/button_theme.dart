@@ -7,15 +7,15 @@ final elevatedButtonTheme = ElevatedButtonThemeData(
     backgroundColor: WidgetStateProperty.resolveWith<Color>(
       (Set<WidgetState> states) {
         if (states.contains(WidgetState.disabled)) {
-          return KColors.lightBlackColor;
+          return KColors.dissableColor;
         }
-        return const Color.fromRGBO(36, 120, 109, 255);
+        return KColors.greenColor;
       },
     ),
     foregroundColor: WidgetStateProperty.resolveWith<Color>(
       (Set<WidgetState> states) {
         if (states.contains(WidgetState.disabled)) {
-          return KColors.lightBlackColor; 
+          return KColors.grayDarkColor;
         }
         return KColors.white;
       },
@@ -29,7 +29,6 @@ final elevatedButtonTheme = ElevatedButtonThemeData(
   ),
 );
 
-
 ///[textButtonTheme] default Text Button Theme
 final textButtonTheme = TextButtonThemeData(
   style: ButtonStyle(
@@ -37,7 +36,7 @@ final textButtonTheme = TextButtonThemeData(
       Colors.transparent,
     ),
     foregroundColor: const WidgetStatePropertyAll(
-      KColors.white,
+      KColors.greenColor,
     ),
     shape: WidgetStatePropertyAll(
       RoundedRectangleBorder(
