@@ -1,5 +1,5 @@
 import 'package:chat/common/function/common_functions.dart';
-import 'package:chat/common/widget/text_form_field.dart';
+import 'package:chat/common/widget/k_text_form_field.dart';
 import 'package:chat/presentation/controller/authentication_controller.dart';
 import 'package:chat/provider/cubit/forms_cubit.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +27,9 @@ class EmailTextField extends StatelessWidget {
       ),
       onSaved: (value) {
         if (value != null) {
-          context.read<EmailCubit>().setEmail(newVal: value);
+          context.read<EmailCubit>().email = value;
         } else {
-          context.read<EmailCubit>().setEmail(newVal: '');
+          context.read<EmailCubit>().email = '';
         }
       },
     );

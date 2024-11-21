@@ -22,12 +22,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
-    AppRouter.navigatorKey.currentContext!
-        .read<EmailCubit>()
-        .setEmail(newVal: '');
-    AppRouter.navigatorKey.currentContext!
-        .read<PasswordCubit>()
-        .setPassword(newVal: '');
+    AppRouter.navigatorKey.currentContext!.read<EmailCubit>().email = '';
+    AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().password = '';
     super.initState();
   }
 

@@ -16,9 +16,7 @@ class EyeSufixIcon extends StatelessWidget {
       onTap: () {
         final cubit = context.read<HidePasswordCubit>();
         final hidePasswordState = cubit.state;
-        cubit.setHidePassword(
-          newVal: !hidePasswordState,
-        );
+        cubit.hidePassword = !hidePasswordState;
       },
       child: Icon(
         iconData,

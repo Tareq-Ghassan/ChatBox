@@ -20,4 +20,10 @@ List<BlocProvider> multiBlocProvider = [
   BlocProvider<HidePasswordCubit>(
     create: (BuildContext context) => HidePasswordCubit(),
   ),
+  BlocProvider<ConfirmPasswordCubit>(
+    create: (BuildContext context) => ConfirmPasswordCubit(),
+  ),
+  BlocProvider<NameCubit>(
+    create: (BuildContext context) => NameCubit(),
+  ),
 ];
