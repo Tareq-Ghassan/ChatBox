@@ -21,7 +21,7 @@ String? validateEmail(
       return appLocalizations.invalidEmailFormat;
     }
   } else {
-    return appLocalizations.pleaseEnterValidation('mobile');
+    return appLocalizations.pleaseEnterValidation('email');
   }
 
   return null;
