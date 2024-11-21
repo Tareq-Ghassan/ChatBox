@@ -33,9 +33,7 @@ class OnboardingScreen extends StatelessWidget {
                 children: [
                   Text(
                     appLocalizations.existingAccount,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
+                    style: darkTheme.textTheme.bodySmall!
                         .copyWith(color: KColors.grayColor),
                   ),
                   TextButton(
@@ -73,14 +71,12 @@ class OnboardingScreen extends StatelessWidget {
                         _whiteSpace,
                         Text(
                           appLocalizations.onboardingHeader,
-                          style: Theme.of(context).textTheme.displayLarge,
+                          style: darkTheme.textTheme.displayLarge,
                         ),
                         _whiteSpace,
                         Text(
                           appLocalizations.onboardingBody,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
+                          style: darkTheme.textTheme.bodyMedium!
                               .copyWith(color: KColors.grayColor),
                         ),
                       ],
