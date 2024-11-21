@@ -4,4 +4,7 @@
 class KRoutes {
   static const String splashScreen = '/';
   static const String onBoarding = '/onboading';
+  static const String login = '/login';
+  static const String signup = '/signup';
+
 }

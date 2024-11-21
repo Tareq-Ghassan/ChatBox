@@ -25,6 +25,7 @@ analyzer:
     dead_code: error
     unused_import: error
     directives_ordering: error
+    sort_pub_dependencies: ignore
 
 linter:
   rules:

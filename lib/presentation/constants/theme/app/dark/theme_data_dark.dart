@@ -1,3 +1,4 @@
+import 'package:chat/presentation/constants/theme/app/dark/appbar_theme_dark.dart';
 import 'package:chat/presentation/constants/theme/app/dark/button_theme_dark.dart';
 import 'package:chat/presentation/constants/theme/app/dark/text_theme_dark.dart';
 import 'package:chat/presentation/constants/theme/colors.dart';
@@ -11,4 +12,5 @@ ThemeData darkTheme = ThemeData(
   textTheme: textThemeDark,
   elevatedButtonTheme: elevatedButtonThemeDark,
   textButtonTheme: textButtonThemeDark,
+  appBarTheme: appBarThemeDark,
 );
