@@ -20,6 +20,9 @@ class KColors {
   ///[grayColor] this is the default gray text color
   static const Color grayColor = Color.fromRGBO(185, 193, 190, 1);
 
+  ///[greenHomePg] this is for home page color
+  static const Color greenHomePg = Color.fromRGBO(0, 14, 8, 1);
+
   ///[greenColor] this is the default green color
   static const Color greenColor = Color.fromRGBO(36, 120, 109, 1);
 

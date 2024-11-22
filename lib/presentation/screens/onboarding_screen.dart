@@ -65,7 +65,7 @@ class OnboardingScreen extends StatelessWidget {
                         _whiteSpace,
                         Center(
                           child: Image.asset(
-                            KIcons.logoIcon,
+                            KIcons.logo,
                           ),
                         ),
                         _whiteSpace,

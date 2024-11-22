@@ -3,6 +3,7 @@ import 'package:chat/data/repository/init_repo.dart';
 import 'package:chat/provider/BloC/authentication/authentication_bloc.dart';
 import 'package:chat/provider/BloC/init/init_bloc.dart';
 import 'package:chat/provider/cubit/forms_cubit.dart';
+import 'package:chat/provider/cubit/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,5 +31,8 @@ List<BlocProvider> multiBlocProvider = [
   ),
   BlocProvider<NameCubit>(
     create: (BuildContext context) => NameCubit(),
+  ),
+  BlocProvider<HomeIndexCubit>(
+    create: (BuildContext context) => HomeIndexCubit(),
   ),
 ];
