@@ -50,7 +50,7 @@ String? validateInputPassword(BuildContext context, String? value) {
   } else {
     return appLocalizations.pleaseEnterValidation('pass');
   }
-
+  context.read<PasswordCubit>().password = value;
   return null;
 }
 
@@ -149,10 +149,59 @@ Future<void> submitSignup(GlobalKey<FormState> formKey) async {
     return;
   }
   formKey.currentState!.save();
-  // final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>()
-  // .state;
-  // final password =
-  //     AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  final name = AppRouter.navigatorKey.currentContext!.read<NameCubit>().state;
+  final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>().state;
+  final password =
+      AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  final confirmPassword =
+      AppRouter.navigatorKey.currentContext!.read<ConfirmPasswordCubit>().state;
 
-  return;
+  AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  BlocProvider.of<AuthenticationBloc>(AppRouter.navigatorKey.currentContext!)
+      .add(
+    Regisetr(
+      name: name,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+    ),
+  );
+}
+
+/// [signUpListenerController] the function that handle UI for Bloc state
+Future<void> signUpListenerController(
+  BuildContext context,
+  AuthenticationState state,
+) async {
+  if (state is AuthenticationIsLoading) {
+    LoadingIndicatorDialog.show(context);
+  }
+  if (state is AuthenticationIsLoaded) {
+    LoadingIndicatorDialog.dismiss();
+    unawaited(
+      AppRouter.pushNamedAndRemoveUntil(
+        KRoutes.homeScreen,
+        (route) => route.isFirst,
+      ),
+    );
+  } else if (state is AuthenticationFailure ||
+      state is AuthenticationCatch ||
+      state is AuthenticationShowFailure) {
+    LoadingIndicatorDialog.dismiss();
+    unawaited(
+      showDialog(
+        context: AppRouter.navigatorKey.currentContext!,
+        builder: (context) => CustomDialogBox(
+          title: state is AuthenticationShowFailure
+              ? appLocalizations.somethingWentWrong
+              : appLocalizations.internalServerError,
+          descriptions: state is AuthenticationShowFailure
+              ? state.errorMessage
+              : appLocalizations.somethingWentWrongDescription,
+          yesButtontext: appLocalizations.exit,
+          yesButtontOnTap: AppRouter.pop,
+        ),
+      ),
+    );
+  }
 }

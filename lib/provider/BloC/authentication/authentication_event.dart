@@ -26,6 +26,33 @@ class PerformLogin extends AuthenticationEvent {
   List<Object> get props => super.props;
 }
 
+///[Regisetr] fetch event
+class Regisetr extends AuthenticationEvent {
+  /// [Regisetr] constructor
+  const Regisetr({
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.confirmPassword,
+  });
+
+  /// [name] represent password
+  final String name;
+
+  /// [email] represent email
+  final String email;
+
+  /// [password] represent password
+  final String password;
+
+  /// [password] represent password
+  final String confirmPassword;
+
+  ///[props]
+  @override
+  List<Object> get props => super.props;
+}
+
 ///[ResetAuthentication] reset event
 class ResetAuthentication extends AuthenticationEvent {
   ///[ResetAuthentication] constructor
