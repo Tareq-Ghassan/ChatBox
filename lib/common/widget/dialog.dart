@@ -170,7 +170,12 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                                   ),
                             child: Text(
                               widget.yesButtontext!,
-                              style: Theme.of(context).textTheme.labelLarge,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: KColors.white,
+                                  ),
                             ),
                           ),
                         ),

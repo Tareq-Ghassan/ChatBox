@@ -33,5 +33,9 @@
   "somethingWentWrong": "Unable to complete request!",
   "somethingWentWrongDescription": "An error occurred while retrieving the data. Please try again. If this issue keeps happening, contact our customer center",
   "welcomeToChatBox": "Welcome to Chat Box",
+    "somethingWentWrong": "Unable to complete request!",
+  "somethingWentWrongDescription": "An error occurred while retrieving the data. Please try again. If this issue keeps happening, contact our customer center",
+    "internalServerError": "Unable to process the request",
+  "internalServerErrorDescription": "An error occurred while sending the data. Please try again. If this issue keeps happening, contact our customer center",
   "workingOnApp": "We are currently working on App please try later"
 }
