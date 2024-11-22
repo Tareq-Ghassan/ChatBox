@@ -1,4 +1,6 @@
+import 'package:chat/data/repository/authentication_repo.dart';
 import 'package:chat/data/repository/init_repo.dart';
+import 'package:chat/provider/BloC/authentication/authentication_bloc.dart';
 import 'package:chat/provider/BloC/init/init_bloc.dart';
 import 'package:chat/provider/cubit/forms_cubit.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,9 @@ List<BlocProvider> multiBlocProvider = [
   /******************** BloC **************/
   BlocProvider<InitBloc>(
     create: (context) => InitBloc(InitRepository()),
+  ),
+  BlocProvider<AuthenticationBloc>(
+    create: (context) => AuthenticationBloc(AuthenticationRepo()),
   ),
   /******************** Cubit **************/
   BlocProvider<EmailCubit>(

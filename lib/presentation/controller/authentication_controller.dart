@@ -1,7 +1,14 @@
 import 'dart:async';
 
 import 'package:chat/common/function/common_functions.dart';
+import 'package:chat/common/widget/dialog.dart';
+import 'package:chat/common/widget/loading_indecator.dart';
+import 'package:chat/provider/BloC/authentication/authentication_bloc.dart';
+import 'package:chat/provider/BloC/authentication/authentication_event.dart';
+import 'package:chat/provider/BloC/authentication/authentication_state.dart';
 import 'package:chat/provider/cubit/forms_cubit.dart';
+import 'package:chat/routes/app_routes.dart';
+import 'package:chat/routes/route_manger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,7 +50,7 @@ String? validateInputPassword(BuildContext context, String? value) {
   } else {
     return appLocalizations.pleaseEnterValidation('pass');
   }
-
+  context.read<PasswordCubit>().password = value;
   return null;
 }
 
@@ -90,12 +97,49 @@ Future<void> submitLogin(GlobalKey<FormState> formKey) async {
     return;
   }
   formKey.currentState!.save();
-  // final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>()
-  // .state;
-  // final password =
-  //     AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>().state;
+  final password =
+      AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  BlocProvider.of<AuthenticationBloc>(AppRouter.navigatorKey.currentContext!)
+      .add(PerformLogin(email: email, password: password));
+}
 
-  return;
+/// [loginListenerController] the function that handle UI for Bloc state
+Future<void> loginListenerController(
+  BuildContext context,
+  AuthenticationState state,
+) async {
+  if (state is AuthenticationIsLoading) {
+    LoadingIndicatorDialog.show(context);
+  }
+  if (state is AuthenticationIsLoaded) {
+    LoadingIndicatorDialog.dismiss();
+    unawaited(
+      AppRouter.pushNamedAndRemoveUntil(
+        KRoutes.homeScreen,
+        (route) => route.isFirst,
+      ),
+    );
+  } else if (state is AuthenticationFailure ||
+      state is AuthenticationCatch ||
+      state is AuthenticationShowFailure) {
+    LoadingIndicatorDialog.dismiss();
+    unawaited(
+      showDialog(
+        context: AppRouter.navigatorKey.currentContext!,
+        builder: (context) => CustomDialogBox(
+          title: state is AuthenticationShowFailure
+              ? appLocalizations.somethingWentWrong
+              : appLocalizations.internalServerError,
+          descriptions: state is AuthenticationShowFailure
+              ? state.errorMessage
+              : appLocalizations.somethingWentWrongDescription,
+          yesButtontext: appLocalizations.exit,
+          yesButtontOnTap: AppRouter.pop,
+        ),
+      ),
+    );
+  }
 }
 
 /// [submitSignup] a function to submit SIGN UP
@@ -105,10 +149,59 @@ Future<void> submitSignup(GlobalKey<FormState> formKey) async {
     return;
   }
   formKey.currentState!.save();
-  // final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>()
-  // .state;
-  // final password =
-  //     AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  final name = AppRouter.navigatorKey.currentContext!.read<NameCubit>().state;
+  final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>().state;
+  final password =
+      AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  final confirmPassword =
+      AppRouter.navigatorKey.currentContext!.read<ConfirmPasswordCubit>().state;
 
-  return;
+  AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  BlocProvider.of<AuthenticationBloc>(AppRouter.navigatorKey.currentContext!)
+      .add(
+    Regisetr(
+      name: name,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+    ),
+  );
+}
+
+/// [signUpListenerController] the function that handle UI for Bloc state
+Future<void> signUpListenerController(
+  BuildContext context,
+  AuthenticationState state,
+) async {
+  if (state is AuthenticationIsLoading) {
+    LoadingIndicatorDialog.show(context);
+  }
+  if (state is AuthenticationIsLoaded) {
+    LoadingIndicatorDialog.dismiss();
+    unawaited(
+      AppRouter.pushNamedAndRemoveUntil(
+        KRoutes.homeScreen,
+        (route) => route.isFirst,
+      ),
+    );
+  } else if (state is AuthenticationFailure ||
+      state is AuthenticationCatch ||
+      state is AuthenticationShowFailure) {
+    LoadingIndicatorDialog.dismiss();
+    unawaited(
+      showDialog(
+        context: AppRouter.navigatorKey.currentContext!,
+        builder: (context) => CustomDialogBox(
+          title: state is AuthenticationShowFailure
+              ? appLocalizations.somethingWentWrong
+              : appLocalizations.internalServerError,
+          descriptions: state is AuthenticationShowFailure
+              ? state.errorMessage
+              : appLocalizations.somethingWentWrongDescription,
+          yesButtontext: appLocalizations.exit,
+          yesButtontOnTap: AppRouter.pop,
+        ),
+      ),
+    );
+  }
 }
