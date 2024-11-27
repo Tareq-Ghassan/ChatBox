@@ -1,6 +1,7 @@
 import 'package:chat/presentation/constants/theme/app/dark/appbar_theme_dark.dart';
 import 'package:chat/presentation/constants/theme/app/dark/bottom_nav_bar_theme_dark.dart';
 import 'package:chat/presentation/constants/theme/app/dark/button_theme_dark.dart';
+import 'package:chat/presentation/constants/theme/app/dark/list_tile_theme_dark.dart';
 import 'package:chat/presentation/constants/theme/app/dark/text_theme_dark.dart';
 import 'package:chat/presentation/constants/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -19,4 +20,5 @@ ThemeData darkTheme = ThemeData(
   appBarTheme: appBarThemeDark,
   bottomNavigationBarTheme: bottomNavigationBarThemeDark,
   primaryColorDark: KColors.grayColor,
+  listTileTheme: listTileThemeDark,
 );

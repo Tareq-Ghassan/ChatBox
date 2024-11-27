@@ -8,4 +8,5 @@ class KIcons {
   static String get settings => 'assets/icons/settings.png';
   static String get call => 'assets/icons/call.png';
   static String get search => 'assets/icons/search.png';
+  static String get video => 'assets/icons/video.png';
 }

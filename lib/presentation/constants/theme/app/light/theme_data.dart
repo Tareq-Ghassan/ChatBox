@@ -1,6 +1,7 @@
 import 'package:chat/presentation/constants/theme/app/light/appbar_theme.dart';
 import 'package:chat/presentation/constants/theme/app/light/bottom_nav_bar_theme.dart';
 import 'package:chat/presentation/constants/theme/app/light/button_theme.dart';
+import 'package:chat/presentation/constants/theme/app/light/list_tile_theme.dart';
 import 'package:chat/presentation/constants/theme/app/light/text_theme.dart';
 import 'package:chat/presentation/constants/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -19,4 +20,5 @@ ThemeData lightTheme = ThemeData(
   textButtonTheme: textButtonTheme,
   appBarTheme: appBarTheme,
   bottomNavigationBarTheme: bottomNavigationBarTheme,
+  listTileTheme: listTileTheme,
 );
