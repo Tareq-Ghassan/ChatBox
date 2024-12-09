@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:chat/core/routes/app_routes.dart';
-import 'package:chat/features/presentation/screens/chat_screen.dart';
-import 'package:chat/features/presentation/screens/home_screen.dart';
-import 'package:chat/features/presentation/screens/login_screen.dart';
-import 'package:chat/features/presentation/screens/onboarding_screen.dart';
-import 'package:chat/features/presentation/screens/signup_screen.dart';
-import 'package:chat/features/presentation/screens/splash_screen.dart';
+import 'package:chat/features/authentication/ui/screen/login_screen.dart';
+import 'package:chat/features/authentication/ui/screen/signup_screen.dart';
+import 'package:chat/features/home/ui/screens/chat_screen.dart';
+import 'package:chat/features/home/ui/screens/home_screen.dart';
+import 'package:chat/features/pre_login/ui/screen/onboarding_screen.dart';
+import 'package:chat/features/pre_login/ui/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {

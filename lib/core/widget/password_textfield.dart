@@ -1,8 +1,8 @@
 import 'package:chat/core/function/common_functions.dart';
 import 'package:chat/core/widget/eye_suficx_icon.dart';
 import 'package:chat/core/widget/k_text_form_field.dart';
-import 'package:chat/features/presentation/controller/authentication_controller.dart';
-import 'package:chat/features/provider/cubit/forms_cubit.dart';
+import 'package:chat/features/authentication/domain/usecase/authentication_controller.dart';
+import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
