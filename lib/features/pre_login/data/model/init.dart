@@ -1,12 +1,17 @@
-import 'package:chat/core/api/api_response.dart';
+import 'package:chat/core/model/header.dart';
+import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 
-/// [Init] holds initialization of the app
-class Init {
-  /// [Init] constructor
-  Init({required this.header});
+/// [InitializeModel] holds initialization of the app
+class InitializeModel extends Initialize {
+  /// [InitializeModel] constructor
+  InitializeModel({required this.header, required super.isInitialize});
 
-  /// [Init.fromJson] convert to [Init] object
-  Init.fromJson(Map<String, dynamic> json) {
+  /// [InitializeModel.fromJson] convert to [InitializeModel] object
+  InitializeModel.fromJson(Map<String, dynamic> json)
+      : super(
+          isInitialize: json['header'] != null &&
+              (json['header'] as Map<String, dynamic>)['errorCode'] == '0',
+        ) {
     header = json['header'] != null
         ? Header.fromJson(json['header'] as Map<String, dynamic>)
         : null;

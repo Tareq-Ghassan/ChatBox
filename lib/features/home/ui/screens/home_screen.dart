@@ -1,5 +1,5 @@
 import 'package:chat/features/authentication/data/data_sources/home_pages.dart';
-import 'package:chat/features/home/provider/ui_helper_cubit.dart';
+import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:chat/features/home/ui/widgets/bottom_navigation_bar.dart';
 import 'package:chat/features/home/ui/widgets/home_screen_appbar.dart';
 import 'package:flutter/material.dart';

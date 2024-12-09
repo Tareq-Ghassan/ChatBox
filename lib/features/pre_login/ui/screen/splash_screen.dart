@@ -1,5 +1,5 @@
 import 'package:chat/core/assets/images.dart';
-import 'package:chat/features/pre_login/domain/usecases/splash_controller.dart';
+import 'package:chat/features/pre_login/domain/usecase/splash_controller.dart';
 import 'package:chat/features/pre_login/ui/bloc/init_bloc.dart';
 import 'package:chat/features/pre_login/ui/bloc/init_state.dart';
 import 'package:flutter/material.dart';

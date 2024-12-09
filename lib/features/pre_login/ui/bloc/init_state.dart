@@ -8,7 +8,7 @@ abstract class InitState extends Equatable {
   /// [InitState] constructor
   const InitState();
   @override
-  List<Init> get props => [];
+  List<InitializeModel> get props => [];
 }
 
 /// [InitIsNotSearched] state
@@ -23,12 +23,12 @@ class InitIsLoaded extends InitState {
   const InitIsLoaded(
     this._appConfig,
   );
-  final Init _appConfig;
+  final InitializeModel _appConfig;
 
   /// [getConfig] getter
-  Init get getConfig => _appConfig;
+  InitializeModel get getConfig => _appConfig;
   @override
-  List<Init> get props => [_appConfig];
+  List<InitializeModel> get props => [_appConfig];
 }
 
 /// [InitFailure] state

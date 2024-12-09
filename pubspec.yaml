@@ -30,6 +30,7 @@ dependencies:
   dartz: ^0.10.1
   # dependency injection
   get_it: ^8.0.2
+  connectivity_plus: ^6.1.0
 
 dev_dependencies:
   flutter_test:

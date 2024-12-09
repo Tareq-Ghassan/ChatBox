@@ -7,7 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class InitRepository {
 
   /// [init] function to get the app Init
-  Future<Init?> init() async {
+  Future<InitializeModel?> init() async {
     await dotenv.load();
     try {
       final response = await api.post(
@@ -21,7 +21,7 @@ class InitRepository {
       debugPrint(response.data.toString());
       if (response.statusCode == 200 && response.data != null) {
         debugPrint(response.data.toString());
-        return Init.fromJson(response.data as Map<String, dynamic>);
+        return InitializeModel.fromJson(response.data as Map<String, dynamic>);
       }
       return null;
     } catch (e) {

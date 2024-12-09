@@ -1,4 +1,4 @@
-import 'package:chat/features/home/provider/ui_helper_cubit.dart';
+import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:chat/features/home/ui/widgets/chat_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
