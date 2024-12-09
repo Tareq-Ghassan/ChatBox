@@ -16,18 +16,31 @@ dependencies:
   intl: any
 
   cupertino_icons: ^1.0.6
-  very_good_analysis: ^5.1.0
+  # state mangement
   flutter_bloc: ^8.1.6
+  # Object equality
   equatable: ^2.0.5
+  # HTTP client
   dio: ^5.7.0
+  # for env variables 
   flutter_dotenv: ^5.1.0
+  # Scure storage
   flutter_secure_storage: ^9.2.2
+  # functional programming 
+  dartz: ^0.10.1
+  # dependency injection
+  get_it: ^8.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Linting or Code rule
   flutter_lints: ^3.0.0
+  # Unit testing
+  mockito: ^5.4.4
+  # Code analysis 
+  very_good_analysis: ^5.1.0
 
 flutter:
   generate: true
