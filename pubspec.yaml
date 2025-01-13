@@ -30,7 +30,7 @@ dependencies:
   dartz: ^0.10.1
   # dependency injection
   get_it: ^8.0.2
-  connectivity_plus: ^6.1.0
+  internet_connection_checker_plus: ^2.5.2
 
 dev_dependencies:
   flutter_test:
@@ -40,6 +40,7 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   # Unit testing
   mockito: ^5.4.4
+  build_runner: ^2.4.13
   # Code analysis 
   very_good_analysis: ^5.1.0
 

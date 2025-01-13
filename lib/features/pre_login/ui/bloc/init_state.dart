@@ -1,4 +1,4 @@
-import 'package:chat/features/pre_login/data/model/init.dart';
+import 'package:chat/features/pre_login/data/model/initlization_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +8,7 @@ abstract class InitState extends Equatable {
   /// [InitState] constructor
   const InitState();
   @override
-  List<InitializeModel> get props => [];
+  List<InitlizationModel> get props => [];
 }
 
 /// [InitIsNotSearched] state
@@ -23,12 +23,12 @@ class InitIsLoaded extends InitState {
   const InitIsLoaded(
     this._appConfig,
   );
-  final InitializeModel _appConfig;
+  final InitlizationModel _appConfig;
 
   /// [getConfig] getter
-  InitializeModel get getConfig => _appConfig;
+  InitlizationModel get getConfig => _appConfig;
   @override
-  List<InitializeModel> get props => [_appConfig];
+  List<InitlizationModel> get props => [_appConfig];
 }
 
 /// [InitFailure] state

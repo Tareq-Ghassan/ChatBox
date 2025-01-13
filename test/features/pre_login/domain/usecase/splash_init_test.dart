@@ -5,9 +5,14 @@ import 'package:chat/features/pre_login/domain/repository/initialize_repository.
 import 'package:chat/features/pre_login/domain/usecase/get_is_initialized.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-class MockInitializeRepository extends Mock implements InitializeRepository {}
+@GenerateNiceMocks([MockSpec<InitializeRepository>()])
+
+// import generated mock classes
+import './splash_init_test.mocks.dart';
+
 
 void main() {
   late GetIsInitialized useCase;
@@ -24,7 +29,7 @@ void main() {
   test('Should get Initialization value form repo', () async {
     // arrange
     when(mockInitializeRepository.getIsInitialized())
-        .thenAnswer((_) async => const Right(tInitialize));
+        .thenAnswer((_) async => const Right<Failure,Initialize>(tInitialize));
 
     // act
     final result = await useCase(NoParams());

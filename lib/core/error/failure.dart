@@ -16,6 +16,9 @@ abstract class Failure extends Equatable {
 /// [ServerFailure] any Failures form Server
 class ServerFailure extends Failure {}
 
+/// [CatchFailure] any Failures form Server
+class CatchFailure extends Failure {}
+
 /// [ClientFailure] any Failures form Client
 class ClientFailure extends Failure {}
 

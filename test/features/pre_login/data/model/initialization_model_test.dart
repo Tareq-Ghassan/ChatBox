@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 import 'package:chat/core/model/header.dart';
-import 'package:chat/features/pre_login/data/model/init.dart';
+import 'package:chat/features/pre_login/data/model/initlization_model.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../fixture/fixture_reader.dart';
+import '../../../../core/util/fixture_reader.dart';
 
 void main() {
-  final tInitializeModel = InitializeModel(
+  final tInitializeModel = InitlizationModel(
     isInitialize: Header(errorCode: '0', message: 'success').errorCode == '0',
     header: Header(
       errorCode: '0',
@@ -17,29 +17,30 @@ void main() {
   );
 
   test('should be a subclass of Initialize entity', () async {
-    // arrange
-    expect(tInitializeModel, isA<Initialize>());
-    // act
-
     // assert
+    expect(tInitializeModel, isA<Initialize>());
   });
 
   group('from json', () {
     test('should return a valid model from json data', () async {
       // arrange
       final jsonMap = json.decode(
-        fixture(featureName: 'pre_login', fileName: 'initialize'),
+        fixture(
+          fileName: 'initialize',
+          featureName: AppFeature.preLogin,
+        ),
       );
 
       // act
-      final result = InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
+      final result =
+          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);
     });
     test("shouln't return a null exception on errorCode", () async {
       // arrange
-      final tInitializeModel = InitializeModel(
+      final tInitializeModel = InitlizationModel(
         isInitialize:
             Header(errorCode: null, message: 'success').errorCode == '0',
         header: Header(
@@ -49,20 +50,22 @@ void main() {
       );
       final jsonMap = json.decode(
         fixture(
-          featureName: 'pre_login',
-          fileName: 'error/initialize_null_error',
+          fileName: 'initialize_null_error',
+          featureName: AppFeature.preLogin,
+          isError: true,
         ),
       );
 
       // act
-      final result = InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
+      final result =
+          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);
     });
     test("shouln't return a null exception on message", () async {
       // arrange
-      final tInitializeModel = InitializeModel(
+      final tInitializeModel = InitlizationModel(
         isInitialize: Header(errorCode: '0', message: null).errorCode == '0',
         header: Header(
           errorCode: '0',
@@ -71,32 +74,36 @@ void main() {
       );
       final jsonMap = json.decode(
         fixture(
-          featureName: 'pre_login',
-          fileName: 'error/initialize_null_message',
+          fileName: 'initialize_null_message',
+          featureName: AppFeature.preLogin,
+          isError: true,
         ),
       );
 
       // act
-      final result = InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
+      final result =
+          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);
     });
     test("shouln't return a null exception on header", () async {
       // arrange
-      final tInitializeModel = InitializeModel(
+      const tInitializeModel = InitlizationModel(
         isInitialize: false,
         header: null,
       );
       final jsonMap = json.decode(
         fixture(
-          featureName: 'pre_login',
-          fileName: 'error/initialize_null_header',
+          featureName: AppFeature.preLogin,
+          fileName: 'initialize_null_header',
+          isError: true,
         ),
       );
 
       // act
-      final result = InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
+      final result =
+          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);

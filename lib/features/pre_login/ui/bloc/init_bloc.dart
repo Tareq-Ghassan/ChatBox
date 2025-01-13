@@ -1,4 +1,5 @@
-import 'package:chat/features/pre_login/data/repositories/init_repo.dart';
+
+import 'package:chat/features/pre_login/domain/usecase/get_is_initialized.dart';
 import 'package:chat/features/pre_login/ui/bloc/init_event.dart';
 import 'package:chat/features/pre_login/ui/bloc/init_state.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class InitBloc extends Bloc<InitEvent, InitState> {
     on<FetchInit>((event, emit) async {
       emit(InitIsLoading());
       try {
-        final config = await initRepository.init();
+        final config = await initRepository();
         if (config != null) {
           debugPrint('FetchInit event success:');
           emit(InitIsLoaded(config));
@@ -29,5 +30,5 @@ class InitBloc extends Bloc<InitEvent, InitState> {
   }
 
   ///[initRepository] holds the repo
-  final InitRepository initRepository;
+  final GetIsInitialized initRepository;
 }
