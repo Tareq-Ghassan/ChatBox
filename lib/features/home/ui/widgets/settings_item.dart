@@ -1,4 +1,4 @@
-import 'package:chat/core/assets/icons.dart';
+import 'package:chat/core/presentation/assets/icons.dart';
 import 'package:flutter/material.dart';
 
 ///[SettingsItem] returns SettingsItem

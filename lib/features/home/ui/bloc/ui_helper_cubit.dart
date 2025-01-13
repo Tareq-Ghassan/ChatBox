@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_setters_without_getters
 
-import 'package:chat/core/function/common_functions.dart';
+import 'package:chat/core/util/locale_utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// A [HomeIndexCubit] which manages `Home tabs` as its state

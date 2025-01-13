@@ -1,5 +1,4 @@
-import 'package:chat/core/model/secure_preferences.dart';
-import 'package:chat/core/model/secure_prefernces_keys.dart';
+import 'package:chat/core/data/data_source/local/local.dart';
 import 'package:chat/features/authentication/data/repository/authentication_repo.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_event.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_state.dart';

@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:chat/core/function/common_functions.dart';
+import 'package:chat/core/presentation/widget/dialog.dart';
+import 'package:chat/core/presentation/widget/loading_indecator.dart';
 import 'package:chat/core/routes/app_routes.dart';
 import 'package:chat/core/routes/route_manger.dart';
-import 'package:chat/core/widget/dialog.dart';
-import 'package:chat/core/widget/loading_indecator.dart';
+import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_event.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_state.dart';

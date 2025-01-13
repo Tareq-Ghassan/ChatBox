@@ -5,5 +5,8 @@ import 'package:dartz/dartz.dart';
 /// [InitializeRepository] repos
 abstract class InitializeRepository {
   /// [getIsInitialized] return if app is initialized
-  Future<Either<Failure, Initialize>> getIsInitialized();
+  Future<Either<Failure, Initialize>> getIsInitialized({
+    required String appKey,
+    required String appSecret,
+  });
 }

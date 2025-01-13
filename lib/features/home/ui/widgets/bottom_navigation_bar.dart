@@ -1,6 +1,7 @@
-import 'package:chat/core/assets/icons.dart';
-import 'package:chat/core/function/common_functions.dart';
-import 'package:chat/core/theme/colors.dart';
+import 'package:chat/core/presentation/assets/icons.dart';
+import 'package:chat/core/presentation/theme/colors.dart';
+import 'package:chat/core/util/locale_utils.dart';
+import 'package:chat/core/util/theme_utils.dart';
 import 'package:chat/features/authentication/data/data_sources/home_titles.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';

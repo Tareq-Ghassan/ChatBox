@@ -5,7 +5,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:chat/core/util/network_info.dart' as _i5;
 import 'package:chat/features/pre_login/data/data_source/initlization_data_source.dart'
     as _i3;
 import 'package:chat/features/pre_login/data/model/initlization_model.dart'
@@ -42,10 +41,18 @@ class _FakeInitlizationModel_0 extends _i1.SmartFake
 class MockInitlizationDataSource extends _i1.Mock
     implements _i3.InitlizationDataSource {
   @override
-  _i4.Future<_i2.InitlizationModel> getIsInitialized() => (super.noSuchMethod(
+  _i4.Future<_i2.InitlizationModel> getIsInitialized({
+    required String? appKey,
+    required String? appSecret,
+  }) =>
+      (super.noSuchMethod(
         Invocation.method(
           #getIsInitialized,
           [],
+          {
+            #appKey: appKey,
+            #appSecret: appSecret,
+          },
         ),
         returnValue:
             _i4.Future<_i2.InitlizationModel>.value(_FakeInitlizationModel_0(
@@ -53,6 +60,10 @@ class MockInitlizationDataSource extends _i1.Mock
           Invocation.method(
             #getIsInitialized,
             [],
+            {
+              #appKey: appKey,
+              #appSecret: appSecret,
+            },
           ),
         )),
         returnValueForMissingStub:
@@ -61,19 +72,11 @@ class MockInitlizationDataSource extends _i1.Mock
           Invocation.method(
             #getIsInitialized,
             [],
+            {
+              #appKey: appKey,
+              #appSecret: appSecret,
+            },
           ),
         )),
       ) as _i4.Future<_i2.InitlizationModel>);
-}
-
-/// A class which mocks [NetworkInfo].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockNetworkInfo extends _i1.Mock implements _i5.NetworkInfo {
-  @override
-  _i4.Future<bool> get isConnected => (super.noSuchMethod(
-        Invocation.getter(#isConnected),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
 }

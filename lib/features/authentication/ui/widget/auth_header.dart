@@ -1,4 +1,4 @@
-import 'package:chat/core/theme/colors.dart';
+import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 /// [AuthHeader] represent screen header for all auth screens

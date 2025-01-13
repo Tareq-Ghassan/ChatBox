@@ -1,11 +1,13 @@
 import 'package:chat/core/error/failure.dart';
-import 'package:chat/core/usecase/usecase.dart';
+import 'package:chat/core/usecase/base_usecase.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart';
+import 'package:chat/features/pre_login/domain/usecase/params/get_is_intialized_params.dart';
 import 'package:dartz/dartz.dart';
 
 /// [GetIsInitialized] represent get is init use case
-class GetIsInitialized implements UseCase<Initialize, NoParams> {
+class GetIsInitialized
+    implements BaseUseCase<Initialize, GetIsIntializedParams> {
   /// [GetIsInitialized] constructor
   GetIsInitialized({required this.repository});
 
@@ -14,6 +16,11 @@ class GetIsInitialized implements UseCase<Initialize, NoParams> {
 
   // /// [call] exe function
   @override
-  Future<Either<Failure, Initialize>> call(NoParams params) async =>
-      repository.getIsInitialized();
+  Future<Either<Failure, Initialize>> call(
+    GetIsIntializedParams getIsIntializedParams,
+  ) async =>
+      repository.getIsInitialized(
+        appKey: getIsIntializedParams.appKey,
+        appSecret: getIsIntializedParams.appSecret,
+      );
 }

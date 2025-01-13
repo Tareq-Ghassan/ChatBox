@@ -1,7 +1,7 @@
-import 'package:chat/core/assets/icons.dart';
-import 'package:chat/core/theme/app/custom_styles.dart';
-import 'package:chat/core/theme/app/dark/theme_data_dark.dart';
-import 'package:chat/core/theme/colors.dart';
+import 'package:chat/core/presentation/assets/icons.dart';
+import 'package:chat/core/presentation/theme/app/custom_styles.dart';
+import 'package:chat/core/presentation/theme/app/dark/theme_data_dark.dart';
+import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:chat/features/home/ui/widgets/story_item.dart';
 import 'package:flutter/material.dart';

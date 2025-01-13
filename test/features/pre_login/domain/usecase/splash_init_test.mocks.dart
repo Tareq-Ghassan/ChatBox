@@ -41,11 +41,18 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
 class MockInitializeRepository extends _i1.Mock
     implements _i3.InitializeRepository {
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.Initialize>> getIsInitialized() =>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Initialize>> getIsInitialized({
+    required String? appKey,
+    required String? appSecret,
+  }) =>
       (super.noSuchMethod(
         Invocation.method(
           #getIsInitialized,
           [],
+          {
+            #appKey: appKey,
+            #appSecret: appSecret,
+          },
         ),
         returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.Initialize>>.value(
             _FakeEither_0<_i5.Failure, _i6.Initialize>(
@@ -53,6 +60,10 @@ class MockInitializeRepository extends _i1.Mock
           Invocation.method(
             #getIsInitialized,
             [],
+            {
+              #appKey: appKey,
+              #appSecret: appSecret,
+            },
           ),
         )),
         returnValueForMissingStub:
@@ -62,6 +73,10 @@ class MockInitializeRepository extends _i1.Mock
           Invocation.method(
             #getIsInitialized,
             [],
+            {
+              #appKey: appKey,
+              #appSecret: appSecret,
+            },
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Initialize>>);

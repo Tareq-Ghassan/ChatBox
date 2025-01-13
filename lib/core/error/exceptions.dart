@@ -3,8 +3,9 @@
 /// [ServerException] represent any server exception could happen
 class ServerException implements Exception {
   /// [ServerException] constructor
-  const ServerException({required this.message});
+  const ServerException({required this.message, this.error = ''});
   final String message;
+  final String error;
 }
 
 /// [CacheException] represent any cache exception could happen
@@ -17,15 +18,17 @@ class CacheException implements Exception {
 /// [CatchException] represent any catch exception could happen
 class CatchException implements Exception {
   /// [CatchException] constructor
-  const CatchException({required this.message});
-  final String message;
+  const CatchException({required this.exception, required this.stackTrace});
+  final String exception;
+  final StackTrace stackTrace;
 }
 
 /// [ClientException] any exception form Client
 class ClientException implements Exception {
   /// [ClientException] constructor
-  const ClientException({required this.message});
+  const ClientException({required this.message, required this.error});
   final String message;
+  final String error;
 }
 
 /// [UnauthorizedException] any exception for unathorization

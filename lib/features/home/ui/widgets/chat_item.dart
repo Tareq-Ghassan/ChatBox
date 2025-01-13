@@ -1,7 +1,8 @@
-import 'package:chat/core/function/common_functions.dart';
+
+import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/routes/app_routes.dart';
 import 'package:chat/core/routes/route_manger.dart';
-import 'package:chat/core/theme/colors.dart';
+import 'package:chat/core/util/theme_utils.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
