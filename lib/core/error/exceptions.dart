@@ -41,3 +41,6 @@ class ErrorException implements Exception {
   const ErrorException({required this.message});
   final String message;
 }
+
+/// [NetworkException] no internet connnection Exception
+class NetworkException implements Exception {}

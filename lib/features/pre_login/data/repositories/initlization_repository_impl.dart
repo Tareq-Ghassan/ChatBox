@@ -1,5 +1,5 @@
-import 'package:chat/core/util/network_info.dart';
 import 'package:chat/core/error/failure.dart';
+import 'package:chat/core/util/network_info.dart';
 import 'package:chat/features/pre_login/data/data_source/initlization_data_source.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart';
@@ -22,12 +22,14 @@ class InitlizationRepositoryImpl implements InitializeRepository {
   @override
   Future<Either<Failure, Initialize>> getIsInitialized() async {
     final isConntected = await networkInfo.isConnected;
+
+    // return Right(await dataSource.getIsInitialized());
     if (isConntected) {
       try {
         final response = await dataSource.getIsInitialized();
         if (response.header?.errorCode == '0') {
           return Right(response);
-        }else{
+        } else {
           return Left(ClientFailure());
         }
       } on ServerFailure {
@@ -36,7 +38,7 @@ class InitlizationRepositoryImpl implements InitializeRepository {
         return Left(CatchFailure());
       }
     } else {
-      return Left(ServerFailure());
+      return Left(NetworkFailure());
     }
   }
 }

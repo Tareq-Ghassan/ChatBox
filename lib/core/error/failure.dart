@@ -27,3 +27,6 @@ class UnauthorizedFailure extends Failure {}
 
 /// [ErrorFailure] any error Failure that need to be shown on UI
 class ErrorFailure extends Failure {}
+
+/// [NetworkFailure] no internet connnection Failures
+class NetworkFailure extends Failure {}
