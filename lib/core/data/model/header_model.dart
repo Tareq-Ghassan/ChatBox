@@ -5,8 +5,8 @@ class HeaderModel {
 
   /// [HeaderModel.fromJson] to convert to [HeaderModel] object
   HeaderModel.fromJson(Map<String, dynamic> json) {
-    errorCode = json['errorCode'] as String?;
-    message = json['message'] as String?;
+    errorCode = json['errorCode']?.toString();
+    message = json['message']?.toString();
   }
 
   /// [errorCode] holds error code

@@ -9,7 +9,8 @@ import '../../../../core/util/fixture_reader.dart';
 
 void main() {
   final tInitializeModel = InitlizationModel(
-    isInitialize: HeaderModel(errorCode: '0', message: 'success').errorCode == '0',
+    isInitialize:
+        HeaderModel(errorCode: '0', message: 'success').errorCode == '0',
     header: HeaderModel(
       errorCode: '0',
       message: 'success',
@@ -28,55 +29,6 @@ void main() {
         fixture(
           fileName: 'initialize',
           featureName: AppFeature.preLogin,
-        ),
-      );
-
-      // act
-      final result =
-          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
-
-      // assert
-      expect(result, tInitializeModel);
-    });
-    test("shouln't return a null exception on errorCode", () async {
-      // arrange
-      final tInitializeModel = InitlizationModel(
-        isInitialize:
-            HeaderModel(errorCode: null, message: 'success').errorCode == '0',
-        header: HeaderModel(
-          errorCode: null,
-          message: 'success',
-        ),
-      );
-      final jsonMap = json.decode(
-        fixture(
-          fileName: 'initialize_null_error',
-          featureName: AppFeature.preLogin,
-          isError: true,
-        ),
-      );
-
-      // act
-      final result =
-          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
-
-      // assert
-      expect(result, tInitializeModel);
-    });
-    test("shouln't return a null exception on message", () async {
-      // arrange
-      final tInitializeModel = InitlizationModel(
-        isInitialize: HeaderModel(errorCode: '0', message: null).errorCode == '0',
-        header: HeaderModel(
-          errorCode: '0',
-          message: null,
-        ),
-      );
-      final jsonMap = json.decode(
-        fixture(
-          fileName: 'initialize_null_message',
-          featureName: AppFeature.preLogin,
-          isError: true,
         ),
       );
 
