@@ -1,5 +1,5 @@
 
-import 'package:chat/features/pre_login/domain/usecase/get_is_initialized.dart';
+import 'package:chat/features/pre_login/domain/usecase/initialize_usecase.dart';
 import 'package:chat/features/pre_login/ui/bloc/init_event.dart';
 import 'package:chat/features/pre_login/ui/bloc/init_state.dart';
 import 'package:flutter/material.dart';

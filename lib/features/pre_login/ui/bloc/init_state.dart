@@ -1,4 +1,4 @@
-import 'package:chat/features/pre_login/data/model/initlization_model.dart';
+import 'package:chat/features/pre_login/data/model/initialize_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 

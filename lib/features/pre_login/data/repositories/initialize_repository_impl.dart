@@ -1,27 +1,27 @@
 import 'package:chat/core/error/exceptions.dart';
 import 'package:chat/core/error/failure.dart';
-import 'package:chat/features/pre_login/data/data_source/initlization_data_source.dart';
+import 'package:chat/features/pre_login/data/data_source/initialize_data_source.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart';
 import 'package:dartz/dartz.dart';
 
-/// [InitlizationRepositoryImpl] repository implementation
-class InitlizationRepositoryImpl implements InitializeRepository {
-  /// [InitlizationRepositoryImpl] constructor
-  InitlizationRepositoryImpl({
+/// [InitializeRepositoryImpl] repository implementation
+class InitializeRepositoryImpl implements InitializeRepository {
+  /// [InitializeRepositoryImpl] constructor
+  InitializeRepositoryImpl({
     required this.dataSource,
   });
 
   /// [dataSource] represent data source
-  final InitlizationDataSource dataSource;
+  final InitializeDataSource dataSource;
 
   @override
-  Future<Either<Failure, Initialize>> getIsInitialized({
+  Future<Either<Failure, Initialize>> initialize({
     required String appKey,
     required String appSecret,
   }) async {
     try {
-      final response = await dataSource.getIsInitialized(
+      final response = await dataSource.initialize(
         appKey: appKey,
         appSecret: appSecret,
       );

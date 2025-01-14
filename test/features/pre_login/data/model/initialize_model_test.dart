@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 import 'package:chat/core/data/model/header_model.dart';
-import 'package:chat/features/pre_login/data/model/initlization_model.dart';
+import 'package:chat/features/pre_login/data/model/initialize_model.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../core/util/fixture_reader.dart';
 
 void main() {
-  final tInitializeModel = InitlizationModel(
+  final tInitializeModel = InitializeModel(
     isInitialize:
         HeaderModel(errorCode: '0', message: 'success').errorCode == '0',
     header: HeaderModel(
@@ -34,14 +34,14 @@ void main() {
 
       // act
       final result =
-          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
+          InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);
     });
     test("shouln't return a null exception on header", () async {
       // arrange
-      const tInitializeModel = InitlizationModel(
+      const tInitializeModel = InitializeModel(
         isInitialize: false,
         header: null,
       );
@@ -55,7 +55,7 @@ void main() {
 
       // act
       final result =
-          InitlizationModel.fromJson(jsonMap as Map<String, dynamic>);
+          InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);

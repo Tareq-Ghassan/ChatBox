@@ -4,9 +4,9 @@ import 'dart:async';
 
 import 'package:chat/core/error/exceptions.dart';
 import 'package:chat/core/error/failure.dart';
-import 'package:chat/features/pre_login/data/data_source/initlization_data_source.dart';
-import 'package:chat/features/pre_login/data/model/initlization_model.dart';
-import 'package:chat/features/pre_login/data/repositories/initlization_repository_impl.dart';
+import 'package:chat/features/pre_login/data/data_source/initialize_data_source.dart';
+import 'package:chat/features/pre_login/data/model/initialize_model.dart';
+import 'package:chat/features/pre_login/data/repositories/initialize_repository_impl.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -14,22 +14,22 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 @GenerateNiceMocks([
-  MockSpec<InitlizationDataSource>(),
+  MockSpec<InitializeDataSource>(),
 ])
-import 'initlization_repo_impl_test.mocks.dart';
+import 'initialize_repo_impl_test.mocks.dart';
 
 void main() {
-  late InitlizationRepositoryImpl repository;
-  late MockInitlizationDataSource mockDataSource;
+  late InitializeRepositoryImpl repository;
+  late MockInitializeDataSource mockDataSource;
   const tIsInitialize = true;
-  const tInitializeModel = InitlizationModel(isInitialize: tIsInitialize);
+  const tInitializeModel = InitializeModel(isInitialize: tIsInitialize);
   const Initialize tInitialize = tInitializeModel;
   const tAppKey = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
   const tAppSecret = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
 
   setUpAll(() async {
-    mockDataSource = MockInitlizationDataSource();
-    repository = InitlizationRepositoryImpl(
+    mockDataSource = MockInitializeDataSource();
+    repository = InitializeRepositoryImpl(
       dataSource: mockDataSource,
     );
   });
@@ -43,14 +43,14 @@ void main() {
         () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
       ).thenAnswer((_) async => tInitializeModel);
 
       // Act
-      final result = await repository.getIsInitialized(
+      final result = await repository.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       );
@@ -58,7 +58,7 @@ void main() {
       // Assert
       expect(result, equals(const Right<Failure, Initialize>(tInitialize)));
       verify(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
@@ -67,14 +67,14 @@ void main() {
     test('Should return Network Failure when no internet connection', () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
       ).thenThrow(NetworkException());
 
       // Act
-      final result = await repository.getIsInitialized(
+      final result = await repository.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       );
@@ -88,21 +88,21 @@ void main() {
         () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
       ).thenThrow(const ServerException(message: 'Server error'));
 
       // Act
-      final result = await repository.getIsInitialized(
+      final result = await repository.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       );
 
       // Assert
       verify(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
@@ -122,21 +122,21 @@ void main() {
         () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
       ).thenThrow(const UnauthorizedException(message: 'error'));
 
       // Act
-      final result = await repository.getIsInitialized(
+      final result = await repository.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       );
 
       // Assert
       verify(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
@@ -156,21 +156,21 @@ void main() {
         () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
       ).thenThrow(const ClientException(error: '-1', message: 'error'));
 
       // Act
-      final result = await repository.getIsInitialized(
+      final result = await repository.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       );
 
       // Assert
       verify(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
@@ -188,7 +188,7 @@ void main() {
     test('Should allow multiple calls without interference', () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
@@ -196,8 +196,8 @@ void main() {
 
       // Act
       final results = await Future.wait([
-        repository.getIsInitialized(appKey: tAppKey, appSecret: tAppSecret),
-        repository.getIsInitialized(appKey: tAppKey, appSecret: tAppSecret),
+        repository.initialize(appKey: tAppKey, appSecret: tAppSecret),
+        repository.initialize(appKey: tAppKey, appSecret: tAppSecret),
       ]);
 
       // Assert
@@ -214,7 +214,7 @@ void main() {
         () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
@@ -226,14 +226,14 @@ void main() {
       );
 
       // Act
-      final result = await repository.getIsInitialized(
+      final result = await repository.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       );
 
       // Assert
       verify(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
@@ -255,14 +255,14 @@ void main() {
         () async {
       // Arrange
       when(
-        mockDataSource.getIsInitialized(
+        mockDataSource.initialize(
           appKey: tAppKey,
           appSecret: tAppSecret,
         ),
       ).thenThrow(TimeoutException('Request timeout'));
 
       // Act
-      final result = await repository.getIsInitialized(
+      final result = await repository.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       );
@@ -279,7 +279,7 @@ void main() {
     final expectedStackTrace = StackTrace.fromString('mocked-stack-trace');
 
     when(
-      mockDataSource.getIsInitialized(
+      mockDataSource.initialize(
         appKey: tAppKey,
         appSecret: tAppSecret,
       ),
@@ -291,7 +291,7 @@ void main() {
     );
 
     // Act
-    final result = await repository.getIsInitialized(
+    final result = await repository.initialize(
       appKey: tAppKey,
       appSecret: tAppSecret,
     );

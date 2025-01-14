@@ -1,13 +1,13 @@
 import 'package:chat/core/data/model/header_model.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 
-/// [InitlizationModel] holds initialization of the app
-class InitlizationModel extends Initialize {
-  /// [InitlizationModel] constructor
-  const InitlizationModel({required super.isInitialize, this.header});
+/// [InitializeModel] holds initialization of the app
+class InitializeModel extends Initialize {
+  /// [InitializeModel] constructor
+  const InitializeModel({required super.isInitialize, this.header});
 
-  /// [InitlizationModel.fromJson] convert to [InitlizationModel] object
-  InitlizationModel.fromJson(Map<String, dynamic> json)
+  /// [InitializeModel.fromJson] convert to [InitializeModel] object
+  InitializeModel.fromJson(Map<String, dynamic> json)
       : header = json['header'] != null
             ? HeaderModel.fromJson(json['header'] as Map<String, dynamic>)
             : null,

@@ -1,12 +1,12 @@
 
 import 'package:chat/core/data/data_source/remote/remote.dart';
 import 'package:chat/core/error/exceptions.dart';
-import 'package:chat/features/pre_login/data/model/initlization_model.dart';
+import 'package:chat/features/pre_login/data/model/initialize_model.dart';
 
-/// [InitlizationDataSource] an abstract class holds Data Source
-abstract class InitlizationDataSource {
+/// [InitializeDataSource] an abstract class holds Data Source
+abstract class InitializeDataSource {
   /// Calls `serverInit` API
-  Future<InitlizationModel> getIsInitialized({
+  Future<InitializeModel> initialize({
     required String appKey,
     required String appSecret,
   });
@@ -14,7 +14,7 @@ abstract class InitlizationDataSource {
 
 /// [InitlizationDataSourceImpl] represnet Data source implementation
 class InitlizationDataSourceImpl extends BaseRemoteDataSource
-    implements InitlizationDataSource {
+    implements InitializeDataSource {
   /// [InitlizationDataSourceImpl] constructor
   InitlizationDataSourceImpl(this.api, {required super.networkInfo});
 
@@ -22,11 +22,11 @@ class InitlizationDataSourceImpl extends BaseRemoteDataSource
   final ApiClient api;
 
   @override
-  Future<InitlizationModel> getIsInitialized({
+  Future<InitializeModel> initialize({
     required String appKey,
     required String appSecret,
   }) async {
-    final result = await executeApiCall<InitlizationModel>(
+    final result = await executeApiCall<InitializeModel>(
       apiCall: () async {
         final response = await api.post(
           'init',
@@ -38,7 +38,7 @@ class InitlizationDataSourceImpl extends BaseRemoteDataSource
         );
         return response.data as Map<String, dynamic>;
       },
-      fromJson: InitlizationModel.fromJson,
+      fromJson: InitializeModel.fromJson,
     );
     if (result.header?.errorCode == '0') {
       return result;

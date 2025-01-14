@@ -1,8 +1,8 @@
 import 'package:chat/core/error/failure.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart';
-import 'package:chat/features/pre_login/domain/usecase/get_is_initialized.dart';
-import 'package:chat/features/pre_login/domain/usecase/params/get_is_intialized_params.dart';
+import 'package:chat/features/pre_login/domain/usecase/initialize_usecase.dart';
+import 'package:chat/features/pre_login/domain/usecase/params/initialize_params.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -11,25 +11,25 @@ import 'package:mockito/mockito.dart';
 @GenerateNiceMocks([MockSpec<InitializeRepository>()])
 
 // import generated mock classes
-import './splash_init_test.mocks.dart';
+import './initialize_usecase_test.mocks.dart';
 
 void main() {
-  late GetIsInitialized useCase;
+  late InitializeUseCase useCase;
   late MockInitializeRepository mockInitializeRepository;
 
   setUpAll(() {
     mockInitializeRepository = MockInitializeRepository();
-    useCase = GetIsInitialized(repository: mockInitializeRepository);
+    useCase = InitializeUseCase(repository: mockInitializeRepository);
   });
 
   const tIsInitialize = true;
   const tInitialize = Initialize(isInitialize: tIsInitialize);
-  const tParams = GetIsIntializedParams(appKey: '', appSecret: '');
+  const tParams = InitializeParams(appKey: '', appSecret: '');
 
   test('Should get Initialization value form repo', () async {
     // arrange
     when(
-      mockInitializeRepository.getIsInitialized(
+      mockInitializeRepository.initialize(
         appKey: tParams.appKey,
         appSecret: tParams.appSecret,
       ),
@@ -41,7 +41,7 @@ void main() {
     // assert
     expect(result, const Right<Failure, Initialize>(tInitialize));
     verify(
-      mockInitializeRepository.getIsInitialized(
+      mockInitializeRepository.initialize(
         appKey: tParams.appKey,
         appSecret: tParams.appSecret,
       ),
