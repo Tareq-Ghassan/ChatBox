@@ -1,5 +1,5 @@
-import 'package:chat/core/data/data_source/remote/base_remote_data_source.dart';
-import 'package:chat/core/error/exceptions.dart';
+import 'package:chat/core/data/data_source/remote/remote.dart';
+import 'package:chat/core/error/error.dart';
 import 'package:chat/core/util/network_info.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

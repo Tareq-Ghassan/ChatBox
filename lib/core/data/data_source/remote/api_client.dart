@@ -1,7 +1,6 @@
 // ignore_for_file: strict_raw_type
+part of 'remote.dart';
 
-import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// [ApiClient] an abstract class defining API methods
 abstract class ApiClient {

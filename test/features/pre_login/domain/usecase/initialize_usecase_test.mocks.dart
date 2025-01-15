@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:chat/core/error/failure.dart' as _i5;
+import 'package:chat/core/error/error.dart' as _i5;
 import 'package:chat/features/pre_login/domain/entity/initialize.dart' as _i6;
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart'
     as _i3;

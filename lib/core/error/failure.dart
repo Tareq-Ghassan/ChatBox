@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
-import 'package:equatable/equatable.dart';
+part of 'error.dart';
+
 
 /// [Failure] an abstract class holds error object
 abstract class Failure extends Equatable {
@@ -55,3 +56,6 @@ class ErrorFailure extends Failure {
 
 /// [NetworkFailure] no internet connnection Failures
 class NetworkFailure extends Failure {}
+
+/// [InvalidInputFailure] no internet connnection Failures
+class InvalidInputFailure extends Failure {}

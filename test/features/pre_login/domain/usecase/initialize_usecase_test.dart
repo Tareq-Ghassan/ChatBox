@@ -1,4 +1,5 @@
-import 'package:chat/core/error/failure.dart';
+
+import 'package:chat/core/error/error.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart';
 import 'package:chat/features/pre_login/domain/usecase/initialize_usecase.dart';

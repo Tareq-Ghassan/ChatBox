@@ -1,4 +1,4 @@
-import 'package:chat/core/error/failure.dart';
+import 'package:chat/core/error/error.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 

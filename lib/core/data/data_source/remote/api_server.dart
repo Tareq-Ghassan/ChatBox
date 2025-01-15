@@ -1,8 +1,5 @@
 // ignore_for_file: strict_raw_type
-
-import 'package:chat/core/data/data_source/remote/api_client.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+part of 'remote.dart';
 
 /// [APIserver] implements ApiClient with actual API calls
 class APIserver extends ApiClient {

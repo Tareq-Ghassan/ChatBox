@@ -1,6 +1,4 @@
-import 'package:chat/core/error/exceptions.dart';
-import 'package:chat/core/util/network_info.dart';
-import 'package:dio/dio.dart';
+part of 'remote.dart';
 
 /// [BaseRemoteDataSource] a generic data source class
 abstract class BaseRemoteDataSource {

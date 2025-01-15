@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
+part of 'error.dart';
+
 /// [ServerException] represent any server exception could happen
 class ServerException implements Exception {
   /// [ServerException] constructor

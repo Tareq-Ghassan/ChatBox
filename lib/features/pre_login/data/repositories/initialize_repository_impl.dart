@@ -1,5 +1,4 @@
-import 'package:chat/core/error/exceptions.dart';
-import 'package:chat/core/error/failure.dart';
+import 'package:chat/core/error/error.dart';
 import 'package:chat/features/pre_login/data/data_source/initialize_data_source.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart';

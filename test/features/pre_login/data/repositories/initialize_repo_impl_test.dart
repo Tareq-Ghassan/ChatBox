@@ -2,8 +2,7 @@
 
 import 'dart:async';
 
-import 'package:chat/core/error/exceptions.dart';
-import 'package:chat/core/error/failure.dart';
+import 'package:chat/core/error/error.dart';
 import 'package:chat/features/pre_login/data/data_source/initialize_data_source.dart';
 import 'package:chat/features/pre_login/data/model/initialize_model.dart';
 import 'package:chat/features/pre_login/data/repositories/initialize_repository_impl.dart';
@@ -82,7 +81,7 @@ void main() {
       // Assert
       expect(result, equals(Left<Failure, Initialize>(NetworkFailure())));
     });
-    
+
     test(
         'Should return Server Failure when the call to remote data source throws ServerException',
         () async {

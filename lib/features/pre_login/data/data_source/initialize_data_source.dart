@@ -1,6 +1,5 @@
-
 import 'package:chat/core/data/data_source/remote/remote.dart';
-import 'package:chat/core/error/exceptions.dart';
+import 'package:chat/core/error/error.dart';
 import 'package:chat/features/pre_login/data/model/initialize_model.dart';
 
 /// [InitializeDataSource] an abstract class holds Data Source

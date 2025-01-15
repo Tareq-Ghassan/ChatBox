@@ -30,7 +30,7 @@ List<BlocProvider> multiBlocProvider = [
   BlocProvider<HomeIndexCubit>(
     create: (BuildContext context) => HomeIndexCubit(),
   ),
-    BlocProvider<AppBarTitleCubit>(
+  BlocProvider<AppBarTitleCubit>(
     create: (BuildContext context) => AppBarTitleCubit(),
   ),
 ];
