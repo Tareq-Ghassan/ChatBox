@@ -1,0 +1,42 @@
+{
+  "@pleaseEnterValidation": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "calls": "Calls",
+  "confirmPassword": "Confirm Password",
+  "contacts": "Contacts",
+  "createAccount": "Create an account",
+  "email": "Your email",
+  "existingAccount": "Existing account? ",
+  "exit": "Exit",
+  "forgotPassword": "Forgot password?",
+  "home": "Home",
+  "internalServerError": "Unable to process the request",
+  "internalServerErrorDescription": "An error occurred while sending the data. Please try again. If this issue keeps happening, contact our customer center",
+  "invalidEmailFormat": "Invalid Email Format",
+  "loading": "Loading...",
+  "login": "Log in",
+  "loginHeader": "Log in to Chatbox",
+  "loginSubtitle": "Welcome back! Sign in using your social account or email to continue us",
+  "message": "Message",
+  "minimumSixChars": "Minimum 6 characters",
+  "name": "Name",
+  "nameMustBe2Syllables": "Name must be 2 syllables or more",
+  "onboardingBody": "Our chat app is the perfect way to stay connected with friends and family.",
+  "onboardingHeader": "Connect friends easily & quickly",
+  "password": "Password",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "pleaseEnterValidation": "Please enter {type, select, mail{Email}  pass {Password} name{Name} other{{type}}}",
+  "settings": "Settings",
+  "signUpMail": "Sign up within mail",
+  "signupHeader": "Sign up with Email",
+  "signupSubtitle": "Get chatting with friends and family today by signing up for our chat app!",
+  "somethingWentWrong": "Unable to complete request!",
+  "somethingWentWrongDescription": "An error occurred while retrieving the data. Please try again. If this issue keeps happening, contact our customer center",
+  "welcomeToChatBox": "Welcome to Chat Box",
+  "workingOnApp": "We are currently working on App please try later"
+}
