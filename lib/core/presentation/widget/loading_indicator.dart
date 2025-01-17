@@ -1,5 +1,5 @@
 import 'package:chat/core/presentation/theme/colors.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/core/util/theme_utils.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +71,7 @@ class LoadingIndicatorDialog {
   static void dismiss() {
     if (isDisplayed) {
       try {
-        AppRouter.pop();
+        KNavigator.pop();
       } catch (e) {
         debugPrint(e.toString());
         // Handle the exception, e.g., context might be null

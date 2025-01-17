@@ -1,4 +1,4 @@
-import 'package:chat/core/presentation/widget/eye_suficx_icon.dart';
+import 'package:chat/core/presentation/widget/eye_sufficx_icon.dart';
 import 'package:chat/core/presentation/widget/k_text_form_field.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/features/authentication/domain/usecase/authentication_controller.dart';
@@ -35,7 +35,7 @@ class PasswordTextField extends StatelessWidget {
                 : appLocalizations.password,
             obscureText: hidePassword,
             contentPadding: const EdgeInsets.symmetric(vertical: 16),
-            suffixIcon: EyeSufixIcon(
+            suffixIcon: EyeSuffixIcon(
               iconData: hidePassword
                   ? Icons.visibility_off_outlined
                   : Icons.visibility_outlined,

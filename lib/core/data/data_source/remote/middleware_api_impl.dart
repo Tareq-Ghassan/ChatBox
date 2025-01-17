@@ -3,16 +3,8 @@ part of 'remote.dart';
 
 /// [MiddlewareApiImpl] implements ApiClient with actual API calls
 class MiddlewareApiImpl extends MiddlewareApi {
-  /// Factory constructor to return the same instance
-  factory MiddlewareApiImpl() {
-    return _instance;
-  }
-  // Private constructor to prevent external instantiation
-  MiddlewareApiImpl._internal();
-
-  // The singleton instance of APIserver
-  static final MiddlewareApiImpl _instance = MiddlewareApiImpl._internal();
-
+  /// [MiddlewareApiImpl] constructor
+  MiddlewareApiImpl({required super.http});
   @override
   Future<Response> get(
     String serviceName,
@@ -21,7 +13,7 @@ class MiddlewareApiImpl extends MiddlewareApi {
   }) async {
     try {
       final url = '$serviceName/$operation';
-      return await dio.get(url, queryParameters: params);
+      return await http.get(url, queryParameters: params);
     } on DioException catch (e) {
       if (e.response != null) {
         debugPrint('Error response: ${e.response!.data}');
@@ -44,7 +36,7 @@ class MiddlewareApiImpl extends MiddlewareApi {
   }) async {
     try {
       final url = '$serviceName/$operation';
-      return await dio.post(url, data: data);
+      return await http.post(url, data: data);
     } on DioException catch (e) {
       if (e.response != null) {
         debugPrint('Error response: ${e.response!.data}');
@@ -67,7 +59,7 @@ class MiddlewareApiImpl extends MiddlewareApi {
   }) async {
     try {
       final url = '$serviceName/$operation';
-      return await dio.put(url, data: data);
+      return await http.put(url, data: data);
     } on DioException catch (e) {
       if (e.response != null) {
         debugPrint('Error response: ${e.response!.data}');
@@ -90,7 +82,7 @@ class MiddlewareApiImpl extends MiddlewareApi {
   }) async {
     try {
       final url = '$serviceName/$operation';
-      return await dio.delete(url, queryParameters: params);
+      return await http.delete(url, queryParameters: params);
     } on DioException catch (e) {
       if (e.response != null) {
         debugPrint('Error response: ${e.response!.data}');

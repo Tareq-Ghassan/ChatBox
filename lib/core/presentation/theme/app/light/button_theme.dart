@@ -7,7 +7,7 @@ final elevatedButtonTheme = ElevatedButtonThemeData(
     backgroundColor: WidgetStateProperty.resolveWith<Color>(
       (Set<WidgetState> states) {
         if (states.contains(WidgetState.disabled)) {
-          return KColors.dissableColor;
+          return KColors.disableColor;
         }
         return KColors.greenColor;
       },

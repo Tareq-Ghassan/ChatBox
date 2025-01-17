@@ -10,26 +10,26 @@ import 'network_info_test.mocks.dart';
 
 void main() {
   late NetworkInfoImpl networkInfoImpl;
-  late MockInternetConnection mockInternetConnnection;
+  late MockInternetConnection mockInternetConnection;
 
   setUpAll(() {
-    mockInternetConnnection = MockInternetConnection();
-    networkInfoImpl = NetworkInfoImpl(mockInternetConnnection);
+    mockInternetConnection = MockInternetConnection();
+    networkInfoImpl = NetworkInfoImpl(mockInternetConnection);
   });
 
   group('isConnected', () {
     test('should check if the device is online', () async {
       
       // arrange
-      when(mockInternetConnnection.hasInternetAccess)
+      when(mockInternetConnection.hasInternetAccess)
           .thenAnswer((_) async => true);
       // act
       final result = await networkInfoImpl.isConnected;
 
       // assert
-      verify(mockInternetConnnection.hasInternetAccess);
+      verify(mockInternetConnection.hasInternetAccess);
       expect(result, true);
-      verifyNoMoreInteractions(mockInternetConnnection);
+      verifyNoMoreInteractions(mockInternetConnection);
     });
   });
 }

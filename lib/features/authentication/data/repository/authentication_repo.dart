@@ -31,8 +31,8 @@ class AuthenticationRepo {
     }
   }
 
-  /// [regisetr] function to register new user
-  Future<Login?> regisetr({
+  /// [register] function to register new user
+  Future<Login?> register({
     required String name,
     required String email,
     required String password,

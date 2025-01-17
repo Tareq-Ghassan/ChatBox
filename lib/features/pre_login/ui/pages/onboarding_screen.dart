@@ -2,8 +2,7 @@ import 'package:chat/core/presentation/assets/icons.dart';
 import 'package:chat/core/presentation/assets/images.dart';
 import 'package:chat/core/presentation/theme/app/dark/theme_data_dark.dart';
 import 'package:chat/core/presentation/theme/colors.dart';
-import 'package:chat/core/routes/app_routes.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ class OnboardingScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ElevatedButton(
-                  onPressed: () => AppRouter.pushNamed(KRoutes.signup),
+                  onPressed: () => KNavigator.pushNamed(KRoutes.signup),
                   child: Text(appLocalizations.signUpMail),
                 ),
               ),
@@ -37,7 +36,7 @@ class OnboardingScreen extends StatelessWidget {
                         .copyWith(color: KColors.grayColor),
                   ),
                   TextButton(
-                    onPressed: () => AppRouter.pushNamed(KRoutes.login),
+                    onPressed: () => KNavigator.pushNamed(KRoutes.login),
                     child: Text(
                       appLocalizations.login,
                     ),

@@ -13,7 +13,7 @@ class InitializeUseCase implements BaseUseCase<Initialize, InitializeParams> {
   /// [repository] holds [InitializeRepository] class
   final InitializeRepository repository;
 
-  // /// [call] exe function
+  /// [call] exe function
   @override
   Future<Either<Failure, Initialize>> call(
     InitializeParams initializeParams,

@@ -4,11 +4,10 @@ part of 'remote.dart';
 /// [MiddlewareApi] an abstract class defining API methods
 abstract class MiddlewareApi {
   ///[MiddlewareApi] constructor
-  MiddlewareApi()
-      : dio = Dio(BaseOptions(baseUrl: dotenv.env['BASE_URL'] ?? ''));
+  MiddlewareApi({required this.http});
 
   /// instance of DIO package
-  final Dio dio;
+  final Dio http;
 
   /// [get] represents the GET method
   Future<Response> get(

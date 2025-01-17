@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-///[iconButtonstyle] used for search icon in home page
-final iconButtonstyle = ButtonStyle(
+///[iconButtonStyle] used for search icon in home page
+final iconButtonStyle = ButtonStyle(
   iconColor: const WidgetStatePropertyAll(
     Colors.white,
   ),

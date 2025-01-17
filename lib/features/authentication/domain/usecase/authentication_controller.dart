@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:chat/core/presentation/widget/dialog.dart';
-import 'package:chat/core/presentation/widget/loading_indecator.dart';
-import 'package:chat/core/routes/app_routes.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/presentation/widget/loading_indicator.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_event.dart';
@@ -34,7 +33,7 @@ String? validateEmail(
   return null;
 }
 
-/// [validateInputPassword] this function is to excute validation on
+/// [validateInputPassword] this function is to execute validation on
 /// password Field
 ///
 /// it only check that its not empty
@@ -54,7 +53,7 @@ String? validateInputPassword(BuildContext context, String? value) {
   return null;
 }
 
-/// [validateConfirmPassword] this function is to excute validation on
+/// [validateConfirmPassword] this function is to execute validation on
 /// confirm password Field
 String? validateConfirmPassword(BuildContext context, String? value) {
   if (value != null) {
@@ -92,15 +91,15 @@ String? validateFullname(BuildContext context, String? value) {
 
 /// [submitLogin] a function to submit login
 Future<void> submitLogin(GlobalKey<FormState> formKey) async {
-  final isVaild = formKey.currentState!.validate();
-  if (!isVaild) {
+  final isValid = formKey.currentState!.validate();
+  if (!isValid) {
     return;
   }
   formKey.currentState!.save();
-  final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>().state;
+  final email = KNavigator.navigatorKey.currentContext!.read<EmailCubit>().state;
   final password =
-      AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
-  BlocProvider.of<AuthenticationBloc>(AppRouter.navigatorKey.currentContext!)
+      KNavigator.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  BlocProvider.of<AuthenticationBloc>(KNavigator.navigatorKey.currentContext!)
       .add(PerformLogin(email: email, password: password));
 }
 
@@ -115,7 +114,7 @@ Future<void> loginListenerController(
   if (state is AuthenticationIsLoaded) {
     LoadingIndicatorDialog.dismiss();
     unawaited(
-      AppRouter.pushNamedAndRemoveUntil(
+      KNavigator.pushNamedAndRemoveUntil(
         KRoutes.homeScreen,
         (route) => route.isFirst,
       ),
@@ -126,7 +125,7 @@ Future<void> loginListenerController(
     LoadingIndicatorDialog.dismiss();
     unawaited(
       showDialog(
-        context: AppRouter.navigatorKey.currentContext!,
+        context: KNavigator.navigatorKey.currentContext!,
         builder: (context) => CustomDialogBox(
           title: state is AuthenticationShowFailure
               ? appLocalizations.somethingWentWrong
@@ -135,7 +134,7 @@ Future<void> loginListenerController(
               ? state.errorMessage
               : appLocalizations.somethingWentWrongDescription,
           yesButtontext: appLocalizations.exit,
-          yesButtontOnTap: AppRouter.pop,
+          yesButtonOnTap: KNavigator.pop,
         ),
       ),
     );
@@ -144,22 +143,22 @@ Future<void> loginListenerController(
 
 /// [submitSignup] a function to submit SIGN UP
 Future<void> submitSignup(GlobalKey<FormState> formKey) async {
-  final isVaild = formKey.currentState!.validate();
-  if (!isVaild) {
+  final isValid = formKey.currentState!.validate();
+  if (!isValid) {
     return;
   }
   formKey.currentState!.save();
-  final name = AppRouter.navigatorKey.currentContext!.read<NameCubit>().state;
-  final email = AppRouter.navigatorKey.currentContext!.read<EmailCubit>().state;
+  final name = KNavigator.navigatorKey.currentContext!.read<NameCubit>().state;
+  final email = KNavigator.navigatorKey.currentContext!.read<EmailCubit>().state;
   final password =
-      AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
+      KNavigator.navigatorKey.currentContext!.read<PasswordCubit>().state;
   final confirmPassword =
-      AppRouter.navigatorKey.currentContext!.read<ConfirmPasswordCubit>().state;
+      KNavigator.navigatorKey.currentContext!.read<ConfirmPasswordCubit>().state;
 
-  AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().state;
-  BlocProvider.of<AuthenticationBloc>(AppRouter.navigatorKey.currentContext!)
+  KNavigator.navigatorKey.currentContext!.read<PasswordCubit>().state;
+  BlocProvider.of<AuthenticationBloc>(KNavigator.navigatorKey.currentContext!)
       .add(
-    Regisetr(
+    Register(
       name: name,
       email: email,
       password: password,
@@ -179,7 +178,7 @@ Future<void> signUpListenerController(
   if (state is AuthenticationIsLoaded) {
     LoadingIndicatorDialog.dismiss();
     unawaited(
-      AppRouter.pushNamedAndRemoveUntil(
+      KNavigator.pushNamedAndRemoveUntil(
         KRoutes.homeScreen,
         (route) => route.isFirst,
       ),
@@ -190,7 +189,7 @@ Future<void> signUpListenerController(
     LoadingIndicatorDialog.dismiss();
     unawaited(
       showDialog(
-        context: AppRouter.navigatorKey.currentContext!,
+        context: KNavigator.navigatorKey.currentContext!,
         builder: (context) => CustomDialogBox(
           title: state is AuthenticationShowFailure
               ? appLocalizations.somethingWentWrong
@@ -199,7 +198,7 @@ Future<void> signUpListenerController(
               ? state.errorMessage
               : appLocalizations.somethingWentWrongDescription,
           yesButtontext: appLocalizations.exit,
-          yesButtontOnTap: AppRouter.pop,
+          yesButtonOnTap: KNavigator.pop,
         ),
       ),
     );

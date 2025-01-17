@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 /// [SettingsPage] represent calls page
 class SettingsPage extends StatelessWidget {
-  ///[SettingsPage] constructou
+  ///[SettingsPage] constructor
   const SettingsPage({super.key});
 
   @override

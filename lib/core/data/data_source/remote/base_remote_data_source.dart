@@ -2,7 +2,7 @@ part of 'remote.dart';
 
 /// [BaseRemoteDataSource] a generic data source class
 abstract class BaseRemoteDataSource {
-  /// [BaseRemoteDataSource] constuctor
+  /// [BaseRemoteDataSource] constructor
   BaseRemoteDataSource({
     required this.networkInfo,
     required this.api,
@@ -11,7 +11,7 @@ abstract class BaseRemoteDataSource {
   /// [networkInfo] represent network info
   final NetworkInfo networkInfo;
 
-  /// [api] holds an instent of api client
+  /// [api] holds an instant of api client
   final MiddlewareApi api;
 
   /// [executeApiCall] utility method that handles the common logic for
@@ -20,8 +20,8 @@ abstract class BaseRemoteDataSource {
     required Future<Map<String, dynamic>> Function() apiCall,
     required T Function(Map<String, dynamic> json) fromJson,
   }) async {
-    final isConntected = await networkInfo.isConnected;
-    if (!isConntected) {
+    final isConnected = await networkInfo.isConnected;
+    if (!isConnected) {
       throw NetworkException();
     }
     try {

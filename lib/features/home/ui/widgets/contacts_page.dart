@@ -1,4 +1,4 @@
-import 'package:chat/features/home/ui/widgets/contect_item.dart';
+import 'package:chat/features/home/ui/widgets/contact_item.dart';
 import 'package:flutter/material.dart';
 
 /// [ContactsPage] represent contacts page

@@ -1,5 +1,5 @@
 import 'package:chat/core/presentation/theme/colors.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:flutter/material.dart';
 
 /// [CustomDialogBox] this is a Custom Widget to crete a Popup Widget
@@ -13,21 +13,21 @@ import 'package:flutter/material.dart';
 //       title: AppLocalizations.of(context)!.somethingWentWrong,
 //       descriptions: "$e",
 //       yesButtontext: AppLocalizations.of(context)!.exit,
-//       yesButtontOnTap: () => Navigator.pop(context),
+//       yesButtonOnTap: () => Navigator.pop(context),
 //     );
 //   },
 // );
 /// ```
 /// see also:
 ///
-/// *[descriptions] must not be null, this represent the discription text in
+/// *[descriptions] must not be null, this represent the description text in
 /// popup alert,
 ///
 /// *[yesButtontext] must not be null, this represent the text for yes button,
 ///
 /// *[title] property,
 ///
-/// *[yesButtontOnTap] Function,
+/// *[yesButtonOnTap] Function,
 ///
 /// *[cancelButtontext] property,
 ///
@@ -43,7 +43,7 @@ class CustomDialogBox extends StatefulWidget {
     super.key,
     this.cancelButtontext,
     this.cancelButtonOnTap,
-    this.yesButtontOnTap,
+    this.yesButtonOnTap,
   })  : assert(
           (cancelButtontext == null && cancelButtonOnTap == null) ||
               (cancelButtontext != null && cancelButtonOnTap != null),
@@ -51,9 +51,9 @@ class CustomDialogBox extends StatefulWidget {
           ' together',
         ),
         assert(
-          (yesButtontext == null && yesButtontOnTap == null) ||
-              (yesButtontext != null && yesButtontOnTap != null),
-          'Both yesButtontext and yesButtontOnTap must be provided together',
+          (yesButtontext == null && yesButtonOnTap == null) ||
+              (yesButtontext != null && yesButtonOnTap != null),
+          'Both yesButtontext and yesButtonOnTap must be provided together',
         );
 
   /// [title] must not be null, this represent the Title in the Alert
@@ -62,7 +62,7 @@ class CustomDialogBox extends StatefulWidget {
   /// [cancelButtontext] this represent the text for No or Cancel button
   final String? cancelButtontext;
 
-  /// [descriptions] must not be null, this represent the discription text
+  /// [descriptions] must not be null, this represent the description text
   /// in popup alert,
   final String descriptions;
 
@@ -79,8 +79,8 @@ class CustomDialogBox extends StatefulWidget {
   /// [cancelButtonOnTap] this is the onTap function for Cancel or No button
   final void Function()? cancelButtonOnTap;
 
-  /// [yesButtontOnTap] this is the onTap function for yes button
-  final void Function()? yesButtontOnTap;
+  /// [yesButtonOnTap] this is the onTap function for yes button
+  final void Function()? yesButtonOnTap;
 
   @override
   State<CustomDialogBox> createState() => _CustomDialogBoxState();
@@ -160,7 +160,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                         SizedBox(
                           height: 48,
                           child: ElevatedButton(
-                            onPressed: widget.yesButtontOnTap ?? AppRouter.pop,
+                            onPressed: widget.yesButtonOnTap ?? KNavigator.pop,
                             style: widget.isYesButtonBlue
                                 ? null
                                 : const ButtonStyle(
@@ -185,7 +185,7 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                           width: 110,
                           child: TextButton(
                             onPressed:
-                                widget.cancelButtonOnTap ?? AppRouter.pop,
+                                widget.cancelButtonOnTap ?? KNavigator.pop,
                             child: Text(
                               widget.cancelButtontext!,
                               style: Theme.of(context).textTheme.labelLarge,

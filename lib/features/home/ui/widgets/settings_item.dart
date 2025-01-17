@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 ///[SettingsItem] returns SettingsItem
 class SettingsItem extends StatelessWidget {
-  /// [SettingsItem] constru
+  /// [SettingsItem] constructor
   const SettingsItem({super.key});
 
   @override

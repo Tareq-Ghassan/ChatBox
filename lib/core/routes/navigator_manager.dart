@@ -1,16 +1,10 @@
 // ignore_for_file: public_member_api_docs
 
-import 'package:chat/core/routes/app_routes.dart';
-import 'package:chat/features/authentication/ui/pages/login_screen.dart';
-import 'package:chat/features/authentication/ui/pages/signup_screen.dart';
-import 'package:chat/features/chat/ui/pages/chat_screen.dart';
-import 'package:chat/features/home/ui/pages/home_screen.dart';
-import 'package:chat/features/pre_login/ui/pages/onboarding_screen.dart';
-import 'package:chat/features/pre_login/ui/pages/splash_screen.dart';
-import 'package:flutter/material.dart';
+part of 'route.dart';
 
-class AppRouter {
-  const AppRouter._();
+/// [KNavigator] a class where handle navigation cross the App
+class KNavigator {
+  const KNavigator._();
 
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
@@ -60,6 +54,7 @@ class AppRouter {
     }
   }
 
+  /// [_errorRoute] in case no route found
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute<dynamic>(
       builder: (_) => Scaffold(
@@ -73,6 +68,7 @@ class AppRouter {
     );
   }
 
+  /// [_setPage] which set the new screen into the material app
   static MaterialPageRoute<dynamic> _setPage({
     required Widget page,
     required RouteSettings settings,
@@ -83,10 +79,13 @@ class AppRouter {
     );
   }
 
+  /// [pushNamed] push to a new route
   static Future<dynamic> pushNamed(String routeName, {dynamic args}) {
     return navigatorKey.currentState!.pushNamed(routeName, arguments: args);
   }
 
+  /// [pushNamedAndRemoveUntilByName] push a new route after remove all
+  /// the routes until a `specific named route`
   static Future<dynamic> pushNamedAndRemoveUntilByName(
     String routeName,
     String untilRoute, {
@@ -99,6 +98,8 @@ class AppRouter {
     );
   }
 
+  /// [pushNamedAndRemoveUntil] push a new route after remove all
+  /// the routes until a `specific conditions`
   static Future<dynamic> pushNamedAndRemoveUntil(
     String routeName,
     bool Function(Route<dynamic>) untilRoute, {
@@ -111,11 +112,13 @@ class AppRouter {
     );
   }
 
+  /// [pushReplacement] push then remove the previous page
   static Future<dynamic> pushReplacement(String routeName, {dynamic args}) {
     return navigatorKey.currentState!
         .pushReplacementNamed(routeName, arguments: args);
   }
 
+  /// [popAndPushNamed] remove the previous page then push a new one
   static Future<dynamic> popAndPushNamed(String routeName, {dynamic args}) {
     return navigatorKey.currentState!
         .popAndPushNamed(routeName, arguments: args);
@@ -129,14 +132,17 @@ class AppRouter {
         .popAndPushNamed(routeName, arguments: args);
   }
 
+  /// [pop] remove the previous page
   static Future<void> pop([dynamic result]) async {
     navigatorKey.currentState!.pop(result);
   }
 
+  /// [popUntil] remove until a specific named route
   static void popUntil(String routeName) {
     navigatorKey.currentState!.popUntil(ModalRoute.withName(routeName));
   }
 
+  /// [popUntilRoot] pop the whole tree
   static void popUntilRoot() {
     navigatorKey.currentState!.popUntil(ModalRoute.withName(initialRoute));
   }

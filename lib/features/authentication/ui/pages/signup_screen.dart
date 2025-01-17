@@ -2,7 +2,7 @@
 import 'package:chat/core/presentation/widget/email_textfield.dart';
 import 'package:chat/core/presentation/widget/k_text_form_field.dart';
 import 'package:chat/core/presentation/widget/password_textfield.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/features/authentication/domain/usecase/authentication_controller.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
@@ -12,7 +12,7 @@ import 'package:chat/features/authentication/ui/widget/auth_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// [SignupScreen] represent singup screen
+/// [SignupScreen] represent signup screen
 class SignupScreen extends StatefulWidget {
   /// [SignupScreen] Constructor
   const SignupScreen({super.key});
@@ -25,12 +25,12 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   @override
   void initState() {
-    AppRouter.navigatorKey.currentContext!.read<EmailCubit>().email = '';
-    AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().password = '';
-    AppRouter.navigatorKey.currentContext!
+    KNavigator.navigatorKey.currentContext!.read<EmailCubit>().email = '';
+    KNavigator.navigatorKey.currentContext!.read<PasswordCubit>().password = '';
+    KNavigator.navigatorKey.currentContext!
         .read<ConfirmPasswordCubit>()
         .confirmPassword = '';
-    AppRouter.navigatorKey.currentContext!.read<NameCubit>().name = '';
+    KNavigator.navigatorKey.currentContext!.read<NameCubit>().name = '';
     super.initState();
   }
 

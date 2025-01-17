@@ -12,7 +12,7 @@ class ContactsItem extends StatelessWidget {
         radius: 24,
         backgroundImage: NetworkImage('https://via.placeholder.com/50'),
       ),
-      title: Text('Alex Linderson'),
+      title: Text('Alex'),
       subtitle: Text('Life is beautiful 👌'),
     );
   }

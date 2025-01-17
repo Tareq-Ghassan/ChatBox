@@ -10,10 +10,10 @@ class AuthHeader extends StatelessWidget {
     super.key,
   });
 
-  /// [title] repersent title
+  /// [title] represent title
   final String title;
 
-  /// [subtitle] repersent subtitle
+  /// [subtitle] represent subtitle
   final String subtitle;
 
   @override

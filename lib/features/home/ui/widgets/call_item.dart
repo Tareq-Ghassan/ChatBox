@@ -1,10 +1,10 @@
 import 'package:chat/core/presentation/assets/icons.dart';
 import 'package:flutter/material.dart';
 
-/// [CallIteam] represnet a single call item
-class CallIteam extends StatelessWidget {
-  /// [CallIteam] constructor
-  const CallIteam({super.key});
+/// [CallItem] represent a single call item
+class CallItem extends StatelessWidget {
+  /// [CallItem] constructor
+  const CallItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +23,14 @@ class CallIteam extends StatelessWidget {
       subtitle: const Row(
         children: [
           Icon(Icons.abc),
-          _whiteSapce,
+          _whiteSpace,
           Text('number 1'),
         ],
       ),
     );
   }
 
-  static const _whiteSapce = SizedBox(
+  static const _whiteSpace = SizedBox(
     width: 6,
   );
 }

@@ -51,10 +51,10 @@ class AuthenticationBloc
         debugPrint(error.toString());
       }
     });
-    on<Regisetr>((event, emit) async {
+    on<Register>((event, emit) async {
       emit(AuthenticationIsLoading());
       try {
-        final login = await authenticationRepo.regisetr(
+        final login = await authenticationRepo.register(
           name: event.name,
           email: event.email,
           password: event.password,

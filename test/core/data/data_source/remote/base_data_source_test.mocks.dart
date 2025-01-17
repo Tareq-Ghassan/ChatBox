@@ -60,15 +60,15 @@ class MockNetworkInfo extends _i1.Mock implements _i3.NetworkInfo {
 /// See the documentation for Mockito's code generation for more information.
 class MockMiddlewareApi extends _i1.Mock implements _i5.MiddlewareApi {
   @override
-  _i2.Dio get dio => (super.noSuchMethod(
-        Invocation.getter(#dio),
+  _i2.Dio get http => (super.noSuchMethod(
+        Invocation.getter(#http),
         returnValue: _FakeDio_0(
           this,
-          Invocation.getter(#dio),
+          Invocation.getter(#http),
         ),
         returnValueForMissingStub: _FakeDio_0(
           this,
-          Invocation.getter(#dio),
+          Invocation.getter(#http),
         ),
       ) as _i2.Dio);
 

@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:chat/core/error/error.dart';
 import 'package:chat/features/pre_login/data/data_source/initialize_data_source.dart';
 import 'package:chat/features/pre_login/data/model/initialize_model.dart';
-import 'package:chat/features/pre_login/data/repositories/initialize_repository_impl.dart';
+import 'package:chat/features/pre_login/data/repository/initialize_repository_impl.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -117,7 +117,7 @@ void main() {
       );
     });
     test(
-        'Should return Unauthorized Failure when the call to remote data source is unautharizedException',
+        'Should return Unauthorized Failure when the call to remote data source is unauthorizedException',
         () async {
       // Arrange
       when(

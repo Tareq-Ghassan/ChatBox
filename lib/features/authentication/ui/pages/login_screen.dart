@@ -1,7 +1,7 @@
 
 import 'package:chat/core/presentation/widget/email_textfield.dart';
 import 'package:chat/core/presentation/widget/password_textfield.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/features/authentication/domain/usecase/authentication_controller.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
@@ -12,9 +12,9 @@ import 'package:chat/features/authentication/ui/widget/auth_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// [LoginScreen] repreasent login screen
+/// [LoginScreen] represent login screen
 class LoginScreen extends StatefulWidget {
-  /// [LoginScreen] consturctor
+  /// [LoginScreen] constructor
   const LoginScreen({super.key});
 
   @override
@@ -26,8 +26,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
-    AppRouter.navigatorKey.currentContext!.read<EmailCubit>().email = '';
-    AppRouter.navigatorKey.currentContext!.read<PasswordCubit>().password = '';
+    KNavigator.navigatorKey.currentContext!.read<EmailCubit>().email = '';
+    KNavigator.navigatorKey.currentContext!.read<PasswordCubit>().password = '';
     super.initState();
   }
 

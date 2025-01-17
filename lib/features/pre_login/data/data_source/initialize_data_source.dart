@@ -11,11 +11,11 @@ abstract class InitializeDataSource {
   });
 }
 
-/// [InitlizationDataSourceImpl] represnet Data source implementation
-class InitlizationDataSourceImpl extends BaseRemoteDataSource
+/// [InitializationDataSourceImpl] represent Data source implementation
+class InitializationDataSourceImpl extends BaseRemoteDataSource
     implements InitializeDataSource {
-  /// [InitlizationDataSourceImpl] constructor
-  InitlizationDataSourceImpl({
+  /// [InitializationDataSourceImpl] constructor
+  InitializationDataSourceImpl({
     required super.api,
     required super.networkInfo,
   });

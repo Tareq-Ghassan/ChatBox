@@ -14,6 +14,7 @@ class InitializeBloc extends Bloc<InitializeEvent, InitializeState> {
   /// [InitializeBloc] constructor
   InitializeBloc({required this.usecase}) : super(Idle()) {
     on<InitializeEvent>((event, emit) async {
+
       if (event is InitializeApp) {
         emit(Loading());
         final result = await usecase(

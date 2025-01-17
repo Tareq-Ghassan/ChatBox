@@ -38,7 +38,7 @@ void main() {
       // assert
       expect(result, tInitializeModel);
     });
-    test("shouln't return a null exception on header", () async {
+    test("shouldn't return a null exception on header", () async {
       // arrange
       const tInitializeModel = InitializeModel(
         isInitialize: false,

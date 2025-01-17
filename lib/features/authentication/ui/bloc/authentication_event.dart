@@ -26,10 +26,10 @@ class PerformLogin extends AuthenticationEvent {
   List<Object> get props => super.props;
 }
 
-///[Regisetr] fetch event
-class Regisetr extends AuthenticationEvent {
-  /// [Regisetr] constructor
-  const Regisetr({
+///[Register] fetch event
+class Register extends AuthenticationEvent {
+  /// [Register] constructor
+  const Register({
     required this.name,
     required this.email,
     required this.password,

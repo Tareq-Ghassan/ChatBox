@@ -19,7 +19,7 @@ final class Loaded extends InitializeState {
   /// [Loaded] constructor
   const Loaded({required this.initialize});
 
-  /// [initialize] entitiy
+  /// [initialize] entity
   final Initialize initialize;
 
   @override

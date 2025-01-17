@@ -1,7 +1,6 @@
 
 import 'package:chat/core/presentation/theme/colors.dart';
-import 'package:chat/core/routes/app_routes.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/theme_utils.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ class ChatItem extends StatelessWidget {
             children: [
               Container(
                 height: 93,
-                color: KColors.dissableColor,
+                color: KColors.disableColor,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -69,13 +68,13 @@ class ChatItem extends StatelessWidget {
                   color: isLightMode
                       ? swipeOffset == 0
                           ? KColors.white
-                          : KColors.dissableColor
+                          : KColors.disableColor
                       : swipeOffset == 0
                           ? KColors.blackColor
                           : KColors.black87,
                   child: ListTile(
                     onTap: () {
-                      AppRouter.pushNamed(KRoutes.chatScreen);
+                      KNavigator.pushNamed(KRoutes.chatScreen);
                     },
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 16,
@@ -86,7 +85,7 @@ class ChatItem extends StatelessWidget {
                       backgroundImage:
                           NetworkImage('https://via.placeholder.com/50'),
                     ),
-                    title: const Text('Alex Linderson'),
+                    title: const Text('Alex'),
                     subtitle: const Text('How are you today?'),
                     trailing: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -11,7 +11,7 @@ class NetworkInfoImpl implements NetworkInfo {
   /// [NetworkInfoImpl] constructor
   NetworkInfoImpl(this.internetConnection);
 
-  /// [internetConnection] holds instent of the package
+  /// [internetConnection] holds instant of the package
   final InternetConnection internetConnection;
 
   @override

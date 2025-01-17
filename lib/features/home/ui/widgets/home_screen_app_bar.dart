@@ -7,7 +7,7 @@ import 'package:chat/features/home/ui/widgets/story_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// [HomeScreenAppBar] represent home screen app bar and storise section
+/// [HomeScreenAppBar] represent home screen app bar and stories section
 class HomeScreenAppBar extends StatelessWidget {
   /// [HomeScreenAppBar] constructor
   const HomeScreenAppBar({
@@ -24,7 +24,7 @@ class HomeScreenAppBar extends StatelessWidget {
               backgroundColor: KColors.greenHomePg,
               expandedHeight: MediaQuery.of(context).size.height * 0.25,
               leading: IconButton(
-                style: iconButtonstyle,
+                style: iconButtonStyle,
                 onPressed: () {},
                 icon: Image.asset(
                   KIcons.search,
@@ -64,7 +64,7 @@ class HomeScreenAppBar extends StatelessWidget {
               surfaceTintColor: KColors.greenHomePg,
               backgroundColor: KColors.greenHomePg,
               leading: IconButton(
-                style: iconButtonstyle,
+                style: iconButtonStyle,
                 onPressed: () {},
                 icon: Image.asset(
                   KIcons.search,
@@ -74,7 +74,7 @@ class HomeScreenAppBar extends StatelessWidget {
               title: Text(context.watch<AppBarTitleCubit>().state),
               actions: [
                 IconButton(
-                  style: iconButtonstyle,
+                  style: iconButtonStyle,
                   onPressed: () {},
                   icon: Image.asset(
                     KIcons.search,

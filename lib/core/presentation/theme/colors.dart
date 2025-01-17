@@ -11,8 +11,8 @@ class KColors {
   ///[lightBlackColor] this is a light black color
   static const Color lightBlackColor = Color.fromRGBO(31, 31, 31, 0.5);
 
-  ///[dissableColor] this is the default gray dissable color
-  static const Color dissableColor = Color.fromRGBO(243, 246, 246, 1);
+  ///[disableColor] this is the default gray disable color
+  static const Color disableColor = Color.fromRGBO(243, 246, 246, 1);
 
   ///[grayDarkColor] this is the default dark gray text color
   static const Color grayDarkColor = Color.fromRGBO(121, 124, 123, 1);

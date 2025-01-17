@@ -2,9 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:chat/core/presentation/widget/dialog.dart';
-import 'package:chat/core/presentation/widget/loading_indecator.dart';
-import 'package:chat/core/routes/app_routes.dart';
-import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/presentation/widget/loading_indicator.dart';
+import 'package:chat/core/routes/route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,7 +11,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 /// [splashInit] called on init
 Future<void> splashInit() async {
   await Future<dynamic>.delayed(const Duration(seconds: 3));
-  BlocProvider.of<InitBloc>(AppRouter.navigatorKey.currentContext!)
+  BlocProvider.of<InitBloc>(KNavigator.navigatorKey.currentContext!)
       .add(const FetchInit());
 }
 
@@ -27,17 +26,17 @@ Future<void> splashListenerController(
   }
   if (state is InitIsLoaded) {
     LoadingIndicatorDialog.dismiss();
-    await AppRouter.pushReplacement(KRoutes.onBoarding);
+    await KNavigator.pushReplacement(KRoutes.onBoarding);
   } else if (state is InitFailure || state is InitCatch) {
     LoadingIndicatorDialog.dismiss();
     unawaited(
       showDialog(
-        context: AppRouter.navigatorKey.currentContext!,
+        context: KNavigator.navigatorKey.currentContext!,
         builder: (context) => CustomDialogBox(
           title: appLocalizations.welcomeToChatBox,
           descriptions: appLocalizations.workingOnApp,
           yesButtontext: appLocalizations.exit,
-          yesButtontOnTap: () => exit(0),
+          yesButtonOnTap: () => exit(0),
         ),
       ),
     );
