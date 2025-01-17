@@ -3,9 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
-import 'package:chat/core/util/network_info.dart' as _i2;
+import 'package:chat/core/data/data_source/remote/remote.dart' as _i5;
+import 'package:chat/core/util/network_info.dart' as _i3;
+import 'package:dio/dio.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -21,14 +23,216 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeDio_0 extends _i1.SmartFake implements _i2.Dio {
+  _FakeDio_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeResponse_1<T> extends _i1.SmartFake implements _i2.Response<T> {
+  _FakeResponse_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [NetworkInfo].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockNetworkInfo extends _i1.Mock implements _i2.NetworkInfo {
+class MockNetworkInfo extends _i1.Mock implements _i3.NetworkInfo {
   @override
-  _i3.Future<bool> get isConnected => (super.noSuchMethod(
+  _i4.Future<bool> get isConnected => (super.noSuchMethod(
         Invocation.getter(#isConnected),
-        returnValue: _i3.Future<bool>.value(false),
-        returnValueForMissingStub: _i3.Future<bool>.value(false),
-      ) as _i3.Future<bool>);
+        returnValue: _i4.Future<bool>.value(false),
+        returnValueForMissingStub: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
+}
+
+/// A class which mocks [MiddlewareApi].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockMiddlewareApi extends _i1.Mock implements _i5.MiddlewareApi {
+  @override
+  _i2.Dio get dio => (super.noSuchMethod(
+        Invocation.getter(#dio),
+        returnValue: _FakeDio_0(
+          this,
+          Invocation.getter(#dio),
+        ),
+        returnValueForMissingStub: _FakeDio_0(
+          this,
+          Invocation.getter(#dio),
+        ),
+      ) as _i2.Dio);
+
+  @override
+  _i4.Future<_i2.Response<dynamic>> get(
+    String? serviceName,
+    String? operation, {
+    Map<String, dynamic>? params,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #get,
+          [
+            serviceName,
+            operation,
+          ],
+          {#params: params},
+        ),
+        returnValue:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #get,
+            [
+              serviceName,
+              operation,
+            ],
+            {#params: params},
+          ),
+        )),
+        returnValueForMissingStub:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #get,
+            [
+              serviceName,
+              operation,
+            ],
+            {#params: params},
+          ),
+        )),
+      ) as _i4.Future<_i2.Response<dynamic>>);
+
+  @override
+  _i4.Future<_i2.Response<dynamic>> post(
+    String? serviceName,
+    String? operation, {
+    Map<String, dynamic>? data,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #post,
+          [
+            serviceName,
+            operation,
+          ],
+          {#data: data},
+        ),
+        returnValue:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #post,
+            [
+              serviceName,
+              operation,
+            ],
+            {#data: data},
+          ),
+        )),
+        returnValueForMissingStub:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #post,
+            [
+              serviceName,
+              operation,
+            ],
+            {#data: data},
+          ),
+        )),
+      ) as _i4.Future<_i2.Response<dynamic>>);
+
+  @override
+  _i4.Future<_i2.Response<dynamic>> put(
+    String? serviceName,
+    String? operation, {
+    Map<String, dynamic>? data,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #put,
+          [
+            serviceName,
+            operation,
+          ],
+          {#data: data},
+        ),
+        returnValue:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #put,
+            [
+              serviceName,
+              operation,
+            ],
+            {#data: data},
+          ),
+        )),
+        returnValueForMissingStub:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #put,
+            [
+              serviceName,
+              operation,
+            ],
+            {#data: data},
+          ),
+        )),
+      ) as _i4.Future<_i2.Response<dynamic>>);
+
+  @override
+  _i4.Future<_i2.Response<dynamic>> delete(
+    String? serviceName,
+    String? operation, {
+    Map<String, dynamic>? params,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #delete,
+          [
+            serviceName,
+            operation,
+          ],
+          {#params: params},
+        ),
+        returnValue:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #delete,
+            [
+              serviceName,
+              operation,
+            ],
+            {#params: params},
+          ),
+        )),
+        returnValueForMissingStub:
+            _i4.Future<_i2.Response<dynamic>>.value(_FakeResponse_1<dynamic>(
+          this,
+          Invocation.method(
+            #delete,
+            [
+              serviceName,
+              operation,
+            ],
+            {#params: params},
+          ),
+        )),
+      ) as _i4.Future<_i2.Response<dynamic>>);
 }

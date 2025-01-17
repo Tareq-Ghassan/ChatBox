@@ -1,18 +1,17 @@
 // ignore_for_file: strict_raw_type
 part of 'remote.dart';
 
-/// [APIserver] implements ApiClient with actual API calls
-class APIserver extends ApiClient {
-
+/// [MiddlewareApiImpl] implements ApiClient with actual API calls
+class MiddlewareApiImpl extends MiddlewareApi {
   /// Factory constructor to return the same instance
-  factory APIserver() {
+  factory MiddlewareApiImpl() {
     return _instance;
   }
   // Private constructor to prevent external instantiation
-  APIserver._internal();
+  MiddlewareApiImpl._internal();
 
   // The singleton instance of APIserver
-  static final APIserver _instance = APIserver._internal();
+  static final MiddlewareApiImpl _instance = MiddlewareApiImpl._internal();
 
   @override
   Future<Response> get(

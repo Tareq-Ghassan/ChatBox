@@ -3,10 +3,16 @@ part of 'remote.dart';
 /// [BaseRemoteDataSource] a generic data source class
 abstract class BaseRemoteDataSource {
   /// [BaseRemoteDataSource] constuctor
-  BaseRemoteDataSource({required this.networkInfo});
+  BaseRemoteDataSource({
+    required this.networkInfo,
+    required this.api,
+  });
 
   /// [networkInfo] represent network info
   final NetworkInfo networkInfo;
+
+  /// [api] holds an instent of api client
+  final MiddlewareApi api;
 
   /// [executeApiCall] utility method that handles the common logic for
   /// making API requests and processing responses

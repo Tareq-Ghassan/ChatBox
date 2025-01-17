@@ -15,10 +15,10 @@ abstract class InitializeDataSource {
 class InitlizationDataSourceImpl extends BaseRemoteDataSource
     implements InitializeDataSource {
   /// [InitlizationDataSourceImpl] constructor
-  InitlizationDataSourceImpl(this.api, {required super.networkInfo});
-
-  /// [api] holds an instent of api client
-  final ApiClient api;
+  InitlizationDataSourceImpl({
+    required super.api,
+    required super.networkInfo,
+  });
 
   @override
   Future<InitializeModel> initialize({

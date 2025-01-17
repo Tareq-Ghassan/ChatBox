@@ -33,8 +33,7 @@ void main() {
       );
 
       // act
-      final result =
-          InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
+      final result = InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);
@@ -43,7 +42,6 @@ void main() {
       // arrange
       const tInitializeModel = InitializeModel(
         isInitialize: false,
-        header: null,
       );
       final jsonMap = json.decode(
         fixture(
@@ -54,8 +52,7 @@ void main() {
       );
 
       // act
-      final result =
-          InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
+      final result = InitializeModel.fromJson(jsonMap as Map<String, dynamic>);
 
       // assert
       expect(result, tInitializeModel);

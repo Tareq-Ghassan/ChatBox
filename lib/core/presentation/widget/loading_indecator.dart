@@ -1,9 +1,8 @@
-
 import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/routes/route_manger.dart';
+import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/core/util/theme_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// [LoadingIndicatorDialog] this is a Custom Widget to show loading widget
 ///
@@ -31,7 +30,7 @@ class LoadingIndicatorDialog {
     if (isDisplayed) {
       return;
     }
-    final text = AppLocalizations.of(context)!.loading;
+    final text = appLocalizations.loading;
     showDialog<void>(
       barrierColor: isLightMode ? KColors.black87 : KColors.white70,
       context: context,

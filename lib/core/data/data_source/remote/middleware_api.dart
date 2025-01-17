@@ -1,11 +1,11 @@
 // ignore_for_file: strict_raw_type
 part of 'remote.dart';
 
-
-/// [ApiClient] an abstract class defining API methods
-abstract class ApiClient {
-  ///[ApiClient] constructor
-  ApiClient() : dio = Dio(BaseOptions(baseUrl: dotenv.env['BASE_URL'] ?? ''));
+/// [MiddlewareApi] an abstract class defining API methods
+abstract class MiddlewareApi {
+  ///[MiddlewareApi] constructor
+  MiddlewareApi()
+      : dio = Dio(BaseOptions(baseUrl: dotenv.env['BASE_URL'] ?? ''));
 
   /// instance of DIO package
   final Dio dio;
@@ -13,28 +13,28 @@ abstract class ApiClient {
   /// [get] represents the GET method
   Future<Response> get(
     String serviceName,
-    String  operation, {
+    String operation, {
     Map<String, dynamic>? params,
   });
 
   /// [post] represents the POST method
   Future<Response> post(
     String serviceName,
-    String  operation,{
+    String operation, {
     Map<String, dynamic>? data,
   });
 
   /// [put] represents the PUT method
   Future<Response> put(
     String serviceName,
-    String  operation, {
+    String operation, {
     Map<String, dynamic>? data,
   });
 
   /// [delete] represents the DELETE method
   Future<Response> delete(
     String serviceName,
-    String  operation, {
+    String operation, {
     Map<String, dynamic>? params,
   });
 }

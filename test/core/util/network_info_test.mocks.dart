@@ -38,6 +38,13 @@ class _FakeDuration_0 extends _i1.SmartFake implements Duration {
 class MockInternetConnection extends _i1.Mock
     implements _i2.InternetConnection {
   @override
+  bool get enableStrictCheck => (super.noSuchMethod(
+        Invocation.getter(#enableStrictCheck),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
   Duration get checkInterval => (super.noSuchMethod(
         Invocation.getter(#checkInterval),
         returnValue: _FakeDuration_0(
@@ -72,4 +79,13 @@ class MockInternetConnection extends _i1.Mock
         returnValue: _i3.Stream<_i2.InternetStatus>.empty(),
         returnValueForMissingStub: _i3.Stream<_i2.InternetStatus>.empty(),
       ) as _i3.Stream<_i2.InternetStatus>);
+
+  @override
+  void setIntervalAndResetTimer(Duration? duration) => super.noSuchMethod(
+        Invocation.method(
+          #setIntervalAndResetTimer,
+          [duration],
+        ),
+        returnValueForMissingStub: null,
+      );
 }
