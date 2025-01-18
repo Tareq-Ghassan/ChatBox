@@ -33,7 +33,7 @@ class ClientException implements Exception {
   final String error;
 }
 
-/// [UnauthorizedException] any exception for unathorization
+/// [UnauthorizedException] any exception for unauthorized
 class UnauthorizedException implements Exception {
   /// [UnauthorizedException] constructor
   const UnauthorizedException({required this.message});
@@ -47,5 +47,5 @@ class ErrorException implements Exception {
   final String message;
 }
 
-/// [NetworkException] no internet connnection Exception
+/// [NetworkException] no internet connection Exception
 class NetworkException implements Exception {}

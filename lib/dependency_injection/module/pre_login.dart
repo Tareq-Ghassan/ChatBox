@@ -3,12 +3,12 @@ part of '../di.dart';
 /// [PreLoginModule]
 class PreLoginModule implements BaseDi {
   @override
-  String get name => 'PreLoginModule';
+  Modules get moduleName => Modules.preLogin;
 
-  /// [register] where you register everything
+  /// [inject] where you register everything
   /// (Bloc, Use Case, Repository, Data source, etc...)
   @override
-  void register() {
+  void inject() {
     sl
       //* Bloc
       ..registerFactory(() => InitializeBloc(usecase: sl()))
@@ -26,7 +26,7 @@ class PreLoginModule implements BaseDi {
   }
 
   /// [deregister] where you deregister everything
-  /// you registered in `register` function
+  /// you registered in `inject` function
   /// (Bloc, Use Case, Repository, Data source, etc...)
   @override
   void deregister() {

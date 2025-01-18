@@ -1,16 +1,16 @@
-part of '../di.dart';
+part of 'di.dart';
 
 /// [BaseDi]
 abstract class BaseDi {
   /// Name of the module (for logging/debugging)
-  String get name;
+  Modules get moduleName;
 
-  /// [register] where you register everything
+  /// [inject] where you register everything
   /// (Bloc, Use Case, Repository, Data source, etc...)
-  void register();
+  void inject();
 
   /// [deregister] where you deregister everything
-  /// you registered in `register` function
+  /// you registered in `inject` function
   /// (Bloc, Use Case, Repository, Data source, etc...)
   void deregister();
 }

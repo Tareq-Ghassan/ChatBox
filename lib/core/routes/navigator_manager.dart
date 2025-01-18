@@ -9,8 +9,11 @@ class KNavigator {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
 
+  static final KNavigatorObserver _navigationObserver = KNavigatorObserver();
+
   /// The name of the route that loads on app startup
   static const String initialRoute = KRoutes.splashScreen;
+  static List<NavigatorObserver> get observers => [_navigationObserver];
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
