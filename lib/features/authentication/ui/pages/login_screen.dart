@@ -1,43 +1,33 @@
-
 import 'package:chat/core/presentation/widget/email_textfield.dart';
 import 'package:chat/core/presentation/widget/password_textfield.dart';
-import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
-import 'package:chat/features/authentication/domain/usecase/authentication_controller.dart';
+import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
-import 'package:chat/features/authentication/ui/bloc/authentication_state.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
+import 'package:chat/features/authentication/ui/controls/authentication_controller.dart';
 import 'package:chat/features/authentication/ui/widget/auth_header.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// [LoginScreen] represent login screen
-class LoginScreen extends StatefulWidget {
-  /// [LoginScreen] constructor
-  const LoginScreen({super.key});
+/// [_LoginScreen] represent login screen
+class _LoginScreen extends StatefulWidget {
+  /// [_LoginScreen] constructor
+  const _LoginScreen();
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<_LoginScreen> createState() => _LoginScreenState();
 
   static const _whiteSpace = SizedBox(height: 24);
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  @override
-  void initState() {
-    KNavigator.navigatorKey.currentContext!.read<EmailCubit>().email = '';
-    KNavigator.navigatorKey.currentContext!.read<PasswordCubit>().password = '';
-    super.initState();
-  }
-
+class _LoginScreenState extends State<_LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthenticationBloc, AuthenticationState>(
       listener: loginListenerController,
-      builder: (context, state) {
+      builder: (ctx, state) {
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
@@ -51,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: ElevatedButton(
-                        onPressed: () => submitLogin(_formKey),
+                        onPressed: () => submitLogin(_formKey, context),
                         child: Text(appLocalizations.login),
                       ),
                     ),
@@ -76,9 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         title: appLocalizations.loginHeader,
                         subtitle: appLocalizations.loginSubtitle,
                       ),
-                      LoginScreen._whiteSpace,
+                      _LoginScreen._whiteSpace,
                       const EmailTextField(),
-                      LoginScreen._whiteSpace,
+                      _LoginScreen._whiteSpace,
                       const PasswordTextField(),
                     ],
                   ),
@@ -88,6 +78,30 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         );
       },
+    );
+  }
+}
+
+/// [LoginPageBlocScope] hold login Page and provide its blocs and Cubits
+class LoginPageBlocScope extends StatelessWidget {
+  /// [LoginPageBlocScope] constructor
+  const LoginPageBlocScope({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<EmailCubit>(
+          create: (context) => sl<EmailCubit>(),
+        ),
+        BlocProvider<PasswordCubit>(
+          create: (context) => sl<PasswordCubit>(),
+        ),
+        BlocProvider<AuthenticationBloc>(
+          create: (context) => sl<AuthenticationBloc>(),
+        ),
+      ],
+      child: const _LoginScreen(),
     );
   }
 }

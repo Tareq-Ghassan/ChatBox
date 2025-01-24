@@ -49,8 +49,11 @@ abstract class BaseRemoteDataSource {
         exception: e.toString(),
         stackTrace: stackTrace,
       );
-    } catch (e) {
-      throw ServerException(message: e.toString());
+    } catch (e, stackTrace) {
+      throw CatchException(
+        exception: e.toString(),
+        stackTrace: stackTrace,
+      );
     }
   }
 }

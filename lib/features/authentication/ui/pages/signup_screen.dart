@@ -4,10 +4,9 @@ import 'package:chat/core/presentation/widget/k_text_form_field.dart';
 import 'package:chat/core/presentation/widget/password_textfield.dart';
 import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
-import 'package:chat/features/authentication/domain/usecase/authentication_controller.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
-import 'package:chat/features/authentication/ui/bloc/authentication_state.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
+import 'package:chat/features/authentication/ui/controls/authentication_controller.dart';
 import 'package:chat/features/authentication/ui/widget/auth_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,8 +24,6 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   @override
   void initState() {
-    KNavigator.navigatorKey.currentContext!.read<EmailCubit>().email = '';
-    KNavigator.navigatorKey.currentContext!.read<PasswordCubit>().password = '';
     KNavigator.navigatorKey.currentContext!
         .read<ConfirmPasswordCubit>()
         .confirmPassword = '';

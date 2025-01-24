@@ -6,6 +6,10 @@ enum Modules {
   /// [preLogin] module
   preLogin,
 
+//! Authentication
   /// [authentication] module
   authentication,
+
+  /// [authenticationUiModule] UI module
+  authenticationUiModule,
 }

@@ -1,26 +1,23 @@
-import 'package:chat/features/authentication/data/model/login.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+part of 'authentication_bloc.dart';
 
 ///[AuthenticationState] `immutable` class created to hold state
-@immutable
-abstract class AuthenticationState extends Equatable {
-  /// [AuthenticationState] constructor
+sealed class AuthenticationState extends Equatable {
   const AuthenticationState();
+
   @override
-  List<Login> get props => [];
+  List<Object> get props => [];
 }
 
-/// [AuthenticationIsNotSearched] state
-class AuthenticationIsNotSearched extends AuthenticationState {}
+/// [Idle] state
+final class Idle extends AuthenticationState {}
 
-/// [AuthenticationIsLoading] state
-class AuthenticationIsLoading extends AuthenticationState {}
+/// [Loading] state
+final class Loading extends AuthenticationState {}
 
-/// [AuthenticationIsLoaded] state
-class AuthenticationIsLoaded extends AuthenticationState {
-  /// [AuthenticationIsLoaded] constructor
-  const AuthenticationIsLoaded(
+/// [Loaded] state
+final class Loaded extends AuthenticationState {
+  /// [Loaded] constructor
+  const Loaded(
     this._userData,
   );
   final Login _userData;
@@ -31,20 +28,14 @@ class AuthenticationIsLoaded extends AuthenticationState {
   List<Login> get props => [_userData];
 }
 
-/// [AuthenticationShowFailure] state
-class AuthenticationShowFailure extends AuthenticationState {
-  /// [AuthenticationShowFailure] constructor
-  const AuthenticationShowFailure(
-    this._errorMessage,
-  );
-  final String _errorMessage;
+/// [Error] state
+final class Error extends AuthenticationState {
+  /// [Error] constructor
+  const Error({required this.message});
 
-  /// [errorMessage] getter
-  String get errorMessage => _errorMessage;
+  /// error [message]
+  final String message;
+
+  @override
+  List<Object> get props => [message];
 }
-
-/// [AuthenticationFailure] state
-class AuthenticationFailure extends AuthenticationState {}
-
-/// [AuthenticationCatch] state
-class AuthenticationCatch extends AuthenticationState {}

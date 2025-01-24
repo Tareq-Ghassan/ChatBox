@@ -16,7 +16,7 @@ dependencies:
   intl: any
 
   cupertino_icons: ^1.0.6
-  # state mangement
+  # state management
   flutter_bloc: ^8.1.6
   # Object equality
   equatable: ^2.0.5
@@ -31,7 +31,6 @@ dependencies:
   # dependency injection
   get_it: ^8.0.2
   internet_connection_checker_plus: ^2.5.2
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

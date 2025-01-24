@@ -35,12 +35,19 @@ class PreLoginModule implements BaseDi {
       sl<InitializeBloc>().close();
       sl.unregister<InitializeBloc>();
     }
-    sl
-      //* Use Cases
-      ..unregister<InitializeUseCase>()
-      //* Repository
-      ..unregister<InitializeRepository>()
-      //* DataSource
-      ..unregister<InitializeDataSource>();
+
+    //* Use Cases
+    if (sl.isRegistered<InitializeUseCase>()) {
+      sl.unregister<InitializeUseCase>();
+    }
+    //* Repository
+    if (sl.isRegistered<InitializeRepository>()) {
+      sl.unregister<InitializeRepository>();
+    }
+
+    //* DataSource
+    if (sl.isRegistered<InitializeDataSource>()) {
+      sl.unregister<InitializeDataSource>();
+    }
   }
 }

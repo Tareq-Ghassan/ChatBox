@@ -6,10 +6,10 @@ import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:flutter/material.dart';
 
-/// [OnboardingScreen] represent onboarding screen
-class OnboardingScreen extends StatelessWidget {
-  /// [OnboardingScreen] constructor
-  const OnboardingScreen({super.key});
+/// [OnboardingPage] represent onboarding Page
+class OnboardingPage extends StatelessWidget {
+  /// [OnboardingPage] constructor
+  const OnboardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,11 @@
+{
+    "header": {
+        "errorCode": "00000",
+        "message": "Success",
+        "jwt": "xxxxxx"
+    },
+    "body": {
+        "name": "Tareq Ghassan",
+        "email": "test@gmail.com"
+    }
+}

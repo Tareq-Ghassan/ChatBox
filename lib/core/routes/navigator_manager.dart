@@ -26,13 +26,13 @@ class KNavigator {
       //Navigate to the Onboarding screen.
       case KRoutes.onBoarding:
         return _setPage(
-          page: const OnboardingScreen(),
+          page: const OnboardingPage(),
           settings: settings,
         );
       //Navigate to the Login screen.
       case KRoutes.login:
         return _setPage(
-          page: const LoginScreen(),
+          page: const LoginPageBlocScope(),
           settings: settings,
         );
       //Navigate to the Signup screen.

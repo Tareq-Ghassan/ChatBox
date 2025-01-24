@@ -2,8 +2,8 @@ import 'package:chat/core/presentation/assets/icons.dart';
 import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/util/locale_utils.dart';
 import 'package:chat/core/util/theme_utils.dart';
-import 'package:chat/features/authentication/data/data_sources/home_titles.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
+import 'package:chat/features/home/ui/controls/home_titles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

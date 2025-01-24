@@ -12,7 +12,6 @@ class Core implements BaseDi {
     if (sl.isRegistered<MiddlewareApi>()) sl.unregister<MiddlewareApi>();
     if (sl.isRegistered<NetworkInfo>()) sl.unregister<NetworkInfo>();
     if (sl.isRegistered<Dio>()) sl.unregister<Dio>();
-    PreLoginModule().deregister();
   }
 
   @override

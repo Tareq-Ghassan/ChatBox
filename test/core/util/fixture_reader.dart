@@ -13,6 +13,7 @@ String fixture({
 enum AppFeature {
   preLogin,
   core,
+  authentication,
 }
 
 extension AppFeatureExt on AppFeature {
@@ -22,6 +23,8 @@ extension AppFeatureExt on AppFeature {
         return 'pre_login';
       case AppFeature.core:
         return 'core';
+      case AppFeature.authentication:
+        return 'authentication';
     }
   }
 }

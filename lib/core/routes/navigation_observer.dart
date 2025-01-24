@@ -5,28 +5,34 @@ class KNavigatorObserver extends NavigatorObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
-    _handleRouteChange(settings: route.settings, isEntering: true);
+    _handleRouteChange(settings: route.settings, isPush: true);
   }
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
-    _handleRouteChange(settings: route.settings, isEntering: false);
+    _handleRouteChange(settings: route.settings, isPush: false);
   }
 
   void _handleRouteChange({
     required RouteSettings settings,
-    required bool isEntering,
+    required bool isPush,
   }) {
     switch (settings.name) {
       case KRoutes.splashScreen:
-        break;
-      case KRoutes.onBoarding:
-        break;
-      case KRoutes.login:
-        break;
-      case KRoutes.signup:
-        break;
+
+        // injection happens in core, only deregister here
+        if (!isPush) {
+          PreLoginModule().deregister();
+        }
+      case KRoutes.login || KRoutes.signup:
+        if (isPush) {
+          AuthenticationModule().inject();
+          AuthenticationUiModule().inject();
+        } else {
+          AuthenticationModule().deregister();
+          AuthenticationUiModule().deregister();
+        }
       case KRoutes.homeScreen:
         break;
     }
