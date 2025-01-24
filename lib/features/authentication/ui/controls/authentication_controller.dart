@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:chat/core/presentation/widget/dialog.dart';
 import 'package:chat/core/presentation/widget/loading_indicator.dart';
 import 'package:chat/core/routes/route.dart';
-import 'package:chat/core/util/locale_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
 import 'package:flutter/material.dart';

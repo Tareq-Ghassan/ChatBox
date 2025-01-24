@@ -1,5 +1,5 @@
 import 'package:chat/core/data/data_source/remote/remote.dart';
-import 'package:chat/core/util/network_info.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/modules.dart';
 import 'package:chat/features/authentication/data/data_source/login_data_source.dart';
 import 'package:chat/features/authentication/data/repository/login_repository_impl.dart';

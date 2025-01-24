@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:chat/core/presentation/widget/dialog.dart';
 import 'package:chat/core/presentation/widget/loading_indicator.dart';
 import 'package:chat/core/routes/route.dart';
-import 'package:chat/core/util/locale_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/features/pre_login/ui/bloc/initialize_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

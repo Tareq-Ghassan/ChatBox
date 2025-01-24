@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:chat/core/presentation/theme/colors.dart';
-import 'package:chat/core/util/theme_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:flutter/material.dart';
 
 ///[KTextFormField] represent super class for all text form field

@@ -1,7 +1,6 @@
 import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/routes/route.dart';
-import 'package:chat/core/util/locale_utils.dart';
-import 'package:chat/core/util/theme_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:flutter/material.dart';
 
 /// [LoadingIndicatorDialog] this is a Custom Widget to show loading widget

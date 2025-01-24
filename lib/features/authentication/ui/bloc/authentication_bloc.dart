@@ -25,6 +25,7 @@ class AuthenticationBloc
     });
   }
 
+  /// [loginUsecase]
   final LoginUsecase loginUsecase;
 }
 

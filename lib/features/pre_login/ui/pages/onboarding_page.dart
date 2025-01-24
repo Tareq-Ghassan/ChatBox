@@ -3,7 +3,7 @@ import 'package:chat/core/presentation/assets/images.dart';
 import 'package:chat/core/presentation/theme/app/dark/theme_data_dark.dart';
 import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/routes/route.dart';
-import 'package:chat/core/util/locale_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:flutter/material.dart';
 
 /// [OnboardingPage] represent onboarding Page

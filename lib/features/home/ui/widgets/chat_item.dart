@@ -1,7 +1,7 @@
 
 import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/routes/route.dart';
-import 'package:chat/core/util/theme_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

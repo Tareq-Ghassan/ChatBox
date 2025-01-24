@@ -1,6 +1,6 @@
 import 'package:chat/core/presentation/widget/email_textfield.dart';
 import 'package:chat/core/presentation/widget/password_textfield.dart';
-import 'package:chat/core/util/locale_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';

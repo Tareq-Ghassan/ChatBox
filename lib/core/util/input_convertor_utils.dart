@@ -1,5 +1,4 @@
-import 'package:chat/core/error/error.dart';
-import 'package:dartz/dartz.dart';
+part of 'util.dart';
 
 /// [InputConvertor] utility class to convert data
 class InputConvertor {

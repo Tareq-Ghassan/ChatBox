@@ -1,6 +1,4 @@
-
-
-import 'package:chat/core/util/locale_utils.dart';
+import 'package:chat/core/util/util.dart';
 
 /// [homeTitles] represent home titles
 List<String> get homeTitles => [

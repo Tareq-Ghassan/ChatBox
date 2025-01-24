@@ -1,6 +1,6 @@
 import 'package:chat/core/presentation/widget/eye_suffix_icon.dart';
 import 'package:chat/core/presentation/widget/k_text_form_field.dart';
-import 'package:chat/core/util/locale_utils.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
 import 'package:chat/features/authentication/ui/controls/authentication_controller.dart';

@@ -6,7 +6,7 @@
 import 'dart:async' as _i4;
 
 import 'package:chat/core/data/data_source/remote/remote.dart' as _i5;
-import 'package:chat/core/util/network_info.dart' as _i3;
+import 'package:chat/core/util/util.dart' as _i3;
 import 'package:dio/dio.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
