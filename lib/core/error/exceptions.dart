@@ -40,12 +40,6 @@ class UnauthorizedException implements Exception {
   final String message;
 }
 
-/// [ErrorException] any exception that need to be shown on UI
-class ErrorException implements Exception {
-  /// [ErrorException] constructor
-  const ErrorException({required this.message});
-  final String message;
-}
 
 /// [NetworkException] no internet connection Exception
 class NetworkException implements Exception {}

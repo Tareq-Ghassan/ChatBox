@@ -1,6 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-import 'package:chat/core/error/error.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/usecase/initialize_usecase.dart';
 import 'package:chat/features/pre_login/domain/usecase/params/initialize_params.dart';
@@ -19,8 +19,13 @@ class InitializeBloc extends Bloc<InitializeEvent, InitializeState> {
         final result = await usecase(
           InitializeParams(appKey: event.appKey, appSecret: event.appSecret),
         );
-        result.fold((ifLeft) {
-          emit(Error(message: ifLeft is CatchFailure ? 'catch' : 'Error'));
+        result.fold((l) {
+          emit(
+            Error(
+              message: FailureMapper.mapFailureToMessage(l),
+              header: FailureMapper.mapFailureToHeader(l),
+            ),
+          );
         }, (ifRight) {
           emit(
             Loaded(initialize: ifRight),

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chat/core/error/error.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/features/authentication/domain/entity/login.dart';
 import 'package:chat/features/authentication/domain/usecase/login_usecase.dart';
 import 'package:chat/features/authentication/domain/usecase/params/login_params.dart';
@@ -19,7 +19,12 @@ class AuthenticationBloc
         LoginParams(email: event.email, password: event.password),
       );
       result.fold(
-        (l) => emit(Error(message: l is CatchFailure ? 'catch' : 'Error')),
+        (l) => emit(
+          Error(
+            message: FailureMapper.mapFailureToMessage(l),
+            header: FailureMapper.mapFailureToHeader(l),
+          ),
+        ),
         (r) => emit(Loaded(r)),
       );
     });

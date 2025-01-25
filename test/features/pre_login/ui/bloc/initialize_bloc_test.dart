@@ -56,7 +56,7 @@ void main() {
     // assert
     await expectLater(
       bloc.stream,
-      emitsInOrder([Loading(), const Error(message: 'Error')]),
+      emitsInOrder([Loading(), const Error(message: 'error', header: 'Error')]),
     );
   });
   test('should emit [Idle, Loading, Loaded] when data is gotten successfully',
@@ -100,7 +100,7 @@ void main() {
     // assert
     await expectLater(
       bloc.stream,
-      emitsInOrder([Loading(), const Error(message: 'catch')]),
+      emitsInOrder([Loading(), const Error(message: 'error', header: 'Error')]),
     );
   });
 }

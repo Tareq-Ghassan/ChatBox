@@ -29,11 +29,14 @@ final class Loaded extends InitializeState {
 /// [Error] state
 final class Error extends InitializeState {
   /// [Error] constructor
-  const Error({required this.message});
+  const Error({required this.header, required this.message});
 
   /// error [message]
   final String message;
 
+  /// [header]
+  final String header;
+
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [message, header];
 }

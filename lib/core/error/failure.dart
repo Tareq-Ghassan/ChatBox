@@ -24,7 +24,7 @@ class ServerFailure extends Failure {
   final String error;
 }
 
-/// [CatchFailure] any Failures form Server
+/// [CatchFailure] any Format failure
 class CatchFailure extends Failure {
   /// [CatchFailure] constructor
   const CatchFailure({required this.exception, required this.stackTrace});
@@ -40,22 +40,15 @@ class ClientFailure extends Failure {
   final String error;
 }
 
-/// [UnauthorizedFailure] any Failures for unathorization
+/// [UnauthorizedFailure] any Failures for unauthorized
 class UnauthorizedFailure extends Failure {
   /// [UnauthorizedFailure] constructor
   const UnauthorizedFailure({required this.message});
   final String message;
 }
 
-/// [ErrorFailure] any error Failure that need to be shown on UI
-class ErrorFailure extends Failure {
-  /// [ErrorFailure] constructor
-  const ErrorFailure({required this.message});
-  final String message;
-}
-
-/// [NetworkFailure] no internet connnection Failures
+/// [NetworkFailure] no internet connection Failures
 class NetworkFailure extends Failure {}
 
-/// [InvalidInputFailure] no internet connnection Failures
+/// [InvalidInputFailure] no internet connection Failures
 class InvalidInputFailure extends Failure {}

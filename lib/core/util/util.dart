@@ -11,3 +11,4 @@ part 'locale_utils.dart';
 part 'network_info_utils.dart';
 part 'theme_utils.dart';
 part 'regex_util.dart';
+part 'failure_mapper_util.dart';
