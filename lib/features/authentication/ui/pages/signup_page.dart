@@ -1,41 +1,31 @@
 import 'package:chat/core/presentation/widget/email_textfield.dart';
 import 'package:chat/core/presentation/widget/k_text_form_field.dart';
 import 'package:chat/core/presentation/widget/password_textfield.dart';
-import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/util.dart';
+import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
-import 'package:chat/features/authentication/ui/controls/authentication_controller.dart';
+import 'package:chat/features/authentication/ui/controls/authentication_controls.dart';
 import 'package:chat/features/authentication/ui/widget/auth_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// [SignupScreen] represent signup screen
-class SignupScreen extends StatefulWidget {
-  /// [SignupScreen] Constructor
-  const SignupScreen({super.key});
+/// [_SignupPage] represent signup screen
+class _SignupPage extends StatefulWidget {
+  /// [_SignupPage] Constructor
+  const _SignupPage();
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
-  static const _whiteSpace = SizedBox(height: 24);
+  State<_SignupPage> createState() => _SignupScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
-  @override
-  void initState() {
-    KNavigator.navigatorKey.currentContext!
-        .read<ConfirmPasswordCubit>()
-        .confirmPassword = '';
-    KNavigator.navigatorKey.currentContext!.read<NameCubit>().name = '';
-    super.initState();
-  }
-
+class _SignupScreenState extends State<_SignupPage> {
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthenticationBloc, AuthenticationState>(
-      listener: signUpListenerController,
+      listener: AuthenticationControls.signUpListenerController,
       builder: (context, state) {
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -46,7 +36,8 @@ class _SignupScreenState extends State<SignupScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ElevatedButton(
-                  onPressed: () => submitSignup(_formKey),
+                  onPressed: () =>
+                      AuthenticationControls.submitSignup(_formKey, context),
                   child: Text(appLocalizations.createAccount),
                 ),
               ),
@@ -57,12 +48,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Form(
                   key: _formKey,
                   child: Column(
+                    spacing: 24,
                     children: [
                       AuthHeader(
                         title: appLocalizations.signupHeader,
                         subtitle: appLocalizations.signupSubtitle,
                       ),
-                      SignupScreen._whiteSpace,
                       KTextFormField(
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.next,
@@ -75,11 +66,8 @@ class _SignupScreenState extends State<SignupScreen> {
                           }
                         },
                       ),
-                      SignupScreen._whiteSpace,
                       const EmailTextField(),
-                      SignupScreen._whiteSpace,
                       const PasswordTextField(),
-                      SignupScreen._whiteSpace,
                       const PasswordTextField(
                         isConfirmPassword: true,
                       ),
@@ -91,6 +79,36 @@ class _SignupScreenState extends State<SignupScreen> {
           ),
         );
       },
+    );
+  }
+}
+
+/// [SignupPageBlocScope] hold login Page and provide its blocs and Cubits
+class SignupPageBlocScope extends StatelessWidget {
+  /// [SignupPageBlocScope] constructor
+  const SignupPageBlocScope({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<EmailCubit>(
+          create: (context) => sl<EmailCubit>(),
+        ),
+        BlocProvider<PasswordCubit>(
+          create: (context) => sl<PasswordCubit>(),
+        ),
+        BlocProvider<ConfirmPasswordCubit>(
+          create: (context) => sl<ConfirmPasswordCubit>(),
+        ),
+        BlocProvider<NameCubit>(
+          create: (context) => sl<NameCubit>(),
+        ),
+        BlocProvider<AuthenticationBloc>(
+          create: (context) => sl<AuthenticationBloc>(),
+        ),
+      ],
+      child: const _SignupPage(),
     );
   }
 }

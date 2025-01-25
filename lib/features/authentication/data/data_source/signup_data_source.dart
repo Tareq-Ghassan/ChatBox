@@ -2,34 +2,44 @@ import 'package:chat/core/data/data_source/remote/remote.dart';
 import 'package:chat/core/error/error.dart';
 import 'package:chat/features/authentication/data/model/login_model.dart';
 
-/// [LoginDataSource] represent login data source
-abstract class LoginDataSource {
-  /// [login] function
-  Future<LoginModel> login({
+/// [SignupDataSource] represent data source
+abstract class SignupDataSource {
+  /// [signup] function
+  Future<LoginModel> signup({
+    required String name,
+    required String countryCode,
+    required String phoneNumber,
     required String email,
     required String password,
+    required String confirmPassword,
   });
 }
 
-/// [LoginDataSourceImpl] an implement class for data source
-class LoginDataSourceImpl extends BaseRemoteDataSource
-    implements LoginDataSource {
-  /// [LoginDataSourceImpl] constructor
-  LoginDataSourceImpl({required super.networkInfo, required super.api});
+/// [SignupDataSourceImpl] data source implementation
+class SignupDataSourceImpl extends BaseRemoteDataSource
+    implements SignupDataSource {
+  /// [SignupDataSourceImpl] constructor
+  SignupDataSourceImpl({required super.networkInfo, required super.api});
 
   @override
-  Future<LoginModel> login({
+  Future<LoginModel> signup({
+    required String name,
+    required String countryCode,
+    required String phoneNumber,
     required String email,
     required String password,
+    required String confirmPassword,
   }) async {
     final result = await executeApiCall<LoginModel>(
       apiCall: () async {
         final response = await api.post(
           'user',
-          'login',
+          'register',
           data: {
+            'name': name,
             'email': email,
             'password': password,
+            'confirmPassword': confirmPassword,
           },
         );
         return response.data as Map<String, dynamic>;

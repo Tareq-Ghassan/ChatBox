@@ -19,12 +19,12 @@ class AuthHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 24,
       children: [
         Text(
           title,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        _whiteSpace,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
@@ -39,6 +39,4 @@ class AuthHeader extends StatelessWidget {
       ],
     );
   }
-
-  static const _whiteSpace = SizedBox(height: 24);
 }

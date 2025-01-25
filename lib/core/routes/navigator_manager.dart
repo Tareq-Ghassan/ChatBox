@@ -38,7 +38,7 @@ class KNavigator {
       //Navigate to the Signup screen.
       case KRoutes.signup:
         return _setPage(
-          page: const SignupScreen(),
+          page: const SignupPageBlocScope(),
           settings: settings,
         );
       //Navigate to the home main screen.

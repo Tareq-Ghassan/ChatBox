@@ -4,29 +4,27 @@ import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
-import 'package:chat/features/authentication/ui/controls/authentication_controller.dart';
+import 'package:chat/features/authentication/ui/controls/authentication_controls.dart';
 import 'package:chat/features/authentication/ui/widget/auth_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/// [_LoginScreen] represent login screen
-class _LoginScreen extends StatefulWidget {
-  /// [_LoginScreen] constructor
-  const _LoginScreen();
+/// [_LoginPage] represent login screen
+class _LoginPage extends StatefulWidget {
+  /// [_LoginPage] constructor
+  const _LoginPage();
 
   @override
-  State<_LoginScreen> createState() => _LoginScreenState();
-
-  static const _whiteSpace = SizedBox(height: 24);
+  State<_LoginPage> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<_LoginScreen> {
+class _LoginScreenState extends State<_LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthenticationBloc, AuthenticationState>(
-      listener: loginListenerController,
+      listener: AuthenticationControls.loginListenerController,
       builder: (ctx, state) {
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -41,7 +39,10 @@ class _LoginScreenState extends State<_LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: ElevatedButton(
-                        onPressed: () => submitLogin(_formKey, context),
+                        onPressed: () => AuthenticationControls.submitLogin(
+                          _formKey,
+                          context,
+                        ),
                         child: Text(appLocalizations.login),
                       ),
                     ),
@@ -61,14 +62,13 @@ class _LoginScreenState extends State<_LoginScreen> {
                 child: Form(
                   key: _formKey,
                   child: Column(
+                    spacing: 24,
                     children: [
                       AuthHeader(
                         title: appLocalizations.loginHeader,
                         subtitle: appLocalizations.loginSubtitle,
                       ),
-                      _LoginScreen._whiteSpace,
                       const EmailTextField(),
-                      _LoginScreen._whiteSpace,
                       const PasswordTextField(),
                     ],
                   ),
@@ -101,7 +101,7 @@ class LoginPageBlocScope extends StatelessWidget {
           create: (context) => sl<AuthenticationBloc>(),
         ),
       ],
-      child: const _LoginScreen(),
+      child: const _LoginPage(),
     );
   }
 }

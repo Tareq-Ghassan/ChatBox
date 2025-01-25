@@ -9,7 +9,7 @@ class AuthenticationModule extends BaseDi {
       sl<AuthenticationBloc>().close();
       sl.unregister<AuthenticationBloc>();
     }
-
+//! login usecase
     //* Use Cases
     if (sl.isRegistered<LoginUsecase>()) {
       sl.unregister<LoginUsecase>();
@@ -23,14 +23,35 @@ class AuthenticationModule extends BaseDi {
     if (sl.isRegistered<LoginDataSource>()) {
       sl.unregister<LoginDataSource>();
     }
+
+    //! Signup usecase
+
+    //* Use Cases
+    if (sl.isRegistered<SignupUsecase>()) {
+      sl.unregister<SignupUsecase>();
+    }
+    //* Repository
+    if (sl.isRegistered<SignupRepository>()) {
+      sl.unregister<LoginRepository>();
+    }
+
+    //* DataSource
+    if (sl.isRegistered<SignupDataSource>()) {
+      sl.unregister<SignupDataSource>();
+    }
   }
 
   @override
   void inject() {
     sl
       //* Bloc
-      ..registerFactory(() => AuthenticationBloc(loginUsecase: sl()))
-
+      ..registerFactory(
+        () => AuthenticationBloc(
+          loginUsecase: sl(),
+          signupUsecase: sl(),
+        ),
+      )
+//! login usecase
       //* Use Cases
       ..registerLazySingleton(() => LoginUsecase(repository: sl()))
       //* Repository
@@ -40,6 +61,18 @@ class AuthenticationModule extends BaseDi {
       //* DataSource
       ..registerLazySingleton<LoginDataSource>(
         () => LoginDataSourceImpl(api: sl(), networkInfo: sl()),
+      )
+
+//! Signup usecase
+      //* Use Cases
+      ..registerLazySingleton(() => SignupUsecase(repository: sl()))
+      //* Repository
+      ..registerLazySingleton<SignupRepository>(
+        () => SignupRepositoryImpl(dataSource: sl()),
+      )
+      //* DataSource
+      ..registerLazySingleton<SignupDataSource>(
+        () => SignupDataSourceImpl(api: sl(), networkInfo: sl()),
       );
   }
 

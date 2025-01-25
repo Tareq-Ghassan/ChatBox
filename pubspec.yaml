@@ -17,7 +17,7 @@ dependencies:
 
   cupertino_icons: ^1.0.6
   # state management
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^9.0.0
   # Object equality
   equatable: ^2.0.5
   # HTTP client
@@ -36,12 +36,12 @@ dev_dependencies:
     sdk: flutter
 
   # Linting or Code rule
-  flutter_lints: ^3.0.0
+  flutter_lints: ^5.0.0
   # Unit testing
   mockito: ^5.4.4
   build_runner: ^2.4.13
   # Code analysis 
-  very_good_analysis: ^5.1.0
+  very_good_analysis: ^7.0.0
 
 flutter:
   generate: true

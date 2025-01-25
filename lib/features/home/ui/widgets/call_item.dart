@@ -21,16 +21,12 @@ class CallItem extends StatelessWidget {
       ),
       title: const Text('Team Align'),
       subtitle: const Row(
+        spacing: 6,
         children: [
           Icon(Icons.abc),
-          _whiteSpace,
           Text('number 1'),
         ],
       ),
     );
   }
-
-  static const _whiteSpace = SizedBox(
-    width: 6,
-  );
 }

@@ -60,19 +60,17 @@ class OnboardingPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
+                      spacing: 24,
                       children: [
-                        _whiteSpace,
                         Center(
                           child: Image.asset(
                             KIcons.logo,
                           ),
                         ),
-                        _whiteSpace,
                         Text(
                           appLocalizations.onboardingHeader,
                           style: darkTheme.textTheme.displayLarge,
                         ),
-                        _whiteSpace,
                         Text(
                           appLocalizations.onboardingBody,
                           style: darkTheme.textTheme.bodyMedium!
@@ -89,6 +87,4 @@ class OnboardingPage extends StatelessWidget {
       ),
     );
   }
-
-  static const _whiteSpace = SizedBox(height: 24);
 }

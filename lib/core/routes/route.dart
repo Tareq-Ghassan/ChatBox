@@ -1,6 +1,6 @@
 import 'package:chat/dependency_injection/di.dart';
-import 'package:chat/features/authentication/ui/pages/login_screen.dart';
-import 'package:chat/features/authentication/ui/pages/signup_screen.dart';
+import 'package:chat/features/authentication/ui/pages/login_page.dart';
+import 'package:chat/features/authentication/ui/pages/signup_page.dart';
 import 'package:chat/features/chat/ui/pages/chat_screen.dart';
 import 'package:chat/features/home/ui/pages/home_screen.dart';
 import 'package:chat/features/pre_login/ui/pages/onboarding_page.dart';
