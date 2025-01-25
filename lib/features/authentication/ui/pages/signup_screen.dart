@@ -1,4 +1,3 @@
-
 import 'package:chat/core/presentation/widget/email_textfield.dart';
 import 'package:chat/core/presentation/widget/k_text_form_field.dart';
 import 'package:chat/core/presentation/widget/password_textfield.dart';
@@ -68,7 +67,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.next,
                         hintText: appLocalizations.name,
-                        validator: (value) => validateFullname(context, value),
+                        validator: (value) =>
+                            InputValidator.validateFullname(context, value),
                         onSaved: (value) {
                           if (value != null) {
                             context.read<NameCubit>().name = value;

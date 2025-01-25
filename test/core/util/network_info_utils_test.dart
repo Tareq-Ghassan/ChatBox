@@ -4,9 +4,9 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+import 'network_info_utils_test.mocks.dart';
+
 @GenerateNiceMocks([MockSpec<InternetConnection>()])
-// import generated mock classes
-import 'network_info_test.mocks.dart';
 
 void main() {
   late NetworkInfoImpl networkInfoImpl;

@@ -1,7 +1,6 @@
 import 'package:chat/core/presentation/widget/k_text_form_field.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
-import 'package:chat/features/authentication/ui/controls/authentication_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,10 +20,7 @@ class EmailTextField extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
       hintText: appLocalizations.email,
-      validator: (value) => validateEmail(
-        context,
-        value,
-      ),
+      validator: InputValidator.validateEmail,
       onSaved: (value) {
         if (value != null) {
           context.read<EmailCubit>().email = value;

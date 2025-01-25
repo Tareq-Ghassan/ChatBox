@@ -3,7 +3,6 @@ import 'package:chat/core/presentation/widget/k_text_form_field.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
-import 'package:chat/features/authentication/ui/controls/authentication_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,15 +40,22 @@ class PasswordTextField extends StatelessWidget {
                   ? Icons.visibility_off_outlined
                   : Icons.visibility_outlined,
             ),
-            validator: (value) => isConfirmPassword
-                ? validateConfirmPassword(
-                    context,
-                    value,
-                  )
-                : validateInputPassword(
-                    context,
-                    value,
-                  ),
+            validator: (value) {
+              if (isConfirmPassword) {
+                return InputValidator.validateConfirmPassword(
+                  context: context,
+                  password: context.read<PasswordCubit>().state,
+                  confirmPassword: value,
+                );
+              } else {
+                final result = InputValidator.validateInputPassword(
+                  context,
+                  value,
+                );
+                context.read<PasswordCubit>().password = value ?? '';
+                return result;
+              }
+            },
             onSaved: (value) {
               if (isConfirmPassword) {
                 if (value != null) {

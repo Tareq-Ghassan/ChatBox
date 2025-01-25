@@ -10,3 +10,4 @@ part 'input_validator_utils.dart';
 part 'locale_utils.dart';
 part 'network_info_utils.dart';
 part 'theme_utils.dart';
+part 'regex_util.dart';
