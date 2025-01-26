@@ -29,6 +29,7 @@ analyzer:
     one_member_abstracts: ignore
     invalid_annotation_target: ignore
     depend_on_referenced_packages: ignore
+    avoid_catches_without_on_clauses: ignore
 
 linter:
   rules:

@@ -21,7 +21,7 @@ class AuthenticationControls {
       return;
     }
     formKey.currentState!.save();
-    final email = context.read<EmailCubit>().state;
+    final email = KNavigator.navigatorKey.currentContext!.read<EmailCubit>().state;
     final password = context.read<PasswordCubit>().state;
     BlocProvider.of<AuthenticationBloc>(context)
         .add(PerformLogin(email: email, password: password));

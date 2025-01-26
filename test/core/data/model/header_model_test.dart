@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../util/fixture_reader.dart';
 
 void main() {
-  final tHeaderModel = HeaderModel(
+  const tHeaderModel =  HeaderModel(
     errorCode: '00000',
     message: 'success',
   );

@@ -77,4 +77,28 @@ class InputValidator {
       return appLocalizations.pleaseEnterValidation('name');
     }
   }
+
+  /// [validatePhoneNumber] validates phone number field
+  static String? validatePhoneNumber(
+    BuildContext context,
+    String? value,
+  ) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
+    if (value != null) {
+      if (value.isEmpty) {
+        return appLocalizations.pleaseEnterValidation('mobile');
+      }
+
+      final phoneRegExp = Regex.phoneNumber;
+      // Check both country code and length
+      if (!phoneRegExp.hasMatch(value)) {
+        return appLocalizations.invalidPhoneNumberFormat;
+      }
+    } else {
+      return appLocalizations.pleaseEnterValidation('mobile');
+    }
+
+    return null;
+  }
 }

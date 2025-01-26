@@ -1,17 +1,23 @@
+import 'package:equatable/equatable.dart';
+
 /// [HeaderModel] represent header response
-class HeaderModel {
+class HeaderModel extends Equatable{
   /// constructor
-  HeaderModel({required this.errorCode, required this.message});
+  const HeaderModel({required this.errorCode, required this.message});
 
   /// [HeaderModel.fromJson] to convert to [HeaderModel] object
-  HeaderModel.fromJson(Map<String, dynamic> json) {
-    errorCode = json['errorCode']?.toString();
-    message = json['message']?.toString();
+  factory HeaderModel.fromJson(Map<String, dynamic> json) {
+    final errorCode = json['errorCode']?.toString();
+    final message = json['message']?.toString();
+    return HeaderModel(errorCode: errorCode, message: message);
   }
 
   /// [errorCode] holds error code
-  String? errorCode;
+  final String? errorCode;
 
   /// [message] holds error message
-  String? message;
+  final String? message;
+  
+  @override
+  List<Object?> get props => [errorCode, message];
 }

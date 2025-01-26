@@ -1,6 +1,4 @@
-import 'package:chat/core/presentation/widget/email_textfield.dart';
-import 'package:chat/core/presentation/widget/k_text_form_field.dart';
-import 'package:chat/core/presentation/widget/password_textfield.dart';
+import 'package:chat/core/presentation/widget/textfield/text_field.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
@@ -67,6 +65,7 @@ class _SignupScreenState extends State<_SignupPage> {
                         },
                       ),
                       const EmailTextField(),
+                      const PhoneNumberTextField(),
                       const PasswordTextField(),
                       const PasswordTextField(
                         isConfirmPassword: true,
@@ -93,19 +92,25 @@ class SignupPageBlocScope extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<EmailCubit>(
-          create: (context) => sl<EmailCubit>(),
+          create: (_) => sl<EmailCubit>(),
         ),
         BlocProvider<PasswordCubit>(
-          create: (context) => sl<PasswordCubit>(),
+          create: (_) => sl<PasswordCubit>(),
         ),
         BlocProvider<ConfirmPasswordCubit>(
-          create: (context) => sl<ConfirmPasswordCubit>(),
+          create: (_) => sl<ConfirmPasswordCubit>(),
         ),
         BlocProvider<NameCubit>(
-          create: (context) => sl<NameCubit>(),
+          create: (_) => sl<NameCubit>(),
+        ),
+        BlocProvider<PhoneNumberCubit>(
+          create: (_) => sl<PhoneNumberCubit>(),
+        ),
+        BlocProvider<CountryCodeCubit>(
+          create: (_) => sl<CountryCodeCubit>(),
         ),
         BlocProvider<AuthenticationBloc>(
-          create: (context) => sl<AuthenticationBloc>(),
+          create: (_) => sl<AuthenticationBloc>(),
         ),
       ],
       child: const _SignupPage(),

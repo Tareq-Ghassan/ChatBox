@@ -46,3 +46,21 @@ class NameCubit extends Cubit<String> {
   /// [name] function to set a new value for name
   set name(String newVal) => emit(newVal);
 }
+
+/// A [PhoneNumberCubit] which manages `phone number` as its state
+class PhoneNumberCubit extends Cubit<String> {
+  /// The initial state of the [PhoneNumberCubit] is `''`.
+  PhoneNumberCubit() : super('');
+
+  /// [phone] function to set a new value for phone
+  set phone(String newVal) => emit(newVal);
+}
+
+/// A [CountryCodeCubit] which manages `country code` as its state
+class CountryCodeCubit extends Cubit<String> {
+  /// The initial state of the [CountryCodeCubit] is `962`.
+  CountryCodeCubit() : super('962');
+
+  /// [countryCode] function to set a new value for country code
+  set countryCode(String newVal) => emit(newVal);
+}

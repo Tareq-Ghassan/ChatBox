@@ -98,6 +98,22 @@ class AuthenticationUiModule extends BaseDi {
       sl<HidePasswordCubit>().close();
       sl.unregister<HidePasswordCubit>();
     }
+    if (sl.isRegistered<NameCubit>()) {
+      sl<NameCubit>().close();
+      sl.unregister<NameCubit>();
+    }
+    if (sl.isRegistered<CountryCodeCubit>()) {
+      sl<CountryCodeCubit>().close();
+      sl.unregister<CountryCodeCubit>();
+    }
+    if (sl.isRegistered<HidePasswordCubit>()) {
+      sl<HidePasswordCubit>().close();
+      sl.unregister<HidePasswordCubit>();
+    }
+    if (sl.isRegistered<ConfirmPasswordCubit>()) {
+      sl<ConfirmPasswordCubit>().close();
+      sl.unregister<ConfirmPasswordCubit>();
+    }
   }
 
   @override
@@ -105,8 +121,11 @@ class AuthenticationUiModule extends BaseDi {
     sl
       //* Cubit
       ..registerFactory(EmailCubit.new)
+      ..registerFactory(HidePasswordCubit.new)
       ..registerFactory(PasswordCubit.new)
-      ..registerFactory(HidePasswordCubit.new);
+      ..registerFactory(ConfirmPasswordCubit.new)
+      ..registerFactory(NameCubit.new)
+      ..registerFactory(CountryCodeCubit.new);
   }
 
   @override

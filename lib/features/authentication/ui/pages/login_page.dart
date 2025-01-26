@@ -1,5 +1,4 @@
-import 'package:chat/core/presentation/widget/email_textfield.dart';
-import 'package:chat/core/presentation/widget/password_textfield.dart';
+import 'package:chat/core/presentation/widget/textfield/text_field.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
@@ -92,13 +91,13 @@ class LoginPageBlocScope extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<EmailCubit>(
-          create: (context) => sl<EmailCubit>(),
+          create: (_) => sl<EmailCubit>(),
         ),
         BlocProvider<PasswordCubit>(
-          create: (context) => sl<PasswordCubit>(),
+          create: (_) => sl<PasswordCubit>(),
         ),
         BlocProvider<AuthenticationBloc>(
-          create: (context) => sl<AuthenticationBloc>(),
+          create: (_) => sl<AuthenticationBloc>(),
         ),
       ],
       child: const _LoginPage(),

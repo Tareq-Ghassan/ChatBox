@@ -1,4 +1,5 @@
 part of 'util.dart';
+
 /// [Regex] a singleton that holds app regex
 class Regex {
   const Regex._();
@@ -10,4 +11,7 @@ class Regex {
 
   ///[password]
   static final password = RegExp('.{6,}');
+
+  ///[phoneNumber]
+  static final phoneNumber = RegExp('^d{4,15}');
 }

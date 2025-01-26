@@ -10,8 +10,8 @@ import '../../../../core/util/fixture_reader.dart';
 void main() {
   final tInitializeModel = InitializeModel(
     isInitialize:
-        HeaderModel(errorCode: '0', message: 'success').errorCode == '0',
-    header: HeaderModel(
+        const HeaderModel(errorCode: '0', message: 'success').errorCode == '0',
+    header: const HeaderModel(
       errorCode: '0',
       message: 'success',
     ),
