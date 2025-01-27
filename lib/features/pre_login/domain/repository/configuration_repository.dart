@@ -5,5 +5,6 @@ import 'package:dartz/dartz.dart';
 /// [ConfigurationRepository] non implement class represent
 /// configuration repo
 abstract class ConfigurationRepository {
+  /// [getConfiguration] function
   Future<Either<Failure, Configuration>> getConfiguration();
 }

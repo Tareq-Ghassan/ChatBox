@@ -11,8 +11,12 @@ class PreLoginModule implements BaseDi {
   void inject() {
     sl
       //* Bloc
-      ..registerFactory(() => InitializeBloc(usecase: sl()))
+      ..registerFactory(
+        () =>
+            InitializeBloc(configurationUsecase: sl(), initializeUseCase: sl()),
+      )
 
+      ///! initialize
       //* Use Cases
       ..registerLazySingleton(() => InitializeUseCase(repository: sl()))
       //* Repository
@@ -22,6 +26,18 @@ class PreLoginModule implements BaseDi {
       //* DataSource
       ..registerLazySingleton<InitializeDataSource>(
         () => InitializationDataSourceImpl(api: sl(), networkInfo: sl()),
+      )
+
+      ///! configuration
+      //* Use Cases
+      ..registerLazySingleton(() => ConfigurationUseCase(repository: sl()))
+      //* Repository
+      ..registerLazySingleton<ConfigurationRepository>(
+        () => ConfigurationRepositoryImpl(dataSource: sl()),
+      )
+      //* DataSource
+      ..registerLazySingleton<ConfigurationDataSource>(
+        () => ConfigurationDataSourceImpl(api: sl(), networkInfo: sl()),
       );
   }
 
@@ -36,6 +52,7 @@ class PreLoginModule implements BaseDi {
       sl.unregister<InitializeBloc>();
     }
 
+    ///! initialize
     //* Use Cases
     if (sl.isRegistered<InitializeUseCase>()) {
       sl.unregister<InitializeUseCase>();
@@ -48,6 +65,21 @@ class PreLoginModule implements BaseDi {
     //* DataSource
     if (sl.isRegistered<InitializeDataSource>()) {
       sl.unregister<InitializeDataSource>();
+    }
+
+    ///! configuration
+    //* Use Cases
+    if (sl.isRegistered<ConfigurationUseCase>()) {
+      sl.unregister<ConfigurationUseCase>();
+    }
+    //* Repository
+    if (sl.isRegistered<ConfigurationRepository>()) {
+      sl.unregister<ConfigurationRepository>();
+    }
+
+    //* DataSource
+    if (sl.isRegistered<ConfigurationDataSource>()) {
+      sl.unregister<ConfigurationDataSource>();
     }
   }
 }

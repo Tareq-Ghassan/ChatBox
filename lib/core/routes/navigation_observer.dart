@@ -19,12 +19,6 @@ class KNavigatorObserver extends NavigatorObserver {
     required bool isPush,
   }) {
     switch (settings.name) {
-      case KRoutes.splashScreen:
-
-        // injection happens in core, only deregister here
-        if (!isPush) {
-          PreLoginModule().deregister();
-        }
       case KRoutes.login || KRoutes.signup:
         if (isPush) {
           AuthenticationModule().inject();
@@ -32,6 +26,7 @@ class KNavigatorObserver extends NavigatorObserver {
         } else {
           AuthenticationModule().deregister();
           AuthenticationUiModule().deregister();
+          PreLoginModule().deregister();
         }
       case KRoutes.homeScreen:
         break;

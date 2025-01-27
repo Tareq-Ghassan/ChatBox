@@ -3,16 +3,23 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i6;
 
-import 'package:chat/core/error/error.dart' as _i6;
-import 'package:chat/features/pre_login/domain/entity/initialize.dart' as _i7;
+import 'package:chat/core/error/error.dart' as _i7;
+import 'package:chat/core/usecase/base_usecase.dart' as _i12;
+import 'package:chat/features/pre_login/domain/entity/configuration.dart'
+    as _i11;
+import 'package:chat/features/pre_login/domain/entity/initialize.dart' as _i8;
+import 'package:chat/features/pre_login/domain/repository/configuration_repository.dart'
+    as _i4;
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart'
     as _i2;
+import 'package:chat/features/pre_login/domain/usecase/configuration_usecase.dart'
+    as _i10;
 import 'package:chat/features/pre_login/domain/usecase/initialize_usecase.dart'
-    as _i4;
+    as _i5;
 import 'package:chat/features/pre_login/domain/usecase/params/initialize_params.dart'
-    as _i8;
+    as _i9;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -41,10 +48,16 @@ class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
     : super(parent, parentInvocation);
 }
 
+class _FakeConfigurationRepository_2 extends _i1.SmartFake
+    implements _i4.ConfigurationRepository {
+  _FakeConfigurationRepository_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [InitializeUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockInitializeUseCase extends _i1.Mock implements _i4.InitializeUseCase {
+class MockInitializeUseCase extends _i1.Mock implements _i5.InitializeUseCase {
   @override
   _i2.InitializeRepository get repository =>
       (super.noSuchMethod(
@@ -61,25 +74,69 @@ class MockInitializeUseCase extends _i1.Mock implements _i4.InitializeUseCase {
           as _i2.InitializeRepository);
 
   @override
-  _i5.Future<_i3.Either<_i6.Failure, _i7.Initialize>> call(
-    _i8.InitializeParams? initializeParams,
+  _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>> call(
+    _i9.InitializeParams? initializeParams,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#call, [initializeParams]),
             returnValue:
-                _i5.Future<_i3.Either<_i6.Failure, _i7.Initialize>>.value(
-                  _FakeEither_1<_i6.Failure, _i7.Initialize>(
+                _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>>.value(
+                  _FakeEither_1<_i7.Failure, _i8.Initialize>(
                     this,
                     Invocation.method(#call, [initializeParams]),
                   ),
                 ),
             returnValueForMissingStub:
-                _i5.Future<_i3.Either<_i6.Failure, _i7.Initialize>>.value(
-                  _FakeEither_1<_i6.Failure, _i7.Initialize>(
+                _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>>.value(
+                  _FakeEither_1<_i7.Failure, _i8.Initialize>(
                     this,
                     Invocation.method(#call, [initializeParams]),
                   ),
                 ),
           )
-          as _i5.Future<_i3.Either<_i6.Failure, _i7.Initialize>>);
+          as _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>>);
+}
+
+/// A class which mocks [ConfigurationUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockConfigurationUseCase extends _i1.Mock
+    implements _i10.ConfigurationUseCase {
+  @override
+  _i4.ConfigurationRepository get repository =>
+      (super.noSuchMethod(
+            Invocation.getter(#repository),
+            returnValue: _FakeConfigurationRepository_2(
+              this,
+              Invocation.getter(#repository),
+            ),
+            returnValueForMissingStub: _FakeConfigurationRepository_2(
+              this,
+              Invocation.getter(#repository),
+            ),
+          )
+          as _i4.ConfigurationRepository);
+
+  @override
+  _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>> call(
+    _i12.NoParams? params,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#call, [params]),
+            returnValue:
+                _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>>.value(
+                  _FakeEither_1<_i7.Failure, _i11.Configuration>(
+                    this,
+                    Invocation.method(#call, [params]),
+                  ),
+                ),
+            returnValueForMissingStub:
+                _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>>.value(
+                  _FakeEither_1<_i7.Failure, _i11.Configuration>(
+                    this,
+                    Invocation.method(#call, [params]),
+                  ),
+                ),
+          )
+          as _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>>);
 }

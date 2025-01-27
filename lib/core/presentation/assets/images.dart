@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs
+// ignore_for_file: public_member_api_docs, document_ignores
 
 /// [KImages] holds all images in app
 class KImages {

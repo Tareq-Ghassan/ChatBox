@@ -1,4 +1,4 @@
-// ignore_for_file: strict_raw_type
+// ignore_for_file: strict_raw_type, document_ignores
 part of 'remote.dart';
 
 /// [MiddlewareApiImpl] implements ApiClient with actual API calls

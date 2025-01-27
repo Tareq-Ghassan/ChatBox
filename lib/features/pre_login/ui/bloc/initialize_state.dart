@@ -14,16 +14,28 @@ final class Idle extends InitializeState {}
 /// [Loading] state
 final class Loading extends InitializeState {}
 
-/// [Loaded] state
-final class Loaded extends InitializeState {
-  /// [Loaded] constructor
-  const Loaded({required this.initialize});
+/// [InitializeLoaded] state
+final class InitializeLoaded extends InitializeState {
+  /// [InitializeLoaded] constructor
+  const InitializeLoaded({required this.initialize});
 
   /// [initialize] entity
   final Initialize initialize;
 
   @override
   List<Object> get props => [initialize];
+}
+
+/// [ConfigurationLoaded] state
+final class ConfigurationLoaded extends InitializeState {
+  /// [ConfigurationLoaded] constructor
+  const ConfigurationLoaded({required this.configuration});
+
+  /// [configuration] entity
+  final Configuration configuration;
+
+  @override
+  List<Configuration> get props => [configuration];
 }
 
 /// [Error] state

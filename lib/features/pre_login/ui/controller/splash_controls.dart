@@ -32,7 +32,12 @@ class SplashControls {
     if (state is Loading) {
       LoadingIndicatorDialog.show(context);
     }
-    if (state is Loaded) {
+    if (state is InitializeLoaded) {
+      LoadingIndicatorDialog.dismiss();
+      BlocProvider.of<InitializeBloc>(KNavigator.navigatorKey.currentContext!)
+          .add(const GetConfiguration());
+    }
+    if (state is ConfigurationLoaded) {
       LoadingIndicatorDialog.dismiss();
       await KNavigator.pushReplacement(KRoutes.onBoarding);
     } else if (state is Error) {

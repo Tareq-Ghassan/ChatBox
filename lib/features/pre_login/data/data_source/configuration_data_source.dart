@@ -8,22 +8,21 @@ abstract class ConfigurationDataSource {
   Future<ConfigurationResponseModel> getConfiguration();
 }
 
-/// [ConfigurationDataSourceImpl] implementation 
+/// [ConfigurationDataSourceImpl] implementation
 class ConfigurationDataSourceImpl extends BaseRemoteDataSource
     implements ConfigurationDataSource {
-
-/// [ConfigurationDataSourceImpl] constructor
-ConfigurationDataSourceImpl({required super.networkInfo,required super.api,})
-
-  
+  /// [ConfigurationDataSourceImpl] constructor
+  ConfigurationDataSourceImpl({
+    required super.networkInfo,
+    required super.api,
+  });
   @override
-  Future<ConfigurationResponseModel> getConfiguration() async{
-      final result = await executeApiCall<ConfigurationResponseModel>(
+  Future<ConfigurationResponseModel> getConfiguration() async {
+    final result = await executeApiCall<ConfigurationResponseModel>(
       apiCall: () async {
         final response = await api.get(
           'init',
           'getConfiguration',
-
         );
         return response.data as Map<String, dynamic>;
       },
@@ -31,18 +30,15 @@ ConfigurationDataSourceImpl({required super.networkInfo,required super.api,})
     );
     if (result.header?.errorCode == '00000') {
       return result;
-    } else if (result.header!=null) {
+    } else if (result.header != null) {
       throw ClientException(
         error: result.header!.errorCode.toString(),
         message: result.header!.message.toString(),
       );
-    }  else {
+    } else {
       throw const ServerException(
         message: 'Failed',
       );
     }
-    
   }
-
- 
 }

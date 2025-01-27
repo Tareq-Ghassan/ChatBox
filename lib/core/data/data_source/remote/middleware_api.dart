@@ -1,4 +1,4 @@
-// ignore_for_file: strict_raw_type
+// ignore_for_file: strict_raw_type, document_ignores
 part of 'remote.dart';
 
 /// [MiddlewareApi] an abstract class defining API methods

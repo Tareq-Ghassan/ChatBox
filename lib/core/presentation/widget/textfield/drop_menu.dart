@@ -9,18 +9,15 @@ class DropMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final state =
+        BlocProvider.of<InitializeBloc>(context).state as ConfigurationLoaded;
     return DropdownMenu<String>(
       inputDecorationTheme: const InputDecorationTheme(
         border: InputBorder.none,
         errorBorder: InputBorder.none,
         enabledBorder: InputBorder.none,
       ),
-      initialSelection: BlocProvider.of<ConfigrationBloc>(context)
-          .state
-          .props
-          .first
-          .countryCodes!
-          .codes![0],
+      initialSelection: state.props.first.countryCodes.first.code,
       onSelected: (String? value) {
         if (value != null) {
           context.read<CountryCodeCubit>().countryCode = value;
@@ -28,16 +25,11 @@ class DropMenu extends StatelessWidget {
           context.read<CountryCodeCubit>().countryCode = '';
         }
       },
-      dropdownMenuEntries: BlocProvider.of<ConfigrationBloc>(context)
-          .state
-          .props
-          .first
-          .countryCodes!
-          .codes!
-          .map<DropdownMenuEntry<String>>((String value) {
+      dropdownMenuEntries: state.props.first.countryCodes
+          .map<DropdownMenuEntry<String>>((CountryCode value) {
         return DropdownMenuEntry<String>(
-          value: value,
-          label: value,
+          value: value.code,
+          label: value.name,
         );
       }).toList(),
     );

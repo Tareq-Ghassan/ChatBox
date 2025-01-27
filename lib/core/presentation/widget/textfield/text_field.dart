@@ -2,6 +2,8 @@ import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
+import 'package:chat/features/pre_login/domain/entity/configuration.dart';
+import 'package:chat/features/pre_login/ui/bloc/initialize_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
