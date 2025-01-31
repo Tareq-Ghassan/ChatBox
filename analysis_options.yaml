@@ -4,7 +4,7 @@ analyzer:
     require_trailing_commas: error
     prefer_single_quotes: error
     prefer_const_constructors: error
-    unnecessary_lambdas: info
+    unnecessary_lambdas: error
     avoid_print: error
     always_use_package_imports: error
     valid_regexps: error
@@ -26,6 +26,10 @@ analyzer:
     unused_import: error
     directives_ordering: error
     sort_pub_dependencies: ignore
+    one_member_abstracts: ignore
+    invalid_annotation_target: ignore
+    depend_on_referenced_packages: ignore
+    avoid_catches_without_on_clauses: ignore
 
 linter:
   rules:

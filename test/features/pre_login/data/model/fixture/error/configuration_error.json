@@ -1,0 +1,20 @@
+{
+    "header": {
+        "message": "Success",
+        "errorCode": "00000"
+    },
+    "body": {
+        "countryCodes": [
+            {
+                "_id": "67965d93a393def94ea206ca",
+                "name": [],
+                "code": "+93"
+            },
+            {
+                "_id": "67965d93a393def94ea206cb",
+                "name": "Albania",
+                "code": "+355"
+            }
+        ]
+    }
+}
