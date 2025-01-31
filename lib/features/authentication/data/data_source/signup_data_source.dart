@@ -40,6 +40,8 @@ class SignupDataSourceImpl extends BaseRemoteDataSource
             'email': email,
             'password': password,
             'confirmPassword': confirmPassword,
+            'phoneNumber': phoneNumber,
+            'countryCode': countryCode,
           },
         );
         return response.data as Map<String, dynamic>;

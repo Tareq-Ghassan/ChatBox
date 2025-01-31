@@ -32,7 +32,7 @@ class AuthenticationModule extends BaseDi {
     }
     //* Repository
     if (sl.isRegistered<SignupRepository>()) {
-      sl.unregister<LoginRepository>();
+      sl.unregister<SignupRepository>();
     }
 
     //* DataSource
@@ -114,6 +114,10 @@ class AuthenticationUiModule extends BaseDi {
       sl<ConfirmPasswordCubit>().close();
       sl.unregister<ConfirmPasswordCubit>();
     }
+    if (sl.isRegistered<PhoneNumberCubit>()) {
+      sl<PhoneNumberCubit>().close();
+      sl.unregister<PhoneNumberCubit>();
+    }
   }
 
   @override
@@ -125,6 +129,7 @@ class AuthenticationUiModule extends BaseDi {
       ..registerFactory(PasswordCubit.new)
       ..registerFactory(ConfirmPasswordCubit.new)
       ..registerFactory(NameCubit.new)
+      ..registerFactory(PhoneNumberCubit.new)
       ..registerFactory(CountryCodeCubit.new);
   }
 

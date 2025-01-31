@@ -21,7 +21,8 @@ class AuthenticationControls {
       return;
     }
     formKey.currentState!.save();
-    final email = KNavigator.navigatorKey.currentContext!.read<EmailCubit>().state;
+    final email =
+        context.read<EmailCubit>().state;
     final password = context.read<PasswordCubit>().state;
     BlocProvider.of<AuthenticationBloc>(context)
         .add(PerformLogin(email: email, password: password));
@@ -47,11 +48,11 @@ class AuthenticationControls {
       LoadingIndicatorDialog.dismiss();
       unawaited(
         showDialog(
-          context: KNavigator.navigatorKey.currentContext!,
+          context: context,
           builder: (context) => CustomDialogBox(
             title: state.header,
             descriptions: state.message,
-            yesButtontext: appLocalizations.exit,
+            yesButtontext: appLocalizations.cancel,
             yesButtonOnTap: KNavigator.pop,
           ),
         ),
@@ -69,24 +70,20 @@ class AuthenticationControls {
       return;
     }
     formKey.currentState!.save();
-    final name =
-        context.read<NameCubit>().state;
-    final email =
-        context.read<EmailCubit>().state;
-    final password =
-        context.read<PasswordCubit>().state;
-    final confirmPassword = context
-        .read<ConfirmPasswordCubit>()
-        .state;
-    BlocProvider.of<AuthenticationBloc>(context)
-        .add(
+    final name = context.read<NameCubit>().state;
+    final email = context.read<EmailCubit>().state;
+    final password = context.read<PasswordCubit>().state;
+    final confirmPassword = context.read<ConfirmPasswordCubit>().state;
+    final phoneNumber = context.read<PhoneNumberCubit>().state;
+    final countryCode = context.read<CountryCodeCubit>().state;
+    BlocProvider.of<AuthenticationBloc>(context).add(
       Register(
         name: name,
         email: email,
         password: password,
         confirmPassword: confirmPassword,
-        phoneNumber: '',
-        countryCode: '',
+        phoneNumber: phoneNumber,
+        countryCode: countryCode,
       ),
     );
   }
@@ -102,16 +99,16 @@ class AuthenticationControls {
     if (state is Loaded) {
       LoadingIndicatorDialog.dismiss();
       unawaited(
-        KNavigator.pushNamedAndRemoveUntil(
+        KNavigator.pushNamedAndRemoveUntilByName(
           KRoutes.homeScreen,
-          (route) => route.isFirst,
+          KRoutes.login,
         ),
       );
     } else if (state is Error) {
       LoadingIndicatorDialog.dismiss();
       unawaited(
         showDialog(
-          context: KNavigator.navigatorKey.currentContext!,
+          context: context,
           builder: (context) => CustomDialogBox(
             title: state.header,
             descriptions: state.message,

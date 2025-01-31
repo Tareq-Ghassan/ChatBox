@@ -9,26 +9,19 @@ class PhoneNumberTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      autocorrect: false,
+    return KTextFormField(
       autofillHints: const [
         AutofillHints.telephoneNumberDevice,
       ],
       keyboardType: TextInputType.phone,
-      decoration: InputDecoration(
-        counterText: '',
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        filled: true,
-        fillColor: Colors.transparent,
-        hintText: appLocalizations.phoneNumber,
-        prefixIcon: const Padding(
-          padding: EdgeInsets.only(left: 16),
-          child: DropMenu(),
-        ),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 16,
       ),
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      hintText: appLocalizations.phoneNumber,
+      prefixIcon: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.25,
+        child: const DropMenu(),
+      ),
       maxLength: 15,
       onSaved: (value) {
         if (value != null) {
@@ -38,10 +31,7 @@ class PhoneNumberTextField extends StatelessWidget {
         }
       },
       textInputAction: TextInputAction.next,
-      validator: (value) => InputValidator.validatePhoneNumber(
-        context,
-        value,
-      ),
+      validator: InputValidator.validatePhoneNumber,
     );
   }
 }

@@ -15,8 +15,10 @@ void main() {
   late MockLoginRepository repo;
   late LoginUsecase usecase;
 
+  const tPhoneNumber = PhoneNumber(number: 'Afghanistan', code: '+93');
   const tHeader = Header(jwt: 'xxxx');
-  const tUserData = UserData(name: 'Tareq', email: 't@t.t');
+  const tUserData =
+      UserData(name: 'Tareq', email: 't@t.t', phoneNumber: tPhoneNumber);
   const tLogin = Login(header: tHeader, userData: tUserData);
 
   const tLoginParams = LoginParams(

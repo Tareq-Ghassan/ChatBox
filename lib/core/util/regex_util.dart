@@ -13,5 +13,5 @@ class Regex {
   static final password = RegExp('.{6,}');
 
   ///[phoneNumber]
-  static final phoneNumber = RegExp('^d{4,15}');
+  static final phoneNumber = RegExp(r'^\d{4,15}$');
 }

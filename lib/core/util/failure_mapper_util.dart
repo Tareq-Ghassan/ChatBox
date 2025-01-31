@@ -2,7 +2,8 @@ part of 'util.dart';
 
 /// [FailureMapper] a class to map Failures
 class FailureMapper {
-  const FailureMapper._();
+  /// [FailureMapper] constructor
+  const FailureMapper();
 
   /// [mapFailureToMessage] map Failure type with a proper Error message
   static String mapFailureToMessage(Failure failure) {
@@ -10,7 +11,7 @@ class FailureMapper {
       return appLocalizations.internalServerErrorDescription;
     }
     if (failure is NetworkFailure) {
-      return 'Please check your connection';
+      return appLocalizations.networkErrorDescription;
     }
     if (failure is ClientFailure) {
       return failure.message;
@@ -24,10 +25,10 @@ class FailureMapper {
       return appLocalizations.internalServerError;
     }
     if (failure is NetworkFailure) {
-      return "You're offline";
+      return appLocalizations.networkError;
     }
     if (failure is ClientFailure) {
-      return failure.message;
+      return appLocalizations.somethingWentWrong;
     }
     return appLocalizations.internalServerError;
   }

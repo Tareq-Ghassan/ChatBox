@@ -14,8 +14,10 @@ class KTextFormField extends StatelessWidget {
     this.validator,
     this.onSaved,
     this.suffixIcon,
+    this.prefixIcon,
     this.contentPadding,
     this.obscureText = false,
+    this.maxLength = 30,
   });
 
   final Iterable<String>? autofillHints;
@@ -25,15 +27,17 @@ class KTextFormField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String hintText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final EdgeInsetsGeometry? contentPadding;
   final bool obscureText;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      maxLength: 30,
+      maxLength: maxLength,
       autocorrect: false,
       decoration: InputDecoration(
         counterText: '',
@@ -44,6 +48,7 @@ class KTextFormField extends StatelessWidget {
                 )
             : null,
         suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
         contentPadding: contentPadding,
       ),
       autofillHints: autofillHints,

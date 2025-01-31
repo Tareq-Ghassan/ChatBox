@@ -56,7 +56,7 @@ class CountryCodeModel extends CountryCode {
   /// into object
   factory CountryCodeModel.fromJson(Map<String, dynamic> json) {
     final name = json['name'] is String ? json['name'] as String : '';
-    final code = json['code'] is String ? json['name'] as String : '';
+    final code = json['code'] is String ? json['code'] as String : '';
     return CountryCodeModel(code: code, name: name);
   }
 }

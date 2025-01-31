@@ -18,7 +18,11 @@ class LoginModel extends Login {
         : const HeaderModel(jwt: '');
     final userData = json['body'] != null
         ? UserDataModel.fromJson(json['body'] as Map<String, dynamic>)
-        : const UserDataModel(name: '', email: '');
+        : const UserDataModel(
+            name: '',
+            email: '',
+            phoneNumber: PhoneNumber(number: '', code: ''),
+          );
     return LoginModel(header: header, userData: userData);
   }
 }
@@ -26,13 +30,34 @@ class LoginModel extends Login {
 /// [UserDataModel] holds user data
 class UserDataModel extends UserData {
   /// [UserDataModel] constructor
-  const UserDataModel({required super.name, required super.email});
+  const UserDataModel({
+    required super.name,
+    required super.email,
+    required super.phoneNumber,
+  });
 
   /// [UserDataModel.fromJson] convert to [UserDataModel] object
   factory UserDataModel.fromJson(Map<String, dynamic> json) {
+    final phoneNumber = json['phoneNumber'] != null
+        ? PhoneNumberModel.fromJson(json['phoneNumber'] as Map<String, dynamic>)
+        : const PhoneNumberModel(code: '', number: '');
     final name = json['name'] != null ? json['name'] as String : '';
     final email = json['email'] != null ? json['email'] as String : '';
-    return UserDataModel(email: email, name: name);
+
+    return UserDataModel(email: email, name: name, phoneNumber: phoneNumber);
+  }
+}
+
+/// [PhoneNumberModel] holds Phone Number
+class PhoneNumberModel extends PhoneNumber {
+  /// [PhoneNumberModel] constructor
+  const PhoneNumberModel({required super.code, required super.number});
+
+  /// [PhoneNumberModel.fromJson] convert to [PhoneNumberModel] object
+  factory PhoneNumberModel.fromJson(Map<String, dynamic> json) {
+    final code = json['code'] != null ? json['code'] as String : '';
+    final number = json['number'] != null ? json['number'] as String : '';
+    return PhoneNumberModel(code: code, number: number);
   }
 }
 

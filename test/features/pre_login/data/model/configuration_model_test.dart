@@ -37,8 +37,10 @@ void main() {
     });
     test("shouldn't return a exception on parsing", () async {
       // arrange
+      const tCountryCodeModel1 = CountryCodeModel(name: '', code: '+93');
+
       const tConfigurationModel = ConfigurationModel(
-        countryCodes: [tCountryCodeModel, tCountryCodeModel2],
+        countryCodes: [tCountryCodeModel1, tCountryCodeModel2],
       );
       const tHeaderModel = HeaderModel(errorCode: '00000', message: 'Success');
       const tConfigurationResponseModel = ConfigurationResponseModel(

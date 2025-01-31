@@ -24,7 +24,7 @@ class InputValidator {
   /// password Field
   ///
   /// it only check that its not empty
-  static String? validateInputPassword(BuildContext context, String? value) {
+  static String? validateInputPassword(String? value) {
     if (value != null) {
       if (value.isEmpty) {
         return appLocalizations.pleaseEnterValidation('pass');
@@ -41,7 +41,6 @@ class InputValidator {
   /// [validateConfirmPassword] this function is to execute validation on
   /// confirm password Field
   static String? validateConfirmPassword({
-    required BuildContext context,
     required String? password,
     required String? confirmPassword,
   }) {
@@ -60,7 +59,7 @@ class InputValidator {
   }
 
   /// * validate if fullname is empty or not
-  static String? validateFullname(BuildContext context, String? value) {
+  static String? validateFullname(String? value) {
     if (value != null) {
       if (value.trim().isEmpty) {
         return appLocalizations.pleaseEnterValidation('name');
@@ -80,18 +79,14 @@ class InputValidator {
 
   /// [validatePhoneNumber] validates phone number field
   static String? validatePhoneNumber(
-    BuildContext context,
     String? value,
   ) {
-    final appLocalizations = AppLocalizations.of(context)!;
-
     if (value != null) {
       if (value.isEmpty) {
         return appLocalizations.pleaseEnterValidation('mobile');
       }
 
       final phoneRegExp = Regex.phoneNumber;
-      // Check both country code and length
       if (!phoneRegExp.hasMatch(value)) {
         return appLocalizations.invalidPhoneNumberFormat;
       }

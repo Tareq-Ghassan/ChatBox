@@ -7,6 +7,7 @@
     }
   },
   "calls": "Calls",
+  "cancel": "Cancel",
   "confirmPassword": "Confirm Password",
   "contacts": "Contacts",
   "createAccount": "Create an account",
@@ -27,6 +28,9 @@
   "minimumSixChars": "Minimum 6 characters",
   "name": "Name",
   "nameMustBe2Syllables": "Name must be 2 syllables or more",
+  "networkError": "You're offline",
+  "networkErrorDescription": "Please check your connection",
+  "ok": "Okay",
   "onboardingBody": "Our chat app is the perfect way to stay connected with friends and family.",
   "onboardingHeader": "Connect friends easily & quickly",
   "password": "Password",

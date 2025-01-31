@@ -37,13 +37,11 @@ class PasswordTextField extends StatelessWidget {
             validator: (value) {
               if (isConfirmPassword) {
                 return InputValidator.validateConfirmPassword(
-                  context: context,
                   password: context.read<PasswordCubit>().state,
                   confirmPassword: value,
                 );
               } else {
                 final result = InputValidator.validateInputPassword(
-                  context,
                   value,
                 );
                 context.read<PasswordCubit>().password = value ?? '';

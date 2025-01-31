@@ -24,7 +24,7 @@ class _SignupScreenState extends State<_SignupPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthenticationBloc, AuthenticationState>(
       listener: AuthenticationControls.signUpListenerController,
-      builder: (context, state) {
+      builder: (ctx, state) {
         return GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
@@ -56,8 +56,7 @@ class _SignupScreenState extends State<_SignupPage> {
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.next,
                         hintText: appLocalizations.name,
-                        validator: (value) =>
-                            InputValidator.validateFullname(context, value),
+                        validator: InputValidator.validateFullname,
                         onSaved: (value) {
                           if (value != null) {
                             context.read<NameCubit>().name = value;

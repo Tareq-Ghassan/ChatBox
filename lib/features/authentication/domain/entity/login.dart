@@ -18,13 +18,32 @@ class Login extends Equatable {
 /// [UserData] holds user data
 class UserData {
   /// [UserData] constructor
-  const UserData({required this.name, required this.email});
+  const UserData({
+    required this.phoneNumber,
+    required this.name,
+    required this.email,
+  });
 
   /// [name] holds name
   final String name;
 
   /// [email] holds email
   final String email;
+
+  /// [phoneNumber] holds phone Number
+  final PhoneNumber phoneNumber;
+}
+
+/// [PhoneNumber] holds Phone Number
+class PhoneNumber {
+  /// [PhoneNumber] constructor
+  const PhoneNumber({required this.number, required this.code});
+
+  /// [number] holds number
+  final String number;
+
+  /// [code] holds code
+  final String code;
 }
 
 /// [Header] represent header response

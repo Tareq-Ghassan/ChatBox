@@ -23,8 +23,13 @@ void main() {
     message: 'Success',
     jwt: 'xxxxxx',
   );
-  const tUserData =
-      UserDataModel(name: 'Tareq Ghassan', email: 'test@gmail.com');
+  const tPhoneNumber = PhoneNumber(number: '02', code: '+1');
+
+  const tUserData = UserDataModel(
+    name: 'Tareq Ghassan',
+    email: 'test@gmail.com',
+    phoneNumber: tPhoneNumber,
+  );
   const tLoginModel = LoginModel(header: tHeader, userData: tUserData);
   const tLogin = tLoginModel;
 

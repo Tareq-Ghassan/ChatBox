@@ -8,6 +8,7 @@ import '../../../../core/util/fixture_reader.dart';
 
 void main() {
   late HeaderModel tHeader;
+  late PhoneNumber tPhoneNumber;
   late UserDataModel tUserData;
   late LoginModel tLoginModel;
 
@@ -17,8 +18,12 @@ void main() {
       message: 'Success',
       jwt: 'xxxxxx',
     );
-    tUserData =
-        const UserDataModel(name: 'Tareq Ghassan', email: 'test@gmail.com');
+    tPhoneNumber = const PhoneNumber(number: '02', code: '+1');
+    tUserData = UserDataModel(
+      name: 'Tareq Ghassan',
+      email: 'test@gmail.com',
+      phoneNumber: tPhoneNumber,
+    );
     tLoginModel = LoginModel(header: tHeader, userData: tUserData);
   });
   group('inheritance Test', () {

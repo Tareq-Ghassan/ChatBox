@@ -21,8 +21,10 @@ void main() {
   late MockLoginUsecase loginUsecase;
   late MockSignupUsecase signupUsecase;
 
+  const tPhoneNumber = PhoneNumber(number: 'Afghanistan', code: '+93');
   const tHeader = Header(jwt: 'xxxx');
-  const tUserData = UserData(name: 'Tareq', email: 't@t.t');
+  const tUserData =
+      UserData(name: 'Tareq', email: 't@t.t', phoneNumber: tPhoneNumber);
   const tLogin = Login(header: tHeader, userData: tUserData);
   const email = '';
   const password = '';
@@ -62,18 +64,23 @@ void main() {
           (_) async => const Left(ServerFailure(message: 'error')),
         );
 
-        // Assert
+        //! Assert
         expect(bloc.state, equals(Idle()));
 
-        // act
+        //# Act
         bloc.add(const PerformLogin(email: email, password: password));
 
-        // assert
+        //! Assert
         await expectLater(
           bloc.stream,
-          emitsInOrder(
-            [Loading(), const Error(message: 'error', header: 'Error')],
-          ),
+          emitsInOrder([
+            Loading(),
+            const Error(
+              message:
+                  'An error occurred while sending the data. Please try again. If this issue keeps happening, contact our customer center',
+              header: 'Unable to process the request',
+            ),
+          ]),
         );
       });
       test(
