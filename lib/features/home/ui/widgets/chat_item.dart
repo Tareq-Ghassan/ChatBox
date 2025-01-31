@@ -2,6 +2,7 @@
 import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/util.dart';
+import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,10 +15,11 @@ class ChatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SwipeOffsetCubit, double>(
+      bloc: sl<SwipeOffsetCubit>(),
       builder: (context, swipeOffset) {
         return GestureDetector(
           onHorizontalDragUpdate: (details) {
-            context.read<SwipeOffsetCubit>().updateOffset(
+            sl<SwipeOffsetCubit>().updateOffset(
                   details.delta.dx,
                   MediaQuery.of(context).size.width / 2,
                 );
@@ -25,7 +27,7 @@ class ChatItem extends StatelessWidget {
           onHorizontalDragEnd: (details) {
             // Snap back to original position if swipe is incomplete
             if (swipeOffset > -MediaQuery.of(context).size.width / 2) {
-              context.read<SwipeOffsetCubit>().reset();
+              sl<SwipeOffsetCubit>().reset();
             }
           },
           child: Stack(
@@ -42,7 +44,7 @@ class ChatItem extends StatelessWidget {
                         color: Colors.black,
                       ),
                       onPressed: () {
-                        context.read<SwipeOffsetCubit>().reset();
+                        sl<SwipeOffsetCubit>().reset();
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Notifications turned off'),
@@ -53,7 +55,7 @@ class ChatItem extends StatelessWidget {
                     IconButton(
                       icon: const Icon(Icons.delete, color: Colors.red),
                       onPressed: () {
-                        context.read<SwipeOffsetCubit>().reset();
+                        sl<SwipeOffsetCubit>().reset();
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Chat deleted')),
                         );

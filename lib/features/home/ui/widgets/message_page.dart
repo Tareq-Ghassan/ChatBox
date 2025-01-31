@@ -1,3 +1,4 @@
+import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:chat/features/home/ui/widgets/chat_item.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class MessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList.builder(
       itemBuilder: (context, index) => BlocProvider(
-        create: (_) => SwipeOffsetCubit(),
+        create: (_) => sl<SwipeOffsetCubit>(),
         child: const ChatItem(),
       ),
       itemCount: 100,

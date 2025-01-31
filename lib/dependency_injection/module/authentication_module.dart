@@ -124,13 +124,13 @@ class AuthenticationUiModule extends BaseDi {
   void inject() {
     sl
       //* Cubit
-      ..registerFactory(EmailCubit.new)
-      ..registerFactory(HidePasswordCubit.new)
-      ..registerFactory(PasswordCubit.new)
-      ..registerFactory(ConfirmPasswordCubit.new)
-      ..registerFactory(NameCubit.new)
-      ..registerFactory(PhoneNumberCubit.new)
-      ..registerFactory(CountryCodeCubit.new);
+      ..registerLazySingleton(EmailCubit.new)
+      ..registerLazySingleton(HidePasswordCubit.new)
+      ..registerLazySingleton(PasswordCubit.new)
+      ..registerLazySingleton(ConfirmPasswordCubit.new)
+      ..registerLazySingleton(NameCubit.new)
+      ..registerLazySingleton(PhoneNumberCubit.new)
+      ..registerLazySingleton(CountryCodeCubit.new);
   }
 
   @override

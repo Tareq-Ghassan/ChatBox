@@ -12,4 +12,8 @@ enum Modules {
 
   /// [authenticationUiModule] UI module
   authenticationUiModule,
+
+//! home
+  /// [home] UI module
+  home,
 }

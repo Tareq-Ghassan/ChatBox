@@ -4,6 +4,7 @@ import 'package:chat/core/presentation/widget/dialog.dart';
 import 'package:chat/core/presentation/widget/loading_indicator.dart';
 import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/util.dart';
+import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,8 @@ class AuthenticationControls {
       return;
     }
     formKey.currentState!.save();
-    final email =
-        context.read<EmailCubit>().state;
-    final password = context.read<PasswordCubit>().state;
+    final email =sl<EmailCubit>().state;
+    final password = sl<PasswordCubit>().state;
     BlocProvider.of<AuthenticationBloc>(context)
         .add(PerformLogin(email: email, password: password));
   }
@@ -70,12 +70,12 @@ class AuthenticationControls {
       return;
     }
     formKey.currentState!.save();
-    final name = context.read<NameCubit>().state;
-    final email = context.read<EmailCubit>().state;
-    final password = context.read<PasswordCubit>().state;
-    final confirmPassword = context.read<ConfirmPasswordCubit>().state;
-    final phoneNumber = context.read<PhoneNumberCubit>().state;
-    final countryCode = context.read<CountryCodeCubit>().state;
+    final name = sl<NameCubit>().state;
+    final email = sl<EmailCubit>().state;
+    final password = sl<PasswordCubit>().state;
+    final confirmPassword = sl<ConfirmPasswordCubit>().state;
+    final phoneNumber = sl<PhoneNumberCubit>().state;
+    final countryCode = sl<CountryCodeCubit>().state;
     BlocProvider.of<AuthenticationBloc>(context).add(
       Register(
         name: name,

@@ -1,6 +1,7 @@
 import 'package:chat/core/presentation/assets/icons.dart';
 import 'package:chat/core/presentation/theme/colors.dart';
 import 'package:chat/core/util/util.dart';
+import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:chat/features/home/ui/controls/home_titles.dart';
 import 'package:flutter/material.dart';
@@ -16,14 +17,14 @@ class HomeBottomNavigation extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: context.watch<HomeIndexCubit>().state,
       onTap: (int index) async {
-        context.read<HomeIndexCubit>().index = index;
-        context.read<AppBarTitleCubit>().title = homeTitles[index];
+        sl<HomeIndexCubit>().index = index;
+        sl<AppBarTitleCubit>().title = homeTitles[index];
       },
       items: [
         BottomNavigationBarItem(
           icon: Image.asset(
             KIcons.message,
-            color: context.watch<HomeIndexCubit>().state == 0
+            color: sl<HomeIndexCubit>().state == 0
                 ? KColors.greenColor
                 : isLightMode
                     ? KColors.lightBlackColor
@@ -34,7 +35,7 @@ class HomeBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Image.asset(
             KIcons.call,
-            color: context.watch<HomeIndexCubit>().state == 1
+            color: sl<HomeIndexCubit>().state == 1
                 ? KColors.greenColor
                 : isLightMode
                     ? KColors.lightBlackColor
@@ -45,7 +46,7 @@ class HomeBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Image.asset(
             KIcons.user,
-            color: context.watch<HomeIndexCubit>().state == 2
+            color: sl<HomeIndexCubit>().state == 2
                 ? KColors.greenColor
                 : isLightMode
                     ? KColors.lightBlackColor
@@ -56,7 +57,7 @@ class HomeBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Image.asset(
             KIcons.settings,
-            color: context.watch<HomeIndexCubit>().state == 3
+            color: sl<HomeIndexCubit>().state == 3
                 ? KColors.greenColor
                 : isLightMode
                     ? KColors.lightBlackColor

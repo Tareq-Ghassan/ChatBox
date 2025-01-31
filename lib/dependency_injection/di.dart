@@ -11,6 +11,7 @@ import 'package:chat/features/authentication/domain/usecase/login_usecase.dart';
 import 'package:chat/features/authentication/domain/usecase/signup_usecase.dart';
 import 'package:chat/features/authentication/ui/bloc/authentication_bloc.dart';
 import 'package:chat/features/authentication/ui/bloc/forms_cubit.dart';
+import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:chat/features/pre_login/data/data_source/configuration_data_source.dart';
 import 'package:chat/features/pre_login/data/data_source/initialize_data_source.dart';
 import 'package:chat/features/pre_login/data/repository/configuration_repository_impl.dart';
@@ -29,6 +30,8 @@ part 'module/pre_login_module.dart';
 part 'base_di.dart';
 part 'module/core_module.dart';
 part 'module/authentication_module.dart';
+part 'module/home_module.dart';
+
 
 /// [sl] service locator - Get it instance -
 final sl = GetIt.instance;

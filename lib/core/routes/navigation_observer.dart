@@ -67,7 +67,11 @@ class KNavigatorObserver extends NavigatorObserver {
           PreLoginModule().deregister();
         }
       case KRoutes.homeScreen:
-        break;
+        if (isPush) {
+          HomeModule().inject();
+        } else {
+          if (state != _RouteState.replace) HomeModule().deregister();
+        }
     }
   }
 }

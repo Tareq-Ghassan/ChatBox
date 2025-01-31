@@ -2,6 +2,7 @@ import 'package:chat/core/presentation/assets/icons.dart';
 import 'package:chat/core/presentation/theme/app/custom_styles.dart';
 import 'package:chat/core/presentation/theme/app/dark/theme_data_dark.dart';
 import 'package:chat/core/presentation/theme/colors.dart';
+import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:chat/features/home/ui/widgets/story_item.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class HomeScreenAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: darkTheme,
-      child: context.watch<HomeIndexCubit>().state == 0
+      child: sl<HomeIndexCubit>().state == 0
           ? SliverAppBar.large(
               surfaceTintColor: KColors.greenHomePg,
               backgroundColor: KColors.greenHomePg,
@@ -30,7 +31,7 @@ class HomeScreenAppBar extends StatelessWidget {
                   KIcons.search,
                 ),
               ),
-              title: Text(context.watch<AppBarTitleCubit>().state),
+              title: Text(sl<AppBarTitleCubit>().state),
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 background: Column(
