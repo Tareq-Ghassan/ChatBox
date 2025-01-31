@@ -1,5 +1,3 @@
-// ignore_for_file: unused_field
-
 import 'package:chat/features/authentication/domain/entity/login.dart';
 
 /// [Login] holds login operation

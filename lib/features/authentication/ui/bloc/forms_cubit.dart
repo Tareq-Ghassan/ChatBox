@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_setters_without_getters
+// ignore_for_file: avoid_setters_without_getters, document_ignores
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
