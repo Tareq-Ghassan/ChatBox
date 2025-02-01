@@ -3,23 +3,27 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i6;
+import 'dart:async' as _i7;
 
-import 'package:chat/core/error/error.dart' as _i7;
-import 'package:chat/core/usecase/base_usecase.dart' as _i12;
+import 'package:chat/core/error/error.dart' as _i8;
+import 'package:chat/core/usecase/base_usecase.dart' as _i13;
+import 'package:chat/features/authentication/domain/repository/authentication_repository.dart'
+    as _i5;
+import 'package:chat/features/authentication/domain/usecase/check_login_status_usecase.dart'
+    as _i14;
 import 'package:chat/features/pre_login/domain/entity/configuration.dart'
-    as _i11;
-import 'package:chat/features/pre_login/domain/entity/initialize.dart' as _i8;
+    as _i12;
+import 'package:chat/features/pre_login/domain/entity/initialize.dart' as _i9;
 import 'package:chat/features/pre_login/domain/repository/configuration_repository.dart'
     as _i4;
 import 'package:chat/features/pre_login/domain/repository/initialize_repository.dart'
     as _i2;
 import 'package:chat/features/pre_login/domain/usecase/configuration_usecase.dart'
-    as _i10;
+    as _i11;
 import 'package:chat/features/pre_login/domain/usecase/initialize_usecase.dart'
-    as _i5;
+    as _i6;
 import 'package:chat/features/pre_login/domain/usecase/params/initialize_params.dart'
-    as _i9;
+    as _i10;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -54,10 +58,16 @@ class _FakeConfigurationRepository_2 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeAuthenticationRepository_3 extends _i1.SmartFake
+    implements _i5.AuthenticationRepository {
+  _FakeAuthenticationRepository_3(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [InitializeUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockInitializeUseCase extends _i1.Mock implements _i5.InitializeUseCase {
+class MockInitializeUseCase extends _i1.Mock implements _i6.InitializeUseCase {
   @override
   _i2.InitializeRepository get repository =>
       (super.noSuchMethod(
@@ -74,34 +84,34 @@ class MockInitializeUseCase extends _i1.Mock implements _i5.InitializeUseCase {
           as _i2.InitializeRepository);
 
   @override
-  _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>> call(
-    _i9.InitializeParams? initializeParams,
+  _i7.Future<_i3.Either<_i8.Failure, _i9.Initialize>> call(
+    _i10.InitializeParams? initializeParams,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#call, [initializeParams]),
             returnValue:
-                _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>>.value(
-                  _FakeEither_1<_i7.Failure, _i8.Initialize>(
+                _i7.Future<_i3.Either<_i8.Failure, _i9.Initialize>>.value(
+                  _FakeEither_1<_i8.Failure, _i9.Initialize>(
                     this,
                     Invocation.method(#call, [initializeParams]),
                   ),
                 ),
             returnValueForMissingStub:
-                _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>>.value(
-                  _FakeEither_1<_i7.Failure, _i8.Initialize>(
+                _i7.Future<_i3.Either<_i8.Failure, _i9.Initialize>>.value(
+                  _FakeEither_1<_i8.Failure, _i9.Initialize>(
                     this,
                     Invocation.method(#call, [initializeParams]),
                   ),
                 ),
           )
-          as _i6.Future<_i3.Either<_i7.Failure, _i8.Initialize>>);
+          as _i7.Future<_i3.Either<_i8.Failure, _i9.Initialize>>);
 }
 
 /// A class which mocks [ConfigurationUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockConfigurationUseCase extends _i1.Mock
-    implements _i10.ConfigurationUseCase {
+    implements _i11.ConfigurationUseCase {
   @override
   _i4.ConfigurationRepository get repository =>
       (super.noSuchMethod(
@@ -118,25 +128,66 @@ class MockConfigurationUseCase extends _i1.Mock
           as _i4.ConfigurationRepository);
 
   @override
-  _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>> call(
-    _i12.NoParams? params,
+  _i7.Future<_i3.Either<_i8.Failure, _i12.Configuration>> call(
+    _i13.NoParams? params,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#call, [params]),
             returnValue:
-                _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>>.value(
-                  _FakeEither_1<_i7.Failure, _i11.Configuration>(
+                _i7.Future<_i3.Either<_i8.Failure, _i12.Configuration>>.value(
+                  _FakeEither_1<_i8.Failure, _i12.Configuration>(
                     this,
                     Invocation.method(#call, [params]),
                   ),
                 ),
             returnValueForMissingStub:
-                _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>>.value(
-                  _FakeEither_1<_i7.Failure, _i11.Configuration>(
+                _i7.Future<_i3.Either<_i8.Failure, _i12.Configuration>>.value(
+                  _FakeEither_1<_i8.Failure, _i12.Configuration>(
                     this,
                     Invocation.method(#call, [params]),
                   ),
                 ),
           )
-          as _i6.Future<_i3.Either<_i7.Failure, _i11.Configuration>>);
+          as _i7.Future<_i3.Either<_i8.Failure, _i12.Configuration>>);
+}
+
+/// A class which mocks [CheckLoginStatusUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCheckLoginStatusUseCase extends _i1.Mock
+    implements _i14.CheckLoginStatusUseCase {
+  @override
+  _i5.AuthenticationRepository get repository =>
+      (super.noSuchMethod(
+            Invocation.getter(#repository),
+            returnValue: _FakeAuthenticationRepository_3(
+              this,
+              Invocation.getter(#repository),
+            ),
+            returnValueForMissingStub: _FakeAuthenticationRepository_3(
+              this,
+              Invocation.getter(#repository),
+            ),
+          )
+          as _i5.AuthenticationRepository);
+
+  @override
+  _i7.Future<_i3.Either<_i8.Failure, String>> call(_i13.NoParams? params) =>
+      (super.noSuchMethod(
+            Invocation.method(#call, [params]),
+            returnValue: _i7.Future<_i3.Either<_i8.Failure, String>>.value(
+              _FakeEither_1<_i8.Failure, String>(
+                this,
+                Invocation.method(#call, [params]),
+              ),
+            ),
+            returnValueForMissingStub:
+                _i7.Future<_i3.Either<_i8.Failure, String>>.value(
+                  _FakeEither_1<_i8.Failure, String>(
+                    this,
+                    Invocation.method(#call, [params]),
+                  ),
+                ),
+          )
+          as _i7.Future<_i3.Either<_i8.Failure, String>>);
 }

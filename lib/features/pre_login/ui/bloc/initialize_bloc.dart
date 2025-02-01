@@ -4,6 +4,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:chat/core/usecase/base_usecase.dart';
 import 'package:chat/core/util/util.dart';
+import 'package:chat/features/authentication/domain/usecase/check_login_status_usecase.dart';
 import 'package:chat/features/pre_login/domain/entity/configuration.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/usecase/configuration_usecase.dart';
@@ -20,6 +21,7 @@ class InitializeBloc extends Bloc<InitializeEvent, InitializeState> {
   InitializeBloc({
     required this.initializeUseCase,
     required this.configurationUsecase,
+    required this.loginStatusUsecase,
   }) : super(Idle()) {
     on<InitializeApp>((event, emit) async {
       emit(Loading());
@@ -55,6 +57,15 @@ class InitializeBloc extends Bloc<InitializeEvent, InitializeState> {
         );
       });
     });
+    on<CheckLoginStatus>((event, emit) async {
+      emit(Loading());
+      final result = await loginStatusUsecase(NoParams());
+      result.fold((l) {
+        emit(Unauthorized());
+      }, (r) {
+        emit(LoggedIn());
+      });
+    });
   }
 
   /// is a[InitializeUseCase]
@@ -62,4 +73,7 @@ class InitializeBloc extends Bloc<InitializeEvent, InitializeState> {
 
   /// is a[ConfigurationUseCase]
   final ConfigurationUseCase configurationUsecase;
+
+  /// is a[CheckLoginStatusUseCase]
+  final CheckLoginStatusUseCase loginStatusUsecase;
 }

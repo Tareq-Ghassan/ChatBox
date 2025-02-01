@@ -13,8 +13,9 @@ class ServerException implements Exception {
 /// [CacheException] represent any cache exception could happen
 class CacheException implements Exception {
   /// [CacheException] constructor
-  const CacheException({required this.message});
-  final String message;
+  const CacheException({required this.exception, required this.stackTrace});
+  final String exception;
+  final StackTrace stackTrace;
 }
 
 /// [CatchException] represent any catch exception could happen
@@ -39,7 +40,6 @@ class UnauthorizedException implements Exception {
   const UnauthorizedException({required this.message});
   final String message;
 }
-
 
 /// [NetworkException] no internet connection Exception
 class NetworkException implements Exception {}

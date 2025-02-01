@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:chat/core/error/error.dart';
+import 'package:chat/features/authentication/data/data_source/authentication_local_data_source.dart';
 import 'package:chat/features/authentication/data/data_source/signup_data_source.dart';
 import 'package:chat/features/authentication/data/model/login_model.dart';
 import 'package:chat/features/authentication/data/repository/signup_repository_impl.dart';
@@ -14,10 +15,16 @@ import 'package:mockito/mockito.dart';
 
 import 'signup_repository_impl_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<SignupDataSource>()])
+@GenerateNiceMocks([
+  MockSpec<SignupDataSource>(),
+  MockSpec<AuthenticationLocalDataSource>(),
+])
 void main() {
   late SignupRepositoryImpl repo;
+
   late MockSignupDataSource dataSource;
+  late MockAuthenticationLocalDataSource localDataSource;
+
   const tHeader = HeaderModel(
     errorCode: '00000',
     message: 'Success',
@@ -30,13 +37,18 @@ void main() {
     email: 'test@gmail.com',
     phoneNumber: tPhoneNumber,
   );
+
   const tLoginModel = LoginModel(header: tHeader, userData: tUserData);
   const tLogin = tLoginModel;
 
   setUp(
     () {
       dataSource = MockSignupDataSource();
-      repo = SignupRepositoryImpl(dataSource: dataSource);
+      localDataSource = MockAuthenticationLocalDataSource();
+      repo = SignupRepositoryImpl(
+        dataSource: dataSource,
+        localDataSource: localDataSource,
+      );
     },
   );
 

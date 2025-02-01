@@ -39,7 +39,16 @@ class SplashControls {
     }
     if (state is ConfigurationLoaded) {
       LoadingIndicatorDialog.dismiss();
-      await KNavigator.pushReplacement(KRoutes.onBoarding);
+      BlocProvider.of<InitializeBloc>(KNavigator.navigatorKey.currentContext!)
+          .add(const CheckLoginStatus());
+    }
+    if (state is LoggedIn) {
+      LoadingIndicatorDialog.dismiss();
+       unawaited(KNavigator.pushReplacement(KRoutes.homeScreen));
+    }
+    if (state is Unauthorized) {
+      LoadingIndicatorDialog.dismiss();
+      unawaited(KNavigator.pushReplacement(KRoutes.onBoarding));
     } else if (state is Error) {
       LoadingIndicatorDialog.dismiss();
       unawaited(

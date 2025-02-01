@@ -2,7 +2,6 @@
 
 part of 'error.dart';
 
-
 /// [Failure] an abstract class holds error object
 abstract class Failure extends Equatable {
   /// Constructor for [Failure].
@@ -28,6 +27,14 @@ class ServerFailure extends Failure {
 class CatchFailure extends Failure {
   /// [CatchFailure] constructor
   const CatchFailure({required this.exception, required this.stackTrace});
+  final String exception;
+  final StackTrace stackTrace;
+}
+
+/// [CacheFailure] any Format failure
+class CacheFailure extends Failure {
+  /// [CacheFailure] constructor
+  const CacheFailure({required this.exception, required this.stackTrace});
   final String exception;
   final StackTrace stackTrace;
 }

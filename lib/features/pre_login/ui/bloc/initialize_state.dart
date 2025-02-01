@@ -38,6 +38,12 @@ final class ConfigurationLoaded extends InitializeState {
   List<Configuration> get props => [configuration];
 }
 
+/// [LoggedIn] state
+final class LoggedIn extends InitializeState {}
+
+/// [Unauthorized] state
+final class Unauthorized extends InitializeState {}
+
 /// [Error] state
 final class Error extends InitializeState {
   /// [Error] constructor

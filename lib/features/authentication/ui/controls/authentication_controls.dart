@@ -22,7 +22,7 @@ class AuthenticationControls {
       return;
     }
     formKey.currentState!.save();
-    final email =sl<EmailCubit>().state;
+    final email = sl<EmailCubit>().state;
     final password = sl<PasswordCubit>().state;
     BlocProvider.of<AuthenticationBloc>(context)
         .add(PerformLogin(email: email, password: password));
@@ -39,9 +39,8 @@ class AuthenticationControls {
     if (state is Loaded) {
       LoadingIndicatorDialog.dismiss();
       unawaited(
-        KNavigator.pushNamedAndRemoveUntil(
+        KNavigator.startNewRoute(
           KRoutes.homeScreen,
-          (route) => route.isFirst,
         ),
       );
     } else if (state is Error) {
@@ -99,9 +98,8 @@ class AuthenticationControls {
     if (state is Loaded) {
       LoadingIndicatorDialog.dismiss();
       unawaited(
-        KNavigator.pushNamedAndRemoveUntilByName(
+        KNavigator.startNewRoute(
           KRoutes.homeScreen,
-          KRoutes.login,
         ),
       );
     } else if (state is Error) {

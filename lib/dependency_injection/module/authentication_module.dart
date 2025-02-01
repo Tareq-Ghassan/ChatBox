@@ -56,7 +56,7 @@ class AuthenticationModule extends BaseDi {
       ..registerLazySingleton(() => LoginUsecase(repository: sl()))
       //* Repository
       ..registerLazySingleton<LoginRepository>(
-        () => LoginRepositoryImpl(dataSource: sl()),
+        () => LoginRepositoryImpl(dataSource: sl(), localDataSource: sl()),
       )
       //* DataSource
       ..registerLazySingleton<LoginDataSource>(
@@ -68,7 +68,7 @@ class AuthenticationModule extends BaseDi {
       ..registerLazySingleton(() => SignupUsecase(repository: sl()))
       //* Repository
       ..registerLazySingleton<SignupRepository>(
-        () => SignupRepositoryImpl(dataSource: sl()),
+        () => SignupRepositoryImpl(dataSource: sl(), localDataSource: sl()),
       )
       //* DataSource
       ..registerLazySingleton<SignupDataSource>(
