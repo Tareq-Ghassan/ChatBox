@@ -32,3 +32,13 @@ class GetConfiguration extends InitializeEvent {
   @override
   List<Object> get props => [];
 }
+
+
+/// [CheckLoginStatus] event, which triggers if the user already logged in
+class CheckLoginStatus extends InitializeEvent {
+  /// [CheckLoginStatus] constructor
+  const CheckLoginStatus();
+
+  @override
+  List<Object> get props => [];
+}

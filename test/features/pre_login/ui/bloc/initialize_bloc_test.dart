@@ -1,6 +1,7 @@
 // ignore_for_file: lines_longer_than_80_chars, document_ignores
 
 import 'package:chat/core/error/error.dart';
+import 'package:chat/features/authentication/domain/usecase/check_login_status_usecase.dart';
 import 'package:chat/features/pre_login/domain/entity/configuration.dart';
 import 'package:chat/features/pre_login/domain/entity/initialize.dart';
 import 'package:chat/features/pre_login/domain/usecase/configuration_usecase.dart';
@@ -14,12 +15,14 @@ import 'package:mockito/mockito.dart';
 @GenerateNiceMocks([
   MockSpec<InitializeUseCase>(),
   MockSpec<ConfigurationUseCase>(),
+  MockSpec<CheckLoginStatusUseCase>(),
 ])
 import 'initialize_bloc_test.mocks.dart';
 
 void main() {
   late MockInitializeUseCase mockInitializeUseCase;
   late MockConfigurationUseCase mockConfigurationUsecase;
+  late MockCheckLoginStatusUseCase mockLoginStatusUsecase;
 
   late InitializeBloc bloc;
   const tAppKey = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
@@ -33,9 +36,11 @@ void main() {
   setUp(() {
     mockInitializeUseCase = MockInitializeUseCase();
     mockConfigurationUsecase = MockConfigurationUseCase();
+    mockLoginStatusUsecase = MockCheckLoginStatusUseCase();
     bloc = InitializeBloc(
       initializeUseCase: mockInitializeUseCase,
       configurationUsecase: mockConfigurationUsecase,
+      loginStatusUsecase: mockLoginStatusUsecase,
     );
   });
 
@@ -211,6 +216,92 @@ void main() {
           bloc.stream,
           emitsInOrder(
             [Loading(), const Error(message: 'error', header: 'Error')],
+          ),
+        );
+      });
+    },
+  );
+
+  group(
+    'Check Login Status',
+    () {
+      test('Should call LoginStatusUsecase', () async {
+        // arrange
+        when(mockLoginStatusUsecase(any))
+            .thenAnswer((_) async => const Right('jwt'));
+        // act
+        bloc.add(const CheckLoginStatus());
+        await untilCalled(mockLoginStatusUsecase(any));
+
+        // assert
+        verify(mockLoginStatusUsecase(any)).called(1);
+        verifyNoMoreInteractions(mockLoginStatusUsecase);
+      });
+      test('should emit [Idle, Error] when usecase returns [Failure]',
+          () async {
+        // arrange
+        when(mockLoginStatusUsecase(any)).thenAnswer(
+          (_) async => const Left(UnauthorizedFailure(message: 'error')),
+        );
+
+        // Assert
+        expect(bloc.state, equals(Idle()));
+
+        // act
+        bloc.add(const CheckLoginStatus());
+
+        // assert
+        await expectLater(
+          bloc.stream,
+          emitsInOrder(
+            [Loading(), Unauthorized()],
+          ),
+        );
+      });
+      test(
+          'should emit [Idle, Loading, Loaded] when data is gotten successfully',
+          () async {
+        // arrange
+        when(mockLoginStatusUsecase(any))
+            .thenAnswer((_) async => const Right('jwt'));
+
+        // assert
+        expect(bloc.state, equals(Idle()));
+
+        // act
+        bloc.add(const CheckLoginStatus());
+
+        // assert
+        await expectLater(
+          bloc.stream,
+          emitsInOrder([
+            Loading(),
+            LoggedIn(),
+          ]),
+        );
+      });
+
+      test(
+          'should emit [Idle, Loading, Loaded] with proper message for the error when getting data fails',
+          () async {
+        // arrange
+        when(mockLoginStatusUsecase(any)).thenAnswer(
+          (_) async => const Left(
+            CatchFailure(exception: 'error', stackTrace: StackTrace.empty),
+          ),
+        );
+
+        // Assert
+        expect(bloc.state, equals(Idle()));
+
+        // act
+        bloc.add(const CheckLoginStatus());
+
+        // assert
+        await expectLater(
+          bloc.stream,
+          emitsInOrder(
+            [Loading(), Unauthorized()],
           ),
         );
       });

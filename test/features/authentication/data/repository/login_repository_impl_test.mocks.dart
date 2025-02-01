@@ -5,11 +5,14 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
+import 'package:chat/features/authentication/data/data_source/authentication_local_data_source.dart'
+    as _i5;
 import 'package:chat/features/authentication/data/data_source/login_data_source.dart'
     as _i3;
 import 'package:chat/features/authentication/data/model/login_model.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -61,4 +64,32 @@ class MockLoginDataSource extends _i1.Mock implements _i3.LoginDataSource {
             ),
           )
           as _i4.Future<_i2.LoginModel>);
+}
+
+/// A class which mocks [AuthenticationLocalDataSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAuthenticationLocalDataSource extends _i1.Mock
+    implements _i5.AuthenticationLocalDataSource {
+  @override
+  _i4.Future<void> cacheJWT({required String? jwt}) =>
+      (super.noSuchMethod(
+            Invocation.method(#cacheJWT, [], {#jwt: jwt}),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
+
+  @override
+  _i4.Future<String> getJWT() =>
+      (super.noSuchMethod(
+            Invocation.method(#getJWT, []),
+            returnValue: _i4.Future<String>.value(
+              _i6.dummyValue<String>(this, Invocation.method(#getJWT, [])),
+            ),
+            returnValueForMissingStub: _i4.Future<String>.value(
+              _i6.dummyValue<String>(this, Invocation.method(#getJWT, [])),
+            ),
+          )
+          as _i4.Future<String>);
 }

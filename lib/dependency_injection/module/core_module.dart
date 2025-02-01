@@ -30,6 +30,7 @@ class Core implements BaseDi {
         ),
       )
       ..registerLazySingleton(InternetConnection.new)
+      ..registerLazySingleton(FlutterSecureStorage.new)
 
       //! Core
       ..registerLazySingleton<MiddlewareApi>(
@@ -37,6 +38,9 @@ class Core implements BaseDi {
       )
       ..registerLazySingleton<NetworkInfo>(
         () => NetworkInfoImpl(sl()),
+      )
+      ..registerLazySingleton<SecurePreferences>(
+        () => SecurePreferencesImpl(securePreferences: sl()),
       );
 
     //! Features - Pre Login

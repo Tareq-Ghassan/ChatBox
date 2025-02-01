@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:chat/core/error/error.dart';
+import 'package:chat/features/authentication/data/data_source/authentication_local_data_source.dart';
 import 'package:chat/features/authentication/data/data_source/login_data_source.dart';
 import 'package:chat/features/authentication/data/model/login_model.dart';
 import 'package:chat/features/authentication/data/repository/login_repository_impl.dart';
@@ -14,9 +15,13 @@ import 'package:mockito/mockito.dart';
 
 import 'login_repository_impl_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<LoginDataSource>()])
+@GenerateNiceMocks([
+  MockSpec<LoginDataSource>(),
+  MockSpec<AuthenticationLocalDataSource>(),
+])
 void main() {
   late MockLoginDataSource dataSource;
+  late MockAuthenticationLocalDataSource localDataSource;
   late LoginRepositoryImpl repo;
   const tHeader = HeaderModel(
     errorCode: '00000',
@@ -35,7 +40,11 @@ void main() {
 
   setUp(() {
     dataSource = MockLoginDataSource();
-    repo = LoginRepositoryImpl(dataSource: dataSource);
+    localDataSource= MockAuthenticationLocalDataSource();
+    repo = LoginRepositoryImpl(
+      dataSource: dataSource,
+      localDataSource: localDataSource,
+    );
   });
 
   group('get Login Data', () {

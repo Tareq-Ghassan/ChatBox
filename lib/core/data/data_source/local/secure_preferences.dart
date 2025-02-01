@@ -1,34 +1,22 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+part of 'local.dart';
 
-/// [SecurePreferences] singleton
-class SecurePreferences {
-  /// [SecurePreferences] constructor
-  factory SecurePreferences() {
-    return _singleton;
-  }
+/// [SecurePreferences] an abstraction for local storage operations.
+abstract class SecurePreferences {
+  ///[SecurePreferences] constructor
+  SecurePreferences({required this.securePreferences});
 
-  SecurePreferences._internal() : _instance = const FlutterSecureStorage();
-  static final SecurePreferences _singleton = SecurePreferences._internal();
-  late final FlutterSecureStorage _instance;
+  /// instance of securePreferences package
+  final FlutterSecureStorage securePreferences;
 
-  /// [setBool] set value of type [bool]
-  Future<void> setBool({required String key, required bool value}) async {
-    await _instance.write(key: key, value: value.toString());
-  }
+  /// Save a boolean value
+  Future<void> setBool({required String key, required bool value});
 
-  /// [getBool] get value of type [bool]
-  Future<bool?> getBool(String key) async {
-    final value = await _instance.read(key: key);
-    return value != null ? value.toLowerCase() == 'true' : null;
-  }
+  /// Get a boolean value
+  Future<bool?> getBool(String key);
 
-  /// [setString] set value of type [String]
-  Future<void> setString(String key, String value) async {
-    await _instance.write(key: key, value: value);
-  }
+  /// Save a string value
+  Future<void> setString({required String key, required String value});
 
-  /// [getString] get value of type [String]
-  Future<String?> getString(String key) async {
-    return _instance.read(key: key);
-  }
+  /// Get a string value
+  Future<String?> getString(String key);
 }
