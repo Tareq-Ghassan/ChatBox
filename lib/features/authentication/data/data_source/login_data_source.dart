@@ -25,7 +25,7 @@ class LoginDataSourceImpl extends BaseRemoteDataSource
     final result = await executeApiCall<LoginModel>(
       apiCall: () async {
         final response = await api.post(
-          'user',
+          'authentication',
           'login',
           data: {
             'email': email,
