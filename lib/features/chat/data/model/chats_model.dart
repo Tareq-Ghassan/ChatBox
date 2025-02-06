@@ -1,5 +1,6 @@
 import 'package:chat/core/data/model/header_model.dart';
 import 'package:chat/features/chat/domain/entity/chats.dart';
+import 'package:chat/features/user/data/user_model.dart';
 
 /// [ChatsModel] represent api response class for get
 /// all chats
@@ -70,7 +71,7 @@ class ChatModel extends Chat {
   factory ChatModel.fromJson(Map<String, dynamic> json) {
     final id = json['_id'] is String ? json['_id'] as String : '';
     final participants = (json['participants'] as List<dynamic>?)
-            ?.map((v) => v as String)
+            ?.map((v) => UserModel.fromJson(v as Map<String, dynamic>))
             .toList() ??
         [];
     final lastMessage = json['lastMessage'] != null &&

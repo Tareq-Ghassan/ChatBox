@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:chat/core/data/model/header_model.dart';
 import 'package:chat/features/chat/data/model/chats_model.dart';
 import 'package:chat/features/chat/domain/entity/chats.dart';
+import 'package:chat/features/user/data/user_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../core/util/fixture_reader.dart';
@@ -42,7 +43,22 @@ void main() {
 
   final tChatModel = ChatModel(
     id: '67a0f371d69049c5a3610506',
-    participants: ['679bb383f5d144b2485e6ff5', '679bb383f5d144b2485e6ff5'],
+    participants: [
+      const UserModel(
+        id: '679bb383f5d144b2485e6ff5',
+        phoneNumber: PhoneNumberModel(number: '', code: ''),
+        name: 'Tareq Ghassan',
+        email: '',
+        profileImage: '',
+      ),
+      const UserModel(
+        id: '679bb383f5d144b2485e6ff5',
+        phoneNumber: PhoneNumberModel(number: '', code: ''),
+        name: 'Tareq Ghassan',
+        email: '',
+        profileImage: '',
+      ),
+    ],
     lastMessage: tMessageModel,
     isGroup: false,
     groupName: '',

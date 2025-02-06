@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:chat/features/authentication/data/model/login_model.dart';
 import 'package:chat/features/authentication/domain/entity/login.dart';
+import 'package:chat/features/user/data/user_model.dart';
+import 'package:chat/features/user/domain/user.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../core/util/fixture_reader.dart';
@@ -9,7 +11,7 @@ import '../../../../core/util/fixture_reader.dart';
 void main() {
   late HeaderModel tHeader;
   late PhoneNumber tPhoneNumber;
-  late UserDataModel tUserData;
+  late UserModel tUserData;
   late LoginModel tLoginModel;
 
   setUpAll(() {
@@ -19,10 +21,12 @@ void main() {
       jwt: 'xxxxxx',
     );
     tPhoneNumber = const PhoneNumber(number: '02', code: '+1');
-    tUserData = UserDataModel(
+    tUserData = UserModel(
+      id: '',
       name: 'Tareq Ghassan',
       email: 'test@gmail.com',
       phoneNumber: tPhoneNumber,
+      profileImage: '',
     );
     tLoginModel = LoginModel(header: tHeader, userData: tUserData);
   });
@@ -37,7 +41,7 @@ void main() {
     });
     test('test UserDataModel is sub of UserData', () {
       // Assert
-      expect(tLoginModel.userData, isA<UserData>());
+      expect(tLoginModel.userData, isA<User>());
     });
   });
 

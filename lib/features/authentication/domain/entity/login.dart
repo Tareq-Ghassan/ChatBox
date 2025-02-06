@@ -1,3 +1,4 @@
+import 'package:chat/features/user/domain/user.dart';
 import 'package:equatable/equatable.dart';
 
 /// [Login] holds login operation
@@ -9,42 +10,13 @@ class Login extends Equatable {
   final Header header;
 
   /// [userData] holds user data response
-  final UserData userData;
+  final User userData;
 
   @override
   List<Object?> get props => [header, userData];
 }
 
-/// [UserData] holds user data
-class UserData {
-  /// [UserData] constructor
-  const UserData({
-    required this.phoneNumber,
-    required this.name,
-    required this.email,
-  });
 
-  /// [name] holds name
-  final String name;
-
-  /// [email] holds email
-  final String email;
-
-  /// [phoneNumber] holds phone Number
-  final PhoneNumber phoneNumber;
-}
-
-/// [PhoneNumber] holds Phone Number
-class PhoneNumber {
-  /// [PhoneNumber] constructor
-  const PhoneNumber({required this.number, required this.code});
-
-  /// [number] holds number
-  final String number;
-
-  /// [code] holds code
-  final String code;
-}
 
 /// [Header] represent header response
 class Header {

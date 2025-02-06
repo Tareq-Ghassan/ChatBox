@@ -7,8 +7,16 @@
         {
             "_id": "67a0f371d69049c5a3610506",
             "participants": [
-                "679bb383f5d144b2485e6ff5",
-                "679bb383f5d144b2485e6ff5"
+                {
+                    "_id": "679bb383f5d144b2485e6ff5",
+                    "name": "Tareq Ghassan",
+                    "profileImage": ""
+                },
+                {
+                    "_id": "679bb383f5d144b2485e6ff5",
+                    "name": "Tareq Ghassan",
+                    "profileImage": ""
+                }
             ],
             "lastMessage": {
                 "location": {

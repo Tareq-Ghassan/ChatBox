@@ -5,12 +5,14 @@ import 'package:flutter/foundation.dart';
 
 /// [JwtInterceptor] automatically appends JWT token to all requests
 class JwtInterceptor extends Interceptor {
+  ///[JwtInterceptor] constructor
   JwtInterceptor({required this.checkLoginStatusUseCase});
 
+  /// [checkLoginStatusUseCase] is to get jwt
   final CheckLoginStatusUseCase checkLoginStatusUseCase;
 
   @override
-  void onRequest(
+  Future<void> onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {

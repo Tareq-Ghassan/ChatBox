@@ -3,6 +3,7 @@ import 'package:chat/features/authentication/domain/entity/login.dart';
 import 'package:chat/features/authentication/domain/repository/login_repo.dart';
 import 'package:chat/features/authentication/domain/usecase/login_usecase.dart';
 import 'package:chat/features/authentication/domain/usecase/params/login_params.dart';
+import 'package:chat/features/user/domain/user.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -17,8 +18,13 @@ void main() {
 
   const tPhoneNumber = PhoneNumber(number: 'Afghanistan', code: '+93');
   const tHeader = Header(jwt: 'xxxx');
-  const tUserData =
-      UserData(name: 'Tareq', email: 't@t.t', phoneNumber: tPhoneNumber);
+  const tUserData = User(
+    id: '',
+    name: 'Tareq',
+    email: 't@t.t',
+    phoneNumber: tPhoneNumber,
+    profileImage: '',
+  );
   const tLogin = Login(header: tHeader, userData: tUserData);
 
   const tLoginParams = LoginParams(

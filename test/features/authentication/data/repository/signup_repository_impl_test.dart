@@ -8,6 +8,7 @@ import 'package:chat/features/authentication/data/data_source/signup_data_source
 import 'package:chat/features/authentication/data/model/login_model.dart';
 import 'package:chat/features/authentication/data/repository/signup_repository_impl.dart';
 import 'package:chat/features/authentication/domain/entity/login.dart';
+import 'package:chat/features/user/data/user_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -30,12 +31,14 @@ void main() {
     message: 'Success',
     jwt: 'xxxxxx',
   );
-  const tPhoneNumber = PhoneNumber(number: '02', code: '+1');
+  const tPhoneNumber = PhoneNumberModel(number: '02', code: '+1');
 
-  const tUserData = UserDataModel(
+  const tUserData = UserModel(
+    id: '',
     name: 'Tareq Ghassan',
     email: 'test@gmail.com',
     phoneNumber: tPhoneNumber,
+    profileImage: '',
   );
 
   const tLoginModel = LoginModel(header: tHeader, userData: tUserData);

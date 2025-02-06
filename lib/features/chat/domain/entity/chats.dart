@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, document_ignores
 
+import 'package:chat/features/user/domain/user.dart';
 import 'package:equatable/equatable.dart';
 
 /// [Chats] holds all chats entities
@@ -46,7 +47,7 @@ class Chat with EquatableMixin {
     required this.updatedAt,
   });
   final String id;
-  final List<String> participants;
+  final List<User> participants;
   final Message lastMessage;
   final bool isGroup;
   final String groupName;

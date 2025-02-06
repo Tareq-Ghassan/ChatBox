@@ -13,7 +13,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'get_all_chats_repo_impl.mocks.dart';
+import 'get_all_chats_repo_impl_test.mocks.dart';
+
 
 @GenerateNiceMocks([MockSpec<GetAllChatsDataSource>()])
 void main() {
