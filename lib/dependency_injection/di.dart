@@ -1,4 +1,5 @@
 import 'package:chat/core/data/data_source/local/local.dart';
+import 'package:chat/core/data/data_source/remote/interceptor.dart';
 import 'package:chat/core/data/data_source/remote/remote.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/modules.dart';

@@ -3,7 +3,7 @@
 import 'package:equatable/equatable.dart';
 
 /// [Chats] holds all chats entities
-class Chats extends Equatable {
+class Chats with EquatableMixin {
   /// [Chats] constructor
   const Chats({
     required this.chats,
@@ -30,7 +30,7 @@ class Chats extends Equatable {
 }
 
 /// [Chat] hold a single chat entity
-class Chat {
+class Chat with EquatableMixin {
   /// [Chat] constructor
   const Chat({
     required this.id,
@@ -56,10 +56,25 @@ class Chat {
   final List<String> deletedBy;
   final DateTime createdAt;
   final DateTime updatedAt;
+
+  @override
+  List<Object?> get props => [
+        id,
+        participants,
+        lastMessage,
+        isGroup,
+        groupName,
+        groupImage,
+        archivedBy,
+        mutedBy,
+        deletedBy,
+        createdAt,
+        updatedAt,
+      ];
 }
 
 /// [Message] hold a single message entity
-class Message {
+class Message with EquatableMixin {
   /// [Message] constructor
   const Message({
     required this.location,
@@ -92,10 +107,28 @@ class Message {
   final List<String> editHistory;
   final DateTime createdAt;
   final DateTime updatedAt;
+
+  @override
+  List<Object?> get props => [
+        location,
+        id,
+        chatId,
+        sender,
+        messageType,
+        content,
+        mediaUrl,
+        seenBy,
+        deletedBy,
+        isEdited,
+        editedAt,
+        editHistory,
+        createdAt,
+        updatedAt,
+      ];
 }
 
 /// [Location] entity
-class Location {
+class Location with EquatableMixin {
   /// [Location] constructor
   const Location({
     required this.latitude,
@@ -103,6 +136,9 @@ class Location {
   });
   final double latitude;
   final double longitude;
+
+  @override
+  List<Object?> get props => [latitude, longitude];
 }
 
 /// [MessageType] the type of message

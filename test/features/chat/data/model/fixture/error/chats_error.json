@@ -1,0 +1,52 @@
+{
+    "header": {
+        "errorCode": "00000",
+        "message": "Success"
+    },
+    "chats": [
+        {
+            "_id": "67a0f371d69049c5a3610506",
+            "participants": [
+                "679bb383f5d144b2485e6ff5",
+                "679bb383f5d144b2485e6ff5"
+            ],
+            "lastMessage": {
+                "location": {
+                    "latitude": 12.123123,
+                    "longitude": 12.123123
+                },
+                "_id": "67a0f9ecd69049c5a3610522",
+                "chatId": "67a0f371d69049c5a3610506",
+                "sender": "679bb383f5d144b2485e6ff5",
+                "messageType": "location",
+                "content": null,
+                "mediaUrl": null,
+                "seenBy": [
+                    "679bb383f5d144b2485e6ff5"
+                ],
+                "deletedBy": [],
+                "isEdited": false,
+                "editedAt": null,
+                "editHistory": [],
+                "createdAt": "2025-02-03T17:16:28.200Z",
+                "updatedAt": "2025-02-03T17:16:28.200Z",
+                "__v": 0
+            },
+            "isGroup": false,
+            "groupName": null,
+            "groupImage": null,
+            "archivedBy": [],
+            "mutedBy": [
+                "679bb383f5d144b2485e6ff5"
+            ],
+            "deletedBy": [],
+            "createdAt": "2025-02-03T16:48:49.965Z",
+            "updatedAt": "2025-02-03T17:16:28.233Z",
+            "__v": 3
+        }
+    ],
+    "currentPage": 1,
+    "perPage": 10,
+    "totalChats": 1,
+    "totalPages": 1
+}

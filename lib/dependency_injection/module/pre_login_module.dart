@@ -41,18 +41,6 @@ class PreLoginModule implements BaseDi {
       //* DataSource
       ..registerLazySingleton<ConfigurationDataSource>(
         () => ConfigurationDataSourceImpl(api: sl(), networkInfo: sl()),
-      )
-
-      ///! loginStatus
-      //* Use Cases
-      ..registerLazySingleton(() => CheckLoginStatusUseCase(repository: sl()))
-      //* Repository
-      ..registerLazySingleton<AuthenticationRepository>(
-        () => AuthenticationRepositoryImpl(localDataSource: sl()),
-      )
-      //* DataSource
-      ..registerLazySingleton<AuthenticationLocalDataSource>(
-        () => AuthenticationLocalDataSourceImpl(securePreferences: sl()),
       );
   }
 
@@ -95,21 +83,6 @@ class PreLoginModule implements BaseDi {
     //* DataSource
     if (sl.isRegistered<ConfigurationDataSource>()) {
       sl.unregister<ConfigurationDataSource>();
-    }
-
-    ///! loginStatus
-    //* Use Cases
-    if (sl.isRegistered<CheckLoginStatusUseCase>()) {
-      sl.unregister<CheckLoginStatusUseCase>();
-    }
-    //* Repository
-    if (sl.isRegistered<AuthenticationRepository>()) {
-      sl.unregister<AuthenticationRepository>();
-    }
-
-    //* DataSource
-    if (sl.isRegistered<AuthenticationLocalDataSource>()) {
-      sl.unregister<AuthenticationLocalDataSource>();
     }
   }
 }

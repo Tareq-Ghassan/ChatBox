@@ -14,6 +14,7 @@ enum AppFeature {
   preLogin,
   core,
   authentication,
+  chat,
 }
 
 extension AppFeatureExt on AppFeature {
@@ -25,6 +26,8 @@ extension AppFeatureExt on AppFeature {
         return 'core';
       case AppFeature.authentication:
         return 'authentication';
+      case AppFeature.chat:
+        return 'chat';
     }
   }
 }
