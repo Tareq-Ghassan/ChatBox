@@ -3,6 +3,7 @@ import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/features/chat/domain/entity/chats.dart';
 import 'package:chat/features/chat/ui/controls/chats_mapper.dart';
+import 'package:chat/features/chat/ui/widget/chat_actions.dart';
 import 'package:chat/features/chat/ui/widget/dismissible.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +18,9 @@ class ChatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomDismissible(
+      backgroundChild: ChatActions(selectedChat: selectedChat),
       child: ListTile(
-        onTap: () {
-          KNavigator.pushNamed(KRoutes.chatScreen);
-        },
+        onTap: () => KNavigator.pushNamed(KRoutes.chatScreen),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 10,

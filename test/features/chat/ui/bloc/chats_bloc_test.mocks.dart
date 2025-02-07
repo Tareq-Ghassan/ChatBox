@@ -3,16 +3,22 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i6;
 
-import 'package:chat/core/error/error.dart' as _i6;
-import 'package:chat/features/chat/domain/entity/chats.dart' as _i7;
+import 'package:chat/core/error/error.dart' as _i7;
+import 'package:chat/features/chat/domain/entity/chats.dart' as _i8;
 import 'package:chat/features/chat/domain/repository/get_all_chats_repository.dart'
     as _i2;
-import 'package:chat/features/chat/domain/usecase/get_all_chats_usecase.dart'
+import 'package:chat/features/chat/domain/repository/mute_unmute_chat_repository.dart'
     as _i4;
+import 'package:chat/features/chat/domain/usecase/get_all_chats_usecase.dart'
+    as _i5;
+import 'package:chat/features/chat/domain/usecase/mute_unmute_chat_usecase.dart'
+    as _i10;
 import 'package:chat/features/chat/domain/usecase/params/get_all_chats_params.dart'
-    as _i8;
+    as _i9;
+import 'package:chat/features/chat/domain/usecase/params/mute_unmute_params.dart'
+    as _i11;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -41,11 +47,17 @@ class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
     : super(parent, parentInvocation);
 }
 
+class _FakeMuteUnmuteChatRepository_2 extends _i1.SmartFake
+    implements _i4.MuteUnmuteChatRepository {
+  _FakeMuteUnmuteChatRepository_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [GetAllChatsUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGetAllChatsUseCase extends _i1.Mock
-    implements _i4.GetAllChatsUseCase {
+    implements _i5.GetAllChatsUseCase {
   @override
   _i2.GetAllChatsRepository get repo =>
       (super.noSuchMethod(
@@ -62,24 +74,67 @@ class MockGetAllChatsUseCase extends _i1.Mock
           as _i2.GetAllChatsRepository);
 
   @override
-  _i5.Future<_i3.Either<_i6.Failure, _i7.Chats>> call(
-    _i8.GetAllChatsParams? params,
+  _i6.Future<_i3.Either<_i7.Failure, _i8.Chats>> call(
+    _i9.GetAllChatsParams? params,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#call, [params]),
-            returnValue: _i5.Future<_i3.Either<_i6.Failure, _i7.Chats>>.value(
-              _FakeEither_1<_i6.Failure, _i7.Chats>(
+            returnValue: _i6.Future<_i3.Either<_i7.Failure, _i8.Chats>>.value(
+              _FakeEither_1<_i7.Failure, _i8.Chats>(
                 this,
                 Invocation.method(#call, [params]),
               ),
             ),
             returnValueForMissingStub:
-                _i5.Future<_i3.Either<_i6.Failure, _i7.Chats>>.value(
-                  _FakeEither_1<_i6.Failure, _i7.Chats>(
+                _i6.Future<_i3.Either<_i7.Failure, _i8.Chats>>.value(
+                  _FakeEither_1<_i7.Failure, _i8.Chats>(
                     this,
                     Invocation.method(#call, [params]),
                   ),
                 ),
           )
-          as _i5.Future<_i3.Either<_i6.Failure, _i7.Chats>>);
+          as _i6.Future<_i3.Either<_i7.Failure, _i8.Chats>>);
+}
+
+/// A class which mocks [MuteUnmuteChatUsecase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockMuteUnmuteChatUsecase extends _i1.Mock
+    implements _i10.MuteUnmuteChatUsecase {
+  @override
+  _i4.MuteUnmuteChatRepository get repository =>
+      (super.noSuchMethod(
+            Invocation.getter(#repository),
+            returnValue: _FakeMuteUnmuteChatRepository_2(
+              this,
+              Invocation.getter(#repository),
+            ),
+            returnValueForMissingStub: _FakeMuteUnmuteChatRepository_2(
+              this,
+              Invocation.getter(#repository),
+            ),
+          )
+          as _i4.MuteUnmuteChatRepository);
+
+  @override
+  _i6.Future<_i3.Either<_i7.Failure, String>> call(
+    _i11.MuteUnmuteParams? params,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#call, [params]),
+            returnValue: _i6.Future<_i3.Either<_i7.Failure, String>>.value(
+              _FakeEither_1<_i7.Failure, String>(
+                this,
+                Invocation.method(#call, [params]),
+              ),
+            ),
+            returnValueForMissingStub:
+                _i6.Future<_i3.Either<_i7.Failure, String>>.value(
+                  _FakeEither_1<_i7.Failure, String>(
+                    this,
+                    Invocation.method(#call, [params]),
+                  ),
+                ),
+          )
+          as _i6.Future<_i3.Either<_i7.Failure, String>>);
 }

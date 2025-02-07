@@ -65,6 +65,9 @@ class HomePageBlocScope extends StatelessWidget {
         BlocProvider<ChatsBloc>(
           create: (_) => sl<ChatsBloc>(),
         ),
+        BlocProvider<SwipeOffsetCubit>(
+          create: (_) => sl<SwipeOffsetCubit>(),
+        ),
       ],
       child: const _HomePage(),
     );

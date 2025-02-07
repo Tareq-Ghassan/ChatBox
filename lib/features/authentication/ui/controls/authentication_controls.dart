@@ -34,7 +34,7 @@ class AuthenticationControls {
     AuthenticationState state,
   ) async {
     if (state is Loading) {
-      LoadingIndicatorDialog.show(context);
+      LoadingIndicatorDialog.show();
     }
     if (state is Loaded) {
       LoadingIndicatorDialog.dismiss();
@@ -93,7 +93,7 @@ class AuthenticationControls {
     AuthenticationState state,
   ) async {
     if (state is Loading) {
-      LoadingIndicatorDialog.show(context);
+      LoadingIndicatorDialog.show();
     }
     if (state is Loaded) {
       LoadingIndicatorDialog.dismiss();

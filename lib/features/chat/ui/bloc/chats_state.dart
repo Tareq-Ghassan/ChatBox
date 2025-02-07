@@ -40,3 +40,9 @@ final class Error extends ChatsState {
   @override
   List<Object> get props => [message, header];
 }
+
+/// [MuteUnmuteDone] state
+final class MuteUnmuteDone extends ChatsState {}
+
+/// [Unauthorized] state
+final class Unauthorized extends ChatsState {}

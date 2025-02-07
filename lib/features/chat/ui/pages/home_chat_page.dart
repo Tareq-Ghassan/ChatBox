@@ -1,7 +1,7 @@
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/chat/ui/bloc/chats_bloc.dart';
+import 'package:chat/features/chat/ui/controls/home_chat_page_controller.dart';
 import 'package:chat/features/chat/ui/widget/chat_item.dart';
-import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,14 +14,12 @@ class HomeChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ChatsBloc, ChatsState>(
       bloc: sl<ChatsBloc>(),
-      listener: (context, state) {},
+      listener: HomeChatPageController.homeChatListenerController,
       builder: (context, state) => SliverList.builder(
-        itemBuilder: (context, index) => BlocProvider(
-          create: (_) => sl<SwipeOffsetCubit>(),
-          child: state is ChatsLoaded && !state.chats.chats[index].isDeleted
-              ? ChatItem(selectedChat: state.chats.chats[index])
-              : null,
-        ),
+        itemBuilder: (context, index) =>
+            state is ChatsLoaded && !state.chats.chats[index].isDeleted
+                ? ChatItem(selectedChat: state.chats.chats[index])
+                : null,
         itemCount: state is ChatsLoaded ? state.chats.chats.length : null,
       ),
     );

@@ -25,3 +25,20 @@ class GetAllChats extends ChatsEvent {
   @override
   List<Object> get props => [index, perPage];
 }
+
+
+/// [MuteUnmute] event, which triggers mute or unmute event
+class MuteUnmute extends ChatsEvent {
+  const MuteUnmute({
+    required this.isMute,
+    required this.chatId,
+  });
+
+  /// [isMute] is the operation `mute` or `unmute`
+  final bool isMute;
+
+  /// [chatId]
+  final String chatId;
+  @override
+  List<Object> get props => [isMute, chatId];
+}

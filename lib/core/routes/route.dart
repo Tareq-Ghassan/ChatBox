@@ -1,3 +1,6 @@
+import 'package:chat/core/presentation/theme/colors.dart';
+import 'package:chat/core/presentation/widget/loading_indicator.dart';
+import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
 import 'package:chat/features/authentication/ui/pages/login_page.dart';
 import 'package:chat/features/authentication/ui/pages/signup_page.dart';

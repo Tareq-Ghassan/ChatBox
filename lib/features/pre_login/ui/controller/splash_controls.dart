@@ -51,7 +51,7 @@ class SplashControls {
     InitializeState state,
   ) async {
     if (state is Loading) {
-      LoadingIndicatorDialog.show(context);
+      LoadingIndicatorDialog.show();
     }
     if (state is InitializeLoaded) {
       LoadingIndicatorDialog.dismiss();
@@ -65,7 +65,7 @@ class SplashControls {
     }
     if (state is LoggedIn) {
       LoadingIndicatorDialog.dismiss();
-      unawaited(KNavigator.pushReplacement(KRoutes.homePage));
+      unawaited(KNavigator.startNewRoute(KRoutes.homePage));
     }
     if (state is Unauthorized) {
       LoadingIndicatorDialog.dismiss();

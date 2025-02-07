@@ -23,14 +23,33 @@ class ChatModule implements BaseDi {
     if (sl.isRegistered<GetAllChatsDataSource>()) {
       sl.unregister<GetAllChatsDataSource>();
     }
+
+    //! mute and unmute usecase
+    //* Use Cases
+    if (sl.isRegistered<MuteUnmuteChatUsecase>()) {
+      sl.unregister<MuteUnmuteChatUsecase>();
+    }
+    //* Repository
+    if (sl.isRegistered<MuteUnmuteChatRepository>()) {
+      sl.unregister<MuteUnmuteChatRepository>();
+    }
+
+    //* DataSource
+    if (sl.isRegistered<MuteUnmuteChatDataSource>()) {
+      sl.unregister<MuteUnmuteChatDataSource>();
+    }
   }
 
   @override
   void inject() {
     //* Bloc
     sl
-      ..registerLazySingleton(() => ChatsBloc(getAllChatsUseCase: sl()))
-
+      ..registerLazySingleton(
+        () => ChatsBloc(
+          getAllChatsUseCase: sl(),
+          muteUnmuteChatUsecase: sl(),
+        ),
+      )
       //! Get All Chats usecase
       //* Use Cases
       ..registerLazySingleton(() => GetAllChatsUseCase(repo: sl()))
@@ -41,6 +60,18 @@ class ChatModule implements BaseDi {
       //* DataSource
       ..registerLazySingleton<GetAllChatsDataSource>(
         () => GetAllChatsDataSourceImpl(api: sl(), networkInfo: sl()),
+      )
+
+      //! mute and unmute usecase
+      //* Use Cases
+      ..registerLazySingleton(() => MuteUnmuteChatUsecase(repository: sl()))
+      //* Repository
+      ..registerLazySingleton<MuteUnmuteChatRepository>(
+        () => MuteUnmuteChatRepositoryImpl(dataSource: sl()),
+      )
+      //* DataSource
+      ..registerLazySingleton<MuteUnmuteChatDataSource>(
+        () => MuteUnmuteChatDataSourceImpl(api: sl(), networkInfo: sl()),
       );
   }
 

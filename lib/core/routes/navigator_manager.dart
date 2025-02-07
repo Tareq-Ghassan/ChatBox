@@ -17,6 +17,15 @@ class KNavigator {
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      // show loading indicator
+      case KRoutes.loadingDialog:
+        return DialogRoute(
+          context: navigatorKey.currentContext!,
+          builder: (context) => const LoadingDialog(),
+          barrierDismissible: false, 
+          barrierColor: isLightMode ? KColors.black87 : KColors.white70,
+        );
+
       //Navigate to the Splash screen.
       case KRoutes.splashScreen:
         return _setPage(

@@ -9,4 +9,5 @@ class KRoutes {
   static const String signup = '/signup';
   static const String homePage = '/homePage';
   static const String chatScreen = '/chatScreen';
+  static const String loadingDialog = '/loadingDialog';
 }
