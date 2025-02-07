@@ -18,7 +18,7 @@ class HomeChatPage extends StatelessWidget {
       builder: (context, state) => SliverList.builder(
         itemBuilder: (context, index) => BlocProvider(
           create: (_) => sl<SwipeOffsetCubit>(),
-          child: state is ChatsLoaded
+          child: state is ChatsLoaded && !state.chats.chats[index].isDeleted
               ? ChatItem(selectedChat: state.chats.chats[index])
               : null,
         ),

@@ -26,6 +26,9 @@ class KColors {
   ///[greenColor] this is the default green color
   static const Color greenColor = Color.fromRGBO(36, 120, 109, 1);
 
+  ///[lightGreen] this is the default light green color
+  static const Color lightGreen =  Color.fromRGBO(35, 180, 97, 1);
+
   ///[white] this is the default white flutter color
   static const Color white = Colors.white;
 
