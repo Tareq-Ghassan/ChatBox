@@ -31,13 +31,13 @@ class InitializeBloc extends Bloc<InitializeEvent, InitializeState> {
       result.fold((l) {
         emit(
           Error(
-            message: FailureMapper.mapFailureToMessage(l),
-            header: FailureMapper.mapFailureToHeader(l),
+            message: MappersUtil.mapFailureToMessage(l),
+            header: MappersUtil.mapFailureToHeader(l),
           ),
         );
-      }, (ifRight) {
+      }, (r) {
         emit(
-          InitializeLoaded(initialize: ifRight),
+          InitializeLoaded(initialize: r),
         );
       });
     });
@@ -47,8 +47,8 @@ class InitializeBloc extends Bloc<InitializeEvent, InitializeState> {
       result.fold((l) {
         emit(
           Error(
-            message: FailureMapper.mapFailureToMessage(l),
-            header: FailureMapper.mapFailureToHeader(l),
+            message: MappersUtil.mapFailureToMessage(l),
+            header: MappersUtil.mapFailureToHeader(l),
           ),
         );
       }, (r) {

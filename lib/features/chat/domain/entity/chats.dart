@@ -45,6 +45,7 @@ class Chat with EquatableMixin {
     required this.deletedBy,
     required this.createdAt,
     required this.updatedAt,
+    required this.unreadMessagesCount,
   });
   final String id;
   final List<User> participants;
@@ -57,6 +58,7 @@ class Chat with EquatableMixin {
   final List<String> deletedBy;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final int unreadMessagesCount;
 
   @override
   List<Object?> get props => [
@@ -71,6 +73,7 @@ class Chat with EquatableMixin {
         deletedBy,
         createdAt,
         updatedAt,
+        unreadMessagesCount,
       ];
 }
 

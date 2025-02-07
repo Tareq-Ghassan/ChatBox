@@ -9,6 +9,23 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String ago(String date) {
+    String _temp0 = intl.Intl.selectLogic(
+      date,
+      {
+        'min': 'minutes',
+        'h': 'hours',
+        'd': 'days',
+        'w': 'weeks',
+        'm': 'months',
+        'y': 'years',
+        'other': '$date',
+      },
+    );
+    return '$_temp0 ago';
+  }
+
+  @override
   String get calls => 'Calls';
 
   @override
@@ -49,6 +66,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidPhoneNumberFormat => 'Invalid Phone Number Format';
+
+  @override
+  String get justNow => 'Just Now';
 
   @override
   String get loading => 'Loading...';

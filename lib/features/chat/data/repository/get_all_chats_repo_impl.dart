@@ -13,9 +13,13 @@ class GetAllChatsRepositoryImpl implements GetAllChatsRepository {
   final GetAllChatsDataSource datasource;
 
   @override
-  Future<Either<Failure, Chats>> getAllChats() async {
+  Future<Either<Failure, Chats>> getAllChats({
+    required int index,
+    required int perPage,
+  }) async {
     try {
-      final result = await datasource.getAllChats();
+      final result =
+          await datasource.getAllChats(index: index, perPage: perPage);
       return Right(result);
     } on NetworkException catch (_) {
       return Left(NetworkFailure());

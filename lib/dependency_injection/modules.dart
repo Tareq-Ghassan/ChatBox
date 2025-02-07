@@ -14,6 +14,9 @@ enum Modules {
   authenticationUiModule,
 
 //! home
-  /// [home] UI module
+  /// [home] module
   home,
+
+  /// [chat] module
+  chat
 }

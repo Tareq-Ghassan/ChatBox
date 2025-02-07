@@ -24,7 +24,28 @@ class SplashControls {
     );
   }
 
-  /// [splashListenerController] the function that handle UI for Bloc state
+  /// [splashListenerController] a function that handle splash states in
+  /// this order
+  ///
+  ///! first it listen to initialize app with the server event
+  ///
+  /// ? if that was success:
+  ///
+  ///! it add a new event which is GetConfiguration
+  /// ? if that also success
+  /// 
+  ///! it add a new event which is CheckLoginStatus, which if user
+  /// already logged in and have a token
+  /// 
+  /// ? if user was logged in:
+  /// 
+  ///! navigate to `homePage`
+  /// 
+  /// ? if user was not logged in 
+  /// 
+  ///! navigate to `onboardingPage` to either sign in or register
+  /// 
+  /// ! in any phase if anything went wrong a popup appears 
   static Future<void> splashListenerController(
     BuildContext context,
     InitializeState state,
@@ -44,7 +65,7 @@ class SplashControls {
     }
     if (state is LoggedIn) {
       LoadingIndicatorDialog.dismiss();
-       unawaited(KNavigator.pushReplacement(KRoutes.homeScreen));
+      unawaited(KNavigator.pushReplacement(KRoutes.homePage));
     }
     if (state is Unauthorized) {
       LoadingIndicatorDialog.dismiss();

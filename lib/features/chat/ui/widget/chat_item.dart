@@ -1,8 +1,10 @@
-
 import 'package:chat/core/presentation/theme/colors.dart';
+import 'package:chat/core/presentation/widget/profile_image_avatar.dart';
 import 'package:chat/core/routes/route.dart';
 import 'package:chat/core/util/util.dart';
 import 'package:chat/dependency_injection/di.dart';
+import 'package:chat/features/chat/domain/entity/chats.dart';
+import 'package:chat/features/chat/ui/controls/chats_mapper.dart';
 import 'package:chat/features/home/ui/bloc/ui_helper_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +12,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// [ChatItem] represent a single chat in home page
 class ChatItem extends StatelessWidget {
   /// [ChatItem] constructor
-  const ChatItem({super.key});
+  const ChatItem({required this.selectedChat, super.key});
+
+  /// [selectedChat] represent a single chat item
+  final Chat selectedChat;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +25,9 @@ class ChatItem extends StatelessWidget {
         return GestureDetector(
           onHorizontalDragUpdate: (details) {
             sl<SwipeOffsetCubit>().updateOffset(
-                  details.delta.dx,
-                  MediaQuery.of(context).size.width / 2,
-                );
+              details.delta.dx,
+              MediaQuery.of(context).size.width / 2,
+            );
           },
           onHorizontalDragEnd: (details) {
             // Snap back to original position if swipe is incomplete
@@ -82,23 +87,32 @@ class ChatItem extends StatelessWidget {
                       horizontal: 16,
                       vertical: 10,
                     ),
-                    leading: const CircleAvatar(
-                      radius: 24,
-                      backgroundImage:
-                          NetworkImage('https://via.placeholder.com/50'),
+                    leading: ProfileImageAvatar(
+                      imageUrl: selectedChat.participants.first.profileImage,
                     ),
-                    title: const Text('Alex'),
-                    subtitle: const Text('How are you today?'),
+                    title: Text(selectedChat.participants.first.name),
+                    subtitle: Text(
+                      ChatsMapper.mapMessageType(
+                        selectedChat.lastMessage,
+                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
                     trailing: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('2 min ago'),
+                        Text(
+                          MappersUtil.mapTimeDifferenceToTimeAgo(
+                            CalculateUtil.timeDifference(
+                              selectedChat.lastMessage.createdAt,
+                            ),
+                          ),
+                        ),
                         const SizedBox(
                           height: 4,
                         ),
-                        if (true == true)
+                        if (selectedChat.unreadMessagesCount > 0)
                           Badge.count(
-                            count: 5,
+                            count: selectedChat.unreadMessagesCount,
                             padding: const EdgeInsets.all(2),
                           ),
                       ],
@@ -113,3 +127,5 @@ class ChatItem extends StatelessWidget {
     );
   }
 }
+
+

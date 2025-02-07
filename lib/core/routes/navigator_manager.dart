@@ -42,9 +42,9 @@ class KNavigator {
           settings: settings,
         );
       //Navigate to the home main screen.
-      case KRoutes.homeScreen:
+      case KRoutes.homePage:
         return _setPage(
-          page: const HomeScreen(),
+          page: const HomePageBlocScope(),
           settings: settings,
         );
       case KRoutes.chatScreen:

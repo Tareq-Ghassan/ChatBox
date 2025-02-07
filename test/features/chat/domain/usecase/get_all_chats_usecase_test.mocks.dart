@@ -37,20 +37,32 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
 class MockGetAllChatsRepository extends _i1.Mock
     implements _i3.GetAllChatsRepository {
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.Chats>> getAllChats() =>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Chats>> getAllChats({
+    required int? index,
+    required int? perPage,
+  }) =>
       (super.noSuchMethod(
-            Invocation.method(#getAllChats, []),
+            Invocation.method(#getAllChats, [], {
+              #index: index,
+              #perPage: perPage,
+            }),
             returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.Chats>>.value(
               _FakeEither_0<_i5.Failure, _i6.Chats>(
                 this,
-                Invocation.method(#getAllChats, []),
+                Invocation.method(#getAllChats, [], {
+                  #index: index,
+                  #perPage: perPage,
+                }),
               ),
             ),
             returnValueForMissingStub:
                 _i4.Future<_i2.Either<_i5.Failure, _i6.Chats>>.value(
                   _FakeEither_0<_i5.Failure, _i6.Chats>(
                     this,
-                    Invocation.method(#getAllChats, []),
+                    Invocation.method(#getAllChats, [], {
+                      #index: index,
+                      #perPage: perPage,
+                    }),
                   ),
                 ),
           )

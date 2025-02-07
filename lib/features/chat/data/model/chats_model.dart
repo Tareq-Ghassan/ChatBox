@@ -64,6 +64,7 @@ class ChatModel extends Chat {
     required super.deletedBy,
     required super.createdAt,
     required super.updatedAt,
+    required super.unreadMessagesCount,
   });
 
   /// [ChatModel.fromJson] a factory constructor to convert
@@ -124,7 +125,9 @@ class ChatModel extends Chat {
             DateTime.tryParse(json['updatedAt'] as String) != null
         ? DateTime.parse(json['updatedAt'] as String)
         : DateTime(1900);
-
+    final unreadMessagesCount = json['unreadMessagesCount'] is int
+        ? json['unreadMessagesCount'] as int
+        : 0;
     return ChatModel(
       id: id,
       participants: participants,
@@ -137,6 +140,7 @@ class ChatModel extends Chat {
       deletedBy: deletedBy,
       createdAt: createdAt,
       updatedAt: updatedAt,
+      unreadMessagesCount: unreadMessagesCount,
     );
   }
 }

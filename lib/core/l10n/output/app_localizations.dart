@@ -93,6 +93,12 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{date, select, min{minutes} h{hours} d{days} w{weeks} m{months}  y{years}  other{{date}}} ago'**
+  String ago(String date);
+
   /// No description provided for @calls.
   ///
   /// In en, this message translates to:
@@ -176,6 +182,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid Phone Number Format'**
   String get invalidPhoneNumberFormat;
+
+  /// No description provided for @justNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Just Now'**
+  String get justNow;
 
   /// No description provided for @loading.
   ///

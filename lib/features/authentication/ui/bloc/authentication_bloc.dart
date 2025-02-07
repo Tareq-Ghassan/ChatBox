@@ -25,8 +25,8 @@ class AuthenticationBloc
         result.fold(
           (l) => emit(
             Error(
-              message: FailureMapper.mapFailureToMessage(l),
-              header: FailureMapper.mapFailureToHeader(l),
+              message: MappersUtil.mapFailureToMessage(l),
+              header: MappersUtil.mapFailureToHeader(l),
             ),
           ),
           (r) => emit(Loaded(r)),
@@ -48,8 +48,8 @@ class AuthenticationBloc
       result.fold(
         (l) => emit(
           Error(
-            message: FailureMapper.mapFailureToMessage(l),
-            header: FailureMapper.mapFailureToHeader(l),
+            message: MappersUtil.mapFailureToMessage(l),
+            header: MappersUtil.mapFailureToHeader(l),
           ),
         ),
         (r) => emit(Loaded(r)),

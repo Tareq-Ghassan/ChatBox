@@ -70,6 +70,7 @@ void main() {
     deletedBy: [],
     createdAt: tCreatedAtChat,
     updatedAt: tUpdatedAtChat,
+    unreadMessagesCount: 0,
   );
   const tHeaderModel = HeaderModel(errorCode: '00000', message: 'Success');
 

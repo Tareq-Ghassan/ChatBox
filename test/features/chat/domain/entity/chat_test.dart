@@ -39,6 +39,7 @@ void main() {
     deletedBy: [],
     createdAt: time,
     updatedAt: time,
+    unreadMessagesCount: 0,
   );
   final tChats = Chats(
     chats: [tChat],

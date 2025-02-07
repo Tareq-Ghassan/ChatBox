@@ -5,5 +5,8 @@ import 'package:dartz/dartz.dart';
 /// [GetAllChatsRepository] an abstract repo class for get all chats
 abstract class GetAllChatsRepository {
   /// [getAllChats] function
-  Future<Either<Failure, Chats>> getAllChats();
+  Future<Either<Failure, Chats>> getAllChats({
+    required int index,
+    required int perPage,
+  });
 }

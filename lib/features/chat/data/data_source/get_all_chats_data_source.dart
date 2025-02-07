@@ -4,7 +4,11 @@ import 'package:chat/features/chat/data/model/chats_model.dart';
 
 /// [GetAllChatsDataSource] abstract class
 abstract class GetAllChatsDataSource {
-  Future<ChatsModel> getAllChats();
+  /// [getAllChats] function
+  Future<ChatsModel> getAllChats({
+    required int index,
+    required int perPage,
+  });
 }
 
 /// [GetAllChatsDataSource] implementation for get all chats data source
@@ -17,12 +21,19 @@ class GetAllChatsDataSourceImpl extends BaseRemoteDataSource
   });
 
   @override
-  Future<ChatsModel> getAllChats() async {
+  Future<ChatsModel> getAllChats({
+    required int index,
+    required int perPage,
+  }) async {
     final result = await executeApiCall<ChatsModel>(
       apiCall: () async {
         final response = await api.get(
-          'init',
-          'getConfiguration',
+          'chat',
+          'chats',
+          params: {
+            'index': index,
+            'perPage': perPage,
+          },
         );
         return response.data as Map<String, dynamic>;
       },

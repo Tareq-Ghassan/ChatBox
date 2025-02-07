@@ -1,4 +1,11 @@
 {
+  "@ago": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "@pleaseEnterValidation": {
     "placeholders": {
       "type": {
@@ -6,6 +13,7 @@
       }
     }
   },
+  "ago": "{date, select, min{minutes} h{hours} d{days} w{weeks} m{months}  y{years}  other{{date}}} ago",
   "calls": "Calls",
   "cancel": "Cancel",
   "confirmPassword": "Confirm Password",
@@ -20,6 +28,7 @@
   "internalServerErrorDescription": "An error occurred while sending the data. Please try again. If this issue keeps happening, contact our customer center",
   "invalidEmailFormat": "Invalid Email Format",
   "invalidPhoneNumberFormat": "Invalid Phone Number Format",
+  "justNow": "Just Now",
   "loading": "Loading...",
   "login": "Log in",
   "loginHeader": "Log in to Chatbox",

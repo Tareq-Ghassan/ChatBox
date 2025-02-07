@@ -1,4 +1,4 @@
-// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: lines_longer_than_80_chars, document_ignores
 
 import 'dart:async';
 
@@ -14,7 +14,6 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'get_all_chats_repo_impl_test.mocks.dart';
-
 
 @GenerateNiceMocks([MockSpec<GetAllChatsDataSource>()])
 void main() {
@@ -44,11 +43,11 @@ void main() {
         () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenAnswer((_) async => tChatsModel);
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       expect(
@@ -60,17 +59,17 @@ void main() {
         ),
       );
       verify(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).called(1);
     });
     test('Should return Network Failure when no internet connection', () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenThrow(NetworkException());
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       expect(
@@ -84,15 +83,15 @@ void main() {
         () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenThrow(const ServerException(message: 'Server error'));
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       verify(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       );
       verifyNoMoreInteractions(dataSource);
       expect(
@@ -109,15 +108,15 @@ void main() {
         () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenThrow(const UnauthorizedException(message: 'error'));
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       verify(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       );
       verifyNoMoreInteractions(dataSource);
       expect(
@@ -134,15 +133,15 @@ void main() {
         () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenThrow(const ClientException(error: '-1', message: 'error'));
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       verify(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       );
       verifyNoMoreInteractions(dataSource);
       expect(
@@ -157,13 +156,13 @@ void main() {
     test('Should allow multiple calls without interference', () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenAnswer((_) async => tChatsModel);
 
       //# Act
       final results = await Future.wait([
-        repository.getAllChats(),
-        repository.getAllChats(),
+        repository.getAllChats(index: 1, perPage: 10),
+        repository.getAllChats(index: 1, perPage: 10),
       ]);
 
       //! Assert
@@ -184,7 +183,7 @@ void main() {
         () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenThrow(
         CatchException(
           exception: '-1',
@@ -193,11 +192,11 @@ void main() {
       );
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       verify(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       );
       verifyNoMoreInteractions(dataSource);
       expect(
@@ -216,11 +215,11 @@ void main() {
         () async {
       //? Arrange
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenThrow(TimeoutException('Request timeout'));
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       expect(result, isA<Left<Failure, Chats>>());
@@ -233,7 +232,7 @@ void main() {
       final expectedStackTrace = StackTrace.fromString('mocked-stack-trace');
 
       when(
-        dataSource.getAllChats(),
+        dataSource.getAllChats(index: 1, perPage: 10),
       ).thenThrow(
         CatchException(
           exception: expectedException,
@@ -242,7 +241,7 @@ void main() {
       );
 
       //# Act
-      final result = await repository.getAllChats();
+      final result = await repository.getAllChats(index: 1, perPage: 10);
 
       //! Assert
       expect(result.isLeft(), true);

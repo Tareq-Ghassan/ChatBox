@@ -40,7 +40,7 @@ class AuthenticationControls {
       LoadingIndicatorDialog.dismiss();
       unawaited(
         KNavigator.startNewRoute(
-          KRoutes.homeScreen,
+          KRoutes.homePage,
         ),
       );
     } else if (state is Error) {
@@ -99,7 +99,7 @@ class AuthenticationControls {
       LoadingIndicatorDialog.dismiss();
       unawaited(
         KNavigator.startNewRoute(
-          KRoutes.homeScreen,
+          KRoutes.homePage,
         ),
       );
     } else if (state is Error) {

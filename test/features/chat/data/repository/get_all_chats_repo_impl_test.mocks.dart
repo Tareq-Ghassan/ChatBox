@@ -35,14 +35,32 @@ class _FakeChatsModel_0 extends _i1.SmartFake implements _i2.ChatsModel {
 class MockGetAllChatsDataSource extends _i1.Mock
     implements _i3.GetAllChatsDataSource {
   @override
-  _i4.Future<_i2.ChatsModel> getAllChats() =>
+  _i4.Future<_i2.ChatsModel> getAllChats({
+    required int? index,
+    required int? perPage,
+  }) =>
       (super.noSuchMethod(
-            Invocation.method(#getAllChats, []),
+            Invocation.method(#getAllChats, [], {
+              #index: index,
+              #perPage: perPage,
+            }),
             returnValue: _i4.Future<_i2.ChatsModel>.value(
-              _FakeChatsModel_0(this, Invocation.method(#getAllChats, [])),
+              _FakeChatsModel_0(
+                this,
+                Invocation.method(#getAllChats, [], {
+                  #index: index,
+                  #perPage: perPage,
+                }),
+              ),
             ),
             returnValueForMissingStub: _i4.Future<_i2.ChatsModel>.value(
-              _FakeChatsModel_0(this, Invocation.method(#getAllChats, [])),
+              _FakeChatsModel_0(
+                this,
+                Invocation.method(#getAllChats, [], {
+                  #index: index,
+                  #perPage: perPage,
+                }),
+              ),
             ),
           )
           as _i4.Future<_i2.ChatsModel>);

@@ -7,6 +7,6 @@ class KRoutes {
   static const String onBoarding = '/onboarding';
   static const String login = '/login';
   static const String signup = '/signup';
-  static const String homeScreen = '/homeScreen';
+  static const String homePage = '/homePage';
   static const String chatScreen = '/chatScreen';
 }
