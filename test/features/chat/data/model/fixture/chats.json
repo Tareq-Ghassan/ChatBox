@@ -43,11 +43,9 @@
             "isGroup": false,
             "groupName": null,
             "groupImage": null,
-            "archivedBy": [],
-            "mutedBy": [
-                "679bb383f5d144b2485e6ff5"
-            ],
-            "deletedBy": [],
+            "archivedBy": false,
+            "mutedBy": true,
+            "deletedBy": false,
             "createdAt": "2025-02-03T16:48:49.965Z",
             "updatedAt": "2025-02-03T17:16:28.233Z",
             "__v": 3

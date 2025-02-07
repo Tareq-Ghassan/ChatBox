@@ -59,9 +59,9 @@ class ChatModel extends Chat {
     required super.isGroup,
     required super.groupName,
     required super.groupImage,
-    required super.archivedBy,
-    required super.mutedBy,
-    required super.deletedBy,
+    required super.isArchived,
+    required super.isMuted,
+    required super.isDeleted,
     required super.createdAt,
     required super.updatedAt,
     required super.unreadMessagesCount,
@@ -100,20 +100,9 @@ class ChatModel extends Chat {
         json['groupName'] is String ? json['groupName'] as String : '';
     final groupImage =
         json['groupImage'] is String ? json['groupImage'] as String : '';
-
-    final archivedBy = (json['archivedBy'] as List<dynamic>?)
-            ?.map((v) => v as String)
-            .toList() ??
-        [];
-
-    final mutedBy =
-        (json['mutedBy'] as List<dynamic>?)?.map((v) => v as String).toList() ??
-            [];
-
-    final deletedBy = (json['deletedBy'] as List<dynamic>?)
-            ?.map((v) => v as String)
-            .toList() ??
-        [];
+    final isArchived = json['isArchived'] is bool && json['isArchived'] as bool;
+    final isMuted = json['isMuted'] is bool && json['isMuted'] as bool;
+    final isDeleted = json['isDeleted'] is bool && json['isDeleted'] as bool;
     final createdAt = json['createdAt'] is String &&
             json['createdAt'] != '' &&
             DateTime.tryParse(json['createdAt'] as String) != null
@@ -135,9 +124,9 @@ class ChatModel extends Chat {
       isGroup: isGroup,
       groupName: groupName,
       groupImage: groupImage,
-      archivedBy: archivedBy,
-      mutedBy: mutedBy,
-      deletedBy: deletedBy,
+      isArchived: isArchived,
+      isMuted: isMuted,
+      isDeleted: isDeleted,
       createdAt: createdAt,
       updatedAt: updatedAt,
       unreadMessagesCount: unreadMessagesCount,

@@ -40,9 +40,9 @@ class Chat with EquatableMixin {
     required this.isGroup,
     required this.groupName,
     required this.groupImage,
-    required this.archivedBy,
-    required this.mutedBy,
-    required this.deletedBy,
+    required this.isArchived,
+    required this.isMuted,
+    required this.isDeleted,
     required this.createdAt,
     required this.updatedAt,
     required this.unreadMessagesCount,
@@ -53,9 +53,9 @@ class Chat with EquatableMixin {
   final bool isGroup;
   final String groupName;
   final String groupImage;
-  final List<String> archivedBy;
-  final List<String> mutedBy;
-  final List<String> deletedBy;
+  final bool isArchived;
+  final bool isMuted;
+  final bool isDeleted;
   final DateTime createdAt;
   final DateTime updatedAt;
   final int unreadMessagesCount;
@@ -68,9 +68,9 @@ class Chat with EquatableMixin {
         isGroup,
         groupName,
         groupImage,
-        archivedBy,
-        mutedBy,
-        deletedBy,
+        isDeleted,
+        isArchived,
+        isDeleted,
         createdAt,
         updatedAt,
         unreadMessagesCount,

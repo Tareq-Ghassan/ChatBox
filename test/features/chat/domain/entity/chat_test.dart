@@ -34,9 +34,9 @@ void main() {
     isGroup: false,
     groupName: '',
     groupImage: '',
-    archivedBy: [],
-    mutedBy: [],
-    deletedBy: [],
+    isArchived: false,
+    isMuted: false,
+    isDeleted: false,
     createdAt: time,
     updatedAt: time,
     unreadMessagesCount: 0,
@@ -92,9 +92,9 @@ void main() {
     expect(tChat.isGroup, false);
     expect(tChat.groupName, '');
     expect(tChat.groupImage, '');
-    expect(tChat.archivedBy, isEmpty);
-    expect(tChat.mutedBy, isEmpty);
-    expect(tChat.deletedBy, isEmpty);
+    expect(tChat.isArchived, false);
+    expect(tChat.isMuted, false);
+    expect(tChat.isDeleted, false);
     expect(tChat.lastMessage, equals(tMessage));
     expect(tChat.createdAt, equals(time));
     expect(tChat.updatedAt, equals(time));
